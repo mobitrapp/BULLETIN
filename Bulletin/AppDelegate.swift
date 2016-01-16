@@ -10,6 +10,7 @@ import UIKit
 import Fabric
 import Crashlytics
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -22,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if !DEBUG
             Fabric.with([Crashlytics.self])
         #endif
-    
+        configureRootViewController()
         return true
     }
     
@@ -48,6 +49,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func configureRootViewController() {
+        if let bulletInRed = UIColor.bulletinRed() {
+            UINavigationBar.appearance().barTintColor = bulletInRed
+        }
+        let menuListWidth = UIScreen.mainScreen().bounds.width * 0.7
+        SlideMenuOptions.leftViewWidth = menuListWidth
+        SlideMenuOptions.simultaneousGestureRecognizers = false
+        SlideMenuOptions.hideStatusBar = false
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        if let mainViewController = mainStoryboard.instantiateInitialViewController() {
+            let leftMenuViewController = mainStoryboard.instantiateViewControllerWithIdentifier("menuListViewController")
+            let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: leftMenuViewController)
+            if let menuButtonImage = UIImage(named: "MenuButton") {
+               slideMenuController.addLeftBarButtonWithImage(menuButtonImage)
+            }
+            let navigationController = UINavigationController(rootViewController: slideMenuController)
+            window?.rootViewController = navigationController
+            
+        }
+    }
     
 }
-

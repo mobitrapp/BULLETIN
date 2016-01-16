@@ -8,14 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		F20497121C48496200BF8F3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20497111C48496200BF8F3D /* AppDelegate.swift */; };
-		F20497141C48496200BF8F3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20497131C48496200BF8F3D /* ViewController.swift */; };
 		F20497171C48496200BF8F3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F20497151C48496200BF8F3D /* Main.storyboard */; };
 		F20497191C48496200BF8F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20497181C48496200BF8F3D /* Assets.xcassets */; };
 		F204971C1C48496200BF8F3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F204971A1C48496200BF8F3D /* LaunchScreen.storyboard */; };
 		F20497271C48496200BF8F3D /* BulletinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20497261C48496200BF8F3D /* BulletinTests.swift */; };
 		F20497321C48496300BF8F3D /* BulletinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20497311C48496300BF8F3D /* BulletinUITests.swift */; };
-		F2E11CCD1C4A1FCF00384E2F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2E11CCB1C4A1FCF00384E2F /* Crashlytics.framework */; settings = {ASSET_TAGS = (); }; };
-		F2E11CCE1C4A1FCF00384E2F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2E11CCC1C4A1FCF00384E2F /* Fabric.framework */; settings = {ASSET_TAGS = (); }; };
+		F218AD2E1C4A2F8F0038D80D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F218AD2C1C4A2F8F0038D80D /* Crashlytics.framework */; settings = {ASSET_TAGS = (); }; };
+		F218AD2F1C4A2F8F0038D80D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F218AD2D1C4A2F8F0038D80D /* Fabric.framework */; settings = {ASSET_TAGS = (); }; };
+		F218AD321C4A30340038D80D /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218AD311C4A30340038D80D /* LandingViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F218AD351C4A31560038D80D /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218AD341C4A31560038D80D /* SlideMenuController.swift */; settings = {ASSET_TAGS = (); }; };
+		F218AD371C4A338D0038D80D /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218AD361C4A338D0038D80D /* MenuListViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F218AD3A1C4A7A9F0038D80D /* UIColor+Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218AD391C4A7A9F0038D80D /* UIColor+Bulletin.swift */; settings = {ASSET_TAGS = (); }; };
+		F218AD3C1C4A7D0B0038D80D /* SwiftHEXColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218AD3B1C4A7D0B0038D80D /* SwiftHEXColors.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,6 @@
 /* Begin PBXFileReference section */
 		F204970E1C48496200BF8F3D /* Bulletin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bulletin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20497111C48496200BF8F3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F20497131C48496200BF8F3D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F20497161C48496200BF8F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F20497181C48496200BF8F3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F204971B1C48496200BF8F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,8 +52,13 @@
 		F204972D1C48496200BF8F3D /* BulletinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BulletinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20497311C48496300BF8F3D /* BulletinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinUITests.swift; sourceTree = "<group>"; };
 		F20497331C48496300BF8F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F2E11CCB1C4A1FCF00384E2F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = SDK/Crashlytics.framework; sourceTree = "<group>"; };
-		F2E11CCC1C4A1FCF00384E2F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = SDK/Fabric.framework; sourceTree = "<group>"; };
+		F218AD2C1C4A2F8F0038D80D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		F218AD2D1C4A2F8F0038D80D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		F218AD311C4A30340038D80D /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LandingViewController.swift; path = ViewControllers/LandingViewController.swift; sourceTree = "<group>"; };
+		F218AD341C4A31560038D80D /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = Libraries/SlideMenuController.swift; sourceTree = "<group>"; };
+		F218AD361C4A338D0038D80D /* MenuListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuListViewController.swift; path = ViewControllers/MenuListViewController.swift; sourceTree = "<group>"; };
+		F218AD391C4A7A9F0038D80D /* UIColor+Bulletin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Bulletin.swift"; path = "Extension/UIColor+Bulletin.swift"; sourceTree = "<group>"; };
+		F218AD3B1C4A7D0B0038D80D /* SwiftHEXColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftHEXColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2E11CCD1C4A1FCF00384E2F /* Crashlytics.framework in Frameworks */,
-				F2E11CCE1C4A1FCF00384E2F /* Fabric.framework in Frameworks */,
+				F218AD2E1C4A2F8F0038D80D /* Crashlytics.framework in Frameworks */,
+				F218AD2F1C4A2F8F0038D80D /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,12 +112,14 @@
 			isa = PBXGroup;
 			children = (
 				F20497111C48496200BF8F3D /* AppDelegate.swift */,
-				F20497131C48496200BF8F3D /* ViewController.swift */,
 				F20497151C48496200BF8F3D /* Main.storyboard */,
 				F20497181C48496200BF8F3D /* Assets.xcassets */,
 				F204971A1C48496200BF8F3D /* LaunchScreen.storyboard */,
 				F204971D1C48496200BF8F3D /* Info.plist */,
+				F218AD301C4A2FE30038D80D /* ViewControllers */,
 				F20497401C4849C200BF8F3D /* SDK */,
+				F218AD331C4A31330038D80D /* Libraries */,
+				F218AD381C4A7A110038D80D /* Extension */,
 			);
 			path = Bulletin;
 			sourceTree = "<group>";
@@ -135,10 +145,39 @@
 		F20497401C4849C200BF8F3D /* SDK */ = {
 			isa = PBXGroup;
 			children = (
-				F2E11CCB1C4A1FCF00384E2F /* Crashlytics.framework */,
-				F2E11CCC1C4A1FCF00384E2F /* Fabric.framework */,
+				F218AD2C1C4A2F8F0038D80D /* Crashlytics.framework */,
+				F218AD2D1C4A2F8F0038D80D /* Fabric.framework */,
 			);
 			name = SDK;
+			sourceTree = "<group>";
+		};
+		F218AD301C4A2FE30038D80D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F218AD311C4A30340038D80D /* LandingViewController.swift */,
+				F218AD361C4A338D0038D80D /* MenuListViewController.swift */,
+			);
+			name = ViewControllers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F218AD331C4A31330038D80D /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				F218AD341C4A31560038D80D /* SlideMenuController.swift */,
+				F218AD3B1C4A7D0B0038D80D /* SwiftHEXColors.swift */,
+			);
+			name = Libraries;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F218AD381C4A7A110038D80D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F218AD391C4A7A9F0038D80D /* UIColor+Bulletin.swift */,
+			);
+			name = Extension;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,8 +327,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F20497141C48496200BF8F3D /* ViewController.swift in Sources */,
+				F218AD321C4A30340038D80D /* LandingViewController.swift in Sources */,
+				F218AD351C4A31560038D80D /* SlideMenuController.swift in Sources */,
 				F20497121C48496200BF8F3D /* AppDelegate.swift in Sources */,
+				F218AD3C1C4A7D0B0038D80D /* SwiftHEXColors.swift in Sources */,
+				F218AD3A1C4A7A9F0038D80D /* UIColor+Bulletin.swift in Sources */,
+				F218AD371C4A338D0038D80D /* MenuListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +471,7 @@
 		F20497371C48496300BF8F3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = YES;
@@ -435,9 +479,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Bulletin",
 					"$(PROJECT_DIR)/Bulletin/SDK",
+					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Bulletin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mobitrapp.Bulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,15 +495,20 @@
 		F20497381C48496300BF8F3D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Bulletin",
 					"$(PROJECT_DIR)/Bulletin/SDK",
+					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Bulletin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mobitrapp.Bulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
