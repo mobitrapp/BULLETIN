@@ -14,8 +14,8 @@
 		F204971C1C48496200BF8F3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F204971A1C48496200BF8F3D /* LaunchScreen.storyboard */; };
 		F20497271C48496200BF8F3D /* BulletinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20497261C48496200BF8F3D /* BulletinTests.swift */; };
 		F20497321C48496300BF8F3D /* BulletinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20497311C48496300BF8F3D /* BulletinUITests.swift */; };
-		F20497431C4849D700BF8F3D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20497411C4849D700BF8F3D /* Fabric.framework */; settings = {ASSET_TAGS = (); }; };
-		F20497441C4849D700BF8F3D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20497421C4849D700BF8F3D /* Crashlytics.framework */; settings = {ASSET_TAGS = (); }; };
+		F2E11CCD1C4A1FCF00384E2F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2E11CCB1C4A1FCF00384E2F /* Crashlytics.framework */; settings = {ASSET_TAGS = (); }; };
+		F2E11CCE1C4A1FCF00384E2F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2E11CCC1C4A1FCF00384E2F /* Fabric.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,8 @@
 		F204972D1C48496200BF8F3D /* BulletinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BulletinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20497311C48496300BF8F3D /* BulletinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinUITests.swift; sourceTree = "<group>"; };
 		F20497331C48496300BF8F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F20497411C4849D700BF8F3D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		F20497421C4849D700BF8F3D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		F2E11CCB1C4A1FCF00384E2F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = SDK/Crashlytics.framework; sourceTree = "<group>"; };
+		F2E11CCC1C4A1FCF00384E2F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = SDK/Fabric.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F20497441C4849D700BF8F3D /* Crashlytics.framework in Frameworks */,
-				F20497431C4849D700BF8F3D /* Fabric.framework in Frameworks */,
+				F2E11CCD1C4A1FCF00384E2F /* Crashlytics.framework in Frameworks */,
+				F2E11CCE1C4A1FCF00384E2F /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +135,8 @@
 		F20497401C4849C200BF8F3D /* SDK */ = {
 			isa = PBXGroup;
 			children = (
-				F20497411C4849D700BF8F3D /* Fabric.framework */,
-				F20497421C4849D700BF8F3D /* Crashlytics.framework */,
+				F2E11CCB1C4A1FCF00384E2F /* Crashlytics.framework */,
+				F2E11CCC1C4A1FCF00384E2F /* Fabric.framework */,
 			);
 			name = SDK;
 			sourceTree = "<group>";
@@ -434,6 +434,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Bulletin",
+					"$(PROJECT_DIR)/Bulletin/SDK",
 				);
 				INFOPLIST_FILE = Bulletin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -451,6 +452,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Bulletin",
+					"$(PROJECT_DIR)/Bulletin/SDK",
 				);
 				INFOPLIST_FILE = Bulletin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
