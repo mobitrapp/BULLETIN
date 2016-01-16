@@ -437,6 +437,7 @@
 				);
 				INFOPLIST_FILE = Bulletin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mobitrapp.Bulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -525,6 +526,7 @@
 				F20497381C48496300BF8F3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F20497391C48496300BF8F3D /* Build configuration list for PBXNativeTarget "BulletinTests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +535,7 @@
 				F204973B1C48496300BF8F3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F204973C1C48496300BF8F3D /* Build configuration list for PBXNativeTarget "BulletinUITests" */ = {
 			isa = XCConfigurationList;
@@ -541,6 +544,7 @@
 				F204973E1C48496300BF8F3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
