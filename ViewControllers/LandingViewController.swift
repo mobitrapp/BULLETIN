@@ -19,11 +19,7 @@ class LandingViewController: UIViewController {
         super.viewWillAppear(animated)
         configureNavigationBar()
     }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationIconImageView.removeFromSuperview()
-    }
+
     private func configureNavigationBar() {
         if let navigationBar = slideMenuController()?.navigationController?.navigationBar {
             if let newsIcon = UIImage(named: "NavigationIcon") {
@@ -44,7 +40,7 @@ extension LandingViewController: SlideMenuControllerDelegate {
     
     func settingsButtonDidTap() {
         
-        let settingsViewController = storyboard?.instantiateViewControllerWithIdentifier("settingsViewController")
+        let settingsViewController = storyboard?.instantiateViewControllerWithIdentifier("settingsTableViewController")
         if let settingsViewController = settingsViewController {
             slideMenuController()?.navigationController?.pushViewController(settingsViewController, animated: true)
         }

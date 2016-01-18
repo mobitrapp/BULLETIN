@@ -928,6 +928,12 @@ extension UIViewController {
         navigationItem.rightBarButtonItem = rightButton;
     }
     
+    public func appendLeftBarButton(barButton: UIBarButtonItem) {
+        var leftBarButtons = navigationItem.leftBarButtonItems
+        leftBarButtons?.append(barButton)
+        navigationItem.leftBarButtonItems = leftBarButtons
+    }
+    
     public func toggleLeft() {
         slideMenuController()?.toggleLeft()
     }

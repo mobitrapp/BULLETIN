@@ -8,11 +8,11 @@
 
 import UIKit
 
-class SettingsTableViewController: UIViewController {
+class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "hi"
+        tableView.separatorStyle = .None
     }
 
     

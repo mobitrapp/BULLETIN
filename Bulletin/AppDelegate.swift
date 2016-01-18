@@ -52,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func configureRootViewController() {
         if let bulletInRed = UIColor.bulletinRed() {
             UINavigationBar.appearance().barTintColor = bulletInRed
+            UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         }
         let menuListWidth = UIScreen.mainScreen().bounds.width * 0.8
         SlideMenuOptions.leftViewWidth = menuListWidth
