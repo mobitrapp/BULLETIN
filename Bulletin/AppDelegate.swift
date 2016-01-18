@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         #if !DEBUG
-            Fabric.with([Crashlytics.self])
+            //  Fabric.with([Crashlytics.self])
         #endif
         configureRootViewController()
         return true
@@ -53,16 +53,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let bulletInRed = UIColor.bulletinRed() {
             UINavigationBar.appearance().barTintColor = bulletInRed
         }
-        let menuListWidth = UIScreen.mainScreen().bounds.width * 0.7
+        let menuListWidth = UIScreen.mainScreen().bounds.width * 0.8
         SlideMenuOptions.leftViewWidth = menuListWidth
         SlideMenuOptions.simultaneousGestureRecognizers = false
         SlideMenuOptions.hideStatusBar = false
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         if let mainViewController = mainStoryboard.instantiateInitialViewController() {
             let leftMenuViewController = mainStoryboard.instantiateViewControllerWithIdentifier("menuListViewController")
+            if let menuListController = leftMenuViewController as? MenuListViewController {
+                let menuDetail = NewsMenu.loadMenuFromJsonFile()
+                menuListController.menuDetail = menuDetail
+            }
+            
             let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: leftMenuViewController)
+            if let mainViewController = mainViewController as? LandingViewController {
+                slideMenuController.delegate = mainViewController
+            }
             if let menuButtonImage = UIImage(named: "MenuButton") {
-               slideMenuController.addLeftBarButtonWithImage(menuButtonImage)
+                slideMenuController.addLeftBarButtonWithImage(menuButtonImage)
+                
+            }
+            if let menuButtonImage = UIImage(named: "Settings") {
+                slideMenuController.addRightBarButtonWithImage(menuButtonImage)
             }
             let navigationController = UINavigationController(rootViewController: slideMenuController)
             window?.rootViewController = navigationController
