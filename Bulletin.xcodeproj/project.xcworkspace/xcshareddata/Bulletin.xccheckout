@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>76FEB4AA-87CC-4122-8AB9-AD1524495A72</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Bulletin</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>66654FE784F4AC19810443932F27919E0693EF3E</key>
+		<string>https://github.com/mobitrapp/BULLETIN</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Bulletin.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>66654FE784F4AC19810443932F27919E0693EF3E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mobitrapp/BULLETIN</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>66654FE784F4AC19810443932F27919E0693EF3E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>66654FE784F4AC19810443932F27919E0693EF3E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Bulletin</string>
+		</dict>
+	</array>
+</dict>
+</plist>

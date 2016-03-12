@@ -1,0 +1,658 @@
+{
+  "error": false,
+  "msg": "News Karnataka Menu Details",
+  "data": [
+    {
+      "section_id": "10",
+      "section_name": "Home",
+      "section_slug": "home",
+      "section_url": "#",
+      "section_code": "SECTION_BUZZ",
+      "section_page_open": "parent",
+      "section_sub_category": "N",
+      "category_details": []
+    },
+    {
+      "section_id": "1",
+      "section_name": "News",
+      "section_slug": "news",
+      "section_url": "#",
+      "section_code": "SECTION_NEWS",
+      "section_page_open": "parent",
+      "section_sub_category": "Y",
+      "category_details": [
+        {
+          "id": "1",
+          "name": "Top News",
+          "slug": "top-news",
+          "code": "CATEGORIES_TOP_NEWS",
+          "upload_image_path": "headlines/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "3",
+          "name": "India",
+          "slug": "india",
+          "code": "CATEGORIES_INDIA",
+          "upload_image_path": "world/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "4",
+          "name": "World",
+          "slug": "world",
+          "code": "CATEGORIES_WORLD",
+          "upload_image_path": "world/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "5",
+          "name": "Overseas",
+          "slug": "nri",
+          "code": "CATEGORIES_NRI",
+          "upload_image_path": "gulf/",
+          "page_open": "parent",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "section_id": "2",
+      "section_name": "Cities",
+      "section_slug": "cities",
+      "section_url": "#",
+      "section_code": "SECTION_CITIES",
+      "section_page_open": "parent",
+      "section_sub_category": "Y",
+      "category_details": [
+        {
+          "id": "8",
+          "name": "Bengaluru",
+          "slug": "bangalore",
+          "code": "CATEGORIES_BANGALORE",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "9",
+          "name": "Mysuru",
+          "slug": "mysore",
+          "code": "CATEGORIES_MYSORE",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "10",
+          "name": "Mangaluru",
+          "slug": "mangalore",
+          "code": "CATEGORIES_MANGALORE",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "38",
+          "name": "Udupi",
+          "slug": "udupi",
+          "code": "CATEGORIES_UDUPI",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "39",
+          "name": "Belagavi",
+          "slug": "belgaum",
+          "code": "CATEGORIES_BELGAUM",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "40",
+          "name": "Ballari",
+          "slug": "bellary",
+          "code": "CATEGORIES_BELLARY",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "42",
+          "name": "Hubballi",
+          "slug": "hubli",
+          "code": "CATEGORIES_HUBLI",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "43",
+          "name": "Dharwad",
+          "slug": "dharwad",
+          "code": "CATEGORIES_DHARWAD",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "44",
+          "name": "Madikeri",
+          "slug": "madikeri",
+          "code": "CATEGORIES_MADIKERI",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "45",
+          "name": "Mandya",
+          "slug": "mandya",
+          "code": "CATEGORIES_MANDYA",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "46",
+          "name": "Hassan",
+          "slug": "hassan",
+          "code": "CATEGORIES_HASSAN",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "48",
+          "name": "Chamraj Nagar",
+          "slug": "chamarajanagar",
+          "code": "CATEGORIES_CHAMARAJANAGAR",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "49",
+          "name": "Kalaburgi",
+          "slug": "gulbarga",
+          "code": "CATEGORIES_GULBARGA",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "50",
+          "name": "Shivamogga",
+          "slug": "shimoga",
+          "code": "CATEGORIES_SHIMOGA",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "51",
+          "name": "Gadag",
+          "slug": "gadag",
+          "code": "CATEGORIES_GADAG",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "52",
+          "name": "Bagalkot",
+          "slug": "bagalkot",
+          "code": "CATEGORIES_BAGALKOT",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "53",
+          "name": "Tumakuru",
+          "slug": "tumkur",
+          "code": "CATEGORIES_TUMKUR",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "54",
+          "name": "Chikkamagaluru",
+          "slug": "kalasa",
+          "code": "CATEGORIES_KALASA",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "55",
+          "name": "Davangere",
+          "slug": "davangere",
+          "code": "CATEGORIES_DAVANGERE",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "56",
+          "name": "Bidar",
+          "slug": "bidar",
+          "code": "CATEGORIES_BIDAR",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "57",
+          "name": "Kodagu",
+          "slug": "kodagu",
+          "code": "CATEGORIES_KODAGU",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "58",
+          "name": "Kolar",
+          "slug": "Kolar",
+          "code": "CATEGORIES_KOLAR",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "59",
+          "name": "Vijayapura",
+          "slug": "bijapur",
+          "code": "CATEGORIES_BIJAPUR",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "60",
+          "name": "Kundapur",
+          "slug": "kundapur",
+          "code": "CATEGORIES_KUNDAPUR",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "61",
+          "name": "Bhatkal",
+          "slug": "bhatkal",
+          "code": "CATEGORIES_BHATKAL",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "63",
+          "name": "Haveri",
+          "slug": "haveri",
+          "code": "CATEGORIES_HAVERI",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "70",
+          "name": "Chitradurga",
+          "slug": "chitradurga",
+          "code": "CATEGORIES_CHITRADURGA",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "71",
+          "name": "Raichur",
+          "slug": "raichur",
+          "code": "CATEGORIES_RAICHUR",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "72",
+          "name": "Koppal",
+          "slug": "koppal",
+          "code": "CATEGORIES_KOPPAL",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "73",
+          "name": "Yadgir",
+          "slug": "yadgir",
+          "code": "CATEGORIES_YADGIR",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "74",
+          "name": "Karwar",
+          "slug": "karwar",
+          "code": "CATEGORIES_KARWAR",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "75",
+          "name": "Chikkaballapura",
+          "slug": "chikkaballapura",
+          "code": "CATEGORIES_CHIKKABALLAPURA",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "76",
+          "name": "Channapatna",
+          "slug": "channapatna",
+          "code": "CATEGORIES_CHANNAPATNA",
+          "upload_image_path": "local/",
+          "page_open": "parent",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "section_id": "3",
+      "section_name": "Special",
+      "section_slug": "special",
+      "section_url": "#",
+      "section_code": "SECTION_SPECIAL",
+      "section_page_open": "parent",
+      "section_sub_category": "Y",
+      "category_details": [
+        {
+          "id": "13",
+          "name": "Opinion",
+          "slug": "opinion",
+          "code": "CATEGORIES_OPINIONS",
+          "upload_image_path": "opinions/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "68",
+          "name": "Features",
+          "slug": "features",
+          "code": "CATEGORIES_FEATURES",
+          "upload_image_path": "features/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "14",
+          "name": "Open Space",
+          "slug": "open-space",
+          "code": "CATEGORIES_OPEN_SPACE",
+          "upload_image_path": "openspace/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "15",
+          "name": "From the Web",
+          "slug": "from-the-web",
+          "code": "CATEGORIES_FROM_THE_WEB",
+          "upload_image_path": "fromtheweb/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "67",
+          "name": "Nature",
+          "slug": "nature",
+          "code": "CATEGORIES_NATURE",
+          "upload_image_path": "nature/",
+          "page_open": "parent",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "section_id": "11",
+      "section_name": "Entertainment",
+      "section_slug": "entertainment",
+      "section_url": "#",
+      "section_code": "SECTION_ENTERTAINMENT",
+      "section_page_open": "parent",
+      "section_sub_category": "N",
+      "category_details": [
+        {
+          "id": "20",
+          "name": "Entertainment",
+          "slug": "entertainment",
+          "code": "CATEGORIES_ENTERTAINMENT",
+          "upload_image_path": "entertainment/",
+          "page_open": "parent",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "section_id": "12",
+      "section_name": "Sandalwood",
+      "section_slug": "sandalwood",
+      "section_url": "#",
+      "section_code": "SECTION_SANDALWOOD",
+      "section_page_open": "parent",
+      "section_sub_category": "N",
+      "category_details": [
+        {
+          "id": "19",
+          "name": "Sandalwood",
+          "slug": "sandalwood",
+          "code": "CATEGORIES_SANDALWOOD",
+          "upload_image_path": "films/",
+          "page_open": "parent",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "section_id": "6",
+      "section_name": "Sports",
+      "section_slug": "sports",
+      "section_url": "#",
+      "section_code": "SECTION_SPORTS",
+      "section_page_open": "parent",
+      "section_sub_category": "N",
+      "category_details": [
+        {
+          "id": "35",
+          "name": "Sports",
+          "slug": "sports",
+          "code": "CATEGORY_SPORTS",
+          "upload_image_path": "sports/",
+          "page_open": "parent",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "section_id": "5",
+      "section_name": "B & T",
+      "section_slug": "b-and-t",
+      "section_url": "#",
+      "section_code": "SECTION_B&T",
+      "section_page_open": "parent",
+      "section_sub_category": "Y",
+      "category_details": [
+        {
+          "id": "65",
+          "name": "Biz Talk",
+          "slug": "biz-talk",
+          "code": "CATEGORIES_BIZ_TALK",
+          "upload_image_path": "biztalk/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "16",
+          "name": "Business",
+          "slug": "business",
+          "code": "CATEGORIES_BUSINESS",
+          "upload_image_path": "business/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "17",
+          "name": "Technology",
+          "slug": "technology",
+          "code": "CATEGORIES_TECHNOLOGY",
+          "upload_image_path": "technology/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "18",
+          "name": "Auto",
+          "slug": "auto",
+          "code": "CATEGORIES_AUTO",
+          "upload_image_path": "technology/",
+          "page_open": "parent",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "section_id": "13",
+      "section_name": "Campus",
+      "section_slug": "campus",
+      "section_url": "#",
+      "section_code": "SECTION_CAMPUS",
+      "section_page_open": "parent",
+      "section_sub_category": "N",
+      "category_details": [
+        {
+          "id": "36",
+          "name": "Campus",
+          "slug": "campus",
+          "code": "CATEGORIES_CAMPUS",
+          "upload_image_path": "campus/",
+          "page_open": "parent",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "section_id": "9",
+      "section_name": "Classifieds",
+      "section_slug": "classifieds",
+      "section_url": "#",
+      "section_code": "SECTION_CLASSIFIEDS",
+      "section_page_open": "parent",
+      "section_sub_category": "Y",
+      "category_details": [
+        {
+          "id": "26",
+          "name": "Property",
+          "slug": "property",
+          "code": "CATEGORIES_PROPERTY",
+          "upload_image_path": "property/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "27",
+          "name": "City Seconds",
+          "slug": "city-seconds",
+          "code": "CATEGORIES_CITY_SECONDS",
+          "upload_image_path": "cityseconds/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "28",
+          "name": "Jobs",
+          "slug": "jobs",
+          "code": "CATEGORIES_JOBS",
+          "upload_image_path": "jobs/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "29",
+          "name": "Greetings",
+          "slug": "greetings",
+          "code": "CATEGORIES_GREETINGS",
+          "upload_image_path": "greetings/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "64",
+          "name": "Services",
+          "slug": "services",
+          "code": "CATEGORIES_SERVICES",
+          "upload_image_path": "services/",
+          "page_open": "parent",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "section_id": "10",
+      "section_name": "More",
+      "section_slug": "buzz",
+      "section_url": "#",
+      "section_code": "SECTION_BUZZ",
+      "section_page_open": "parent",
+      "section_sub_category": "Y",
+      "category_details": [
+        {
+          "id": "34",
+          "name": "Editor's Choice",
+          "slug": "editors-choice",
+          "code": "CATEGORY_EDITOR_CHOICE",
+          "upload_image_path": "editorchoice/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "21",
+          "name": "Health & Lifestyle",
+          "slug": "health-lifestyle",
+          "code": "CATEGORIES_HEALTH_LIFESTYLE",
+          "upload_image_path": "lifestyle/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "36",
+          "name": "Campus",
+          "slug": "campus",
+          "code": "CATEGORIES_CAMPUS",
+          "upload_image_path": "campus/",
+          "page_open": "parent",
+          "url": "#"
+        },
+        {
+          "id": "6",
+          "name": "Community",
+          "slug": "community",
+          "code": "CATEGORIES_COMMUNITY",
+          "upload_image_path": "community/",
+          "page_open": "parent",
+          "url": "#"
+        }
+      ]
+    }
+  ],
+  "status": 200
+}

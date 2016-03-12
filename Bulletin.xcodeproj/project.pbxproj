@@ -19,7 +19,12 @@
 		F218AD351C4A31560038D80D /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218AD341C4A31560038D80D /* SlideMenuController.swift */; settings = {ASSET_TAGS = (); }; };
 		F218AD371C4A338D0038D80D /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218AD361C4A338D0038D80D /* MenuListViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F218AD3A1C4A7A9F0038D80D /* UIColor+Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218AD391C4A7A9F0038D80D /* UIColor+Bulletin.swift */; settings = {ASSET_TAGS = (); }; };
-		F218AD3C1C4A7D0B0038D80D /* SwiftHEXColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218AD3B1C4A7D0B0038D80D /* SwiftHEXColors.swift */; settings = {ASSET_TAGS = (); }; };
+		F2B586DE1C4C5B4A004FAFA4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B586DD1C4C5B4A004FAFA4 /* SettingsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F2E28A4A1C4BB27E00D8C976 /* NewsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A491C4BB27E00D8C976 /* NewsMenu.swift */; settings = {ASSET_TAGS = (); }; };
+		F2E28A4C1C4BB29300D8C976 /* SwiftHEXColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A4B1C4BB29300D8C976 /* SwiftHEXColors.swift */; settings = {ASSET_TAGS = (); }; };
+		F2E28A4F1C4BB2DD00D8C976 /* menu_details.json in Resources */ = {isa = PBXBuildFile; fileRef = F2E28A4E1C4BB2DD00D8C976 /* menu_details.json */; settings = {ASSET_TAGS = (); }; };
+		F2E28A521C4BB78900D8C976 /* MenuCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A511C4BB78900D8C976 /* MenuCategoryTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		F2E28A541C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A531C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +63,12 @@
 		F218AD341C4A31560038D80D /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = Libraries/SlideMenuController.swift; sourceTree = "<group>"; };
 		F218AD361C4A338D0038D80D /* MenuListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuListViewController.swift; path = ViewControllers/MenuListViewController.swift; sourceTree = "<group>"; };
 		F218AD391C4A7A9F0038D80D /* UIColor+Bulletin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Bulletin.swift"; path = "Extension/UIColor+Bulletin.swift"; sourceTree = "<group>"; };
-		F218AD3B1C4A7D0B0038D80D /* SwiftHEXColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftHEXColors.swift; sourceTree = "<group>"; };
+		F2B586DD1C4C5B4A004FAFA4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = ViewControllers/SettingsTableViewController.swift; sourceTree = "<group>"; };
+		F2E28A491C4BB27E00D8C976 /* NewsMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsMenu.swift; path = Models/NewsMenu.swift; sourceTree = "<group>"; };
+		F2E28A4B1C4BB29300D8C976 /* SwiftHEXColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftHEXColors.swift; path = Libraries/SwiftHEXColors.swift; sourceTree = "<group>"; };
+		F2E28A4E1C4BB2DD00D8C976 /* menu_details.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu_details.json; sourceTree = "<group>"; };
+		F2E28A511C4BB78900D8C976 /* MenuCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		F2E28A531C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSubCategoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,9 +126,12 @@
 				F20497181C48496200BF8F3D /* Assets.xcassets */,
 				F204971A1C48496200BF8F3D /* LaunchScreen.storyboard */,
 				F204971D1C48496200BF8F3D /* Info.plist */,
+				F2E28A4D1C4BB29A00D8C976 /* Resources */,
 				F218AD301C4A2FE30038D80D /* ViewControllers */,
 				F20497401C4849C200BF8F3D /* SDK */,
 				F218AD331C4A31330038D80D /* Libraries */,
+				F2E28A461C4B9C4700D8C976 /* Models */,
+				F2E28A501C4BB76000D8C976 /* Views */,
 				F218AD381C4A7A110038D80D /* Extension */,
 			);
 			path = Bulletin;
@@ -155,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				F218AD311C4A30340038D80D /* LandingViewController.swift */,
+				F2B586DD1C4C5B4A004FAFA4 /* SettingsTableViewController.swift */,
 				F218AD361C4A338D0038D80D /* MenuListViewController.swift */,
 			);
 			name = ViewControllers;
@@ -164,8 +178,8 @@
 		F218AD331C4A31330038D80D /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				F2E28A4B1C4BB29300D8C976 /* SwiftHEXColors.swift */,
 				F218AD341C4A31560038D80D /* SlideMenuController.swift */,
-				F218AD3B1C4A7D0B0038D80D /* SwiftHEXColors.swift */,
 			);
 			name = Libraries;
 			path = ..;
@@ -177,6 +191,34 @@
 				F218AD391C4A7A9F0038D80D /* UIColor+Bulletin.swift */,
 			);
 			name = Extension;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F2E28A461C4B9C4700D8C976 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F2E28A491C4BB27E00D8C976 /* NewsMenu.swift */,
+			);
+			name = Models;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F2E28A4D1C4BB29A00D8C976 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F2E28A4E1C4BB2DD00D8C976 /* menu_details.json */,
+			);
+			name = Resources;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F2E28A501C4BB76000D8C976 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F2E28A511C4BB78900D8C976 /* MenuCategoryTableViewCell.swift */,
+				F2E28A531C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift */,
+			);
+			name = Views;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -287,6 +329,7 @@
 				F204971C1C48496200BF8F3D /* LaunchScreen.storyboard in Resources */,
 				F20497191C48496200BF8F3D /* Assets.xcassets in Resources */,
 				F20497171C48496200BF8F3D /* Main.storyboard in Resources */,
+				F2E28A4F1C4BB2DD00D8C976 /* menu_details.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,12 +370,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E28A521C4BB78900D8C976 /* MenuCategoryTableViewCell.swift in Sources */,
 				F218AD321C4A30340038D80D /* LandingViewController.swift in Sources */,
+				F2E28A541C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift in Sources */,
 				F218AD351C4A31560038D80D /* SlideMenuController.swift in Sources */,
 				F20497121C48496200BF8F3D /* AppDelegate.swift in Sources */,
-				F218AD3C1C4A7D0B0038D80D /* SwiftHEXColors.swift in Sources */,
+				F2E28A4A1C4BB27E00D8C976 /* NewsMenu.swift in Sources */,
+				F2B586DE1C4C5B4A004FAFA4 /* SettingsTableViewController.swift in Sources */,
 				F218AD3A1C4A7A9F0038D80D /* UIColor+Bulletin.swift in Sources */,
 				F218AD371C4A338D0038D80D /* MenuListViewController.swift in Sources */,
+				F2E28A4C1C4BB29300D8C976 /* SwiftHEXColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,4 +13,8 @@ extension UIColor {
     class func bulletinRed() -> UIColor? {
         return UIColor(hexString: "#B60C32")
     }
+    
+    class func bulletinLightRed() -> UIColor? {
+        return UIColor(hexString: "#B60C32", alpha: 0.4)
+    }
 }
