@@ -42,7 +42,8 @@ extension LandingViewController: SlideMenuControllerDelegate {
         
         let settingsViewController = storyboard?.instantiateViewControllerWithIdentifier("settingsTableViewController")
         if let settingsViewController = settingsViewController {
-            slideMenuController()?.navigationController?.pushViewController(settingsViewController, animated: true)
+            let settingsNavigationController = UINavigationController(rootViewController: settingsViewController)
+            slideMenuController()?.navigationController?.presentViewController(settingsNavigationController, animated: true, completion: nil)
         }
     }
 }

@@ -12,8 +12,17 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "backButtonTapped")
+        navigationItem.leftBarButtonItem = backButton
+        
         tableView.separatorStyle = .None
+        navigationController?.navigationBar.barTintColor = UIColor.bulletinLightRed()
+        navigationController?.navigationBar.topItem?.title = "Settings"
     }
 
+    func backButtonTapped() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
 }

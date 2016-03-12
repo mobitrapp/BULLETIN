@@ -128,7 +128,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="menuListTableViewController" destination="PVc-PK-KZk" id="Gw7-h5-wyo"/>
+                        <outlet property="menuListTableView" destination="PVc-PK-KZk" id="UYF-4K-Fl0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0W-tk-Etr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -176,8 +176,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share this app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i91-R5-9LM">
-                                                    <rect key="frame" x="20" y="11" width="335" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                                    <rect key="frame" x="20" y="11" width="335" height="18"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -186,7 +186,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="i91-R5-9LM" secondAttribute="trailing" constant="20" id="4ht-42-exe"/>
                                                 <constraint firstItem="i91-R5-9LM" firstAttribute="top" secondItem="hIk-8Y-nd5" secondAttribute="top" constant="11" id="AFh-iN-gN8"/>
                                                 <constraint firstItem="i91-R5-9LM" firstAttribute="leading" secondItem="hIk-8Y-nd5" secondAttribute="leading" constant="20" id="Dno-Bk-O4b"/>
-                                                <constraint firstAttribute="bottom" secondItem="i91-R5-9LM" secondAttribute="bottom" constant="11" id="MYT-sK-XlW"/>
+                                                <constraint firstAttribute="bottom" secondItem="i91-R5-9LM" secondAttribute="bottom" constant="14" id="wEX-Ij-A06"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

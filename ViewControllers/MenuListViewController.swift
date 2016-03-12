@@ -10,19 +10,20 @@ import UIKit
 
 class MenuListViewController: UIViewController {
     
-    @IBOutlet weak var menuListTableViewController: UITableView!
+    @IBOutlet weak var menuListTableView: UITableView!
     
     var menuDetail: NewsMenu?
     var categoryIsOpen: [Bool]!
+    var openedSection = Int.min
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        menuListTableViewController.estimatedRowHeight = 22
-        menuListTableViewController.estimatedSectionFooterHeight = 22
+        menuListTableView.estimatedRowHeight = 22
+        menuListTableView.estimatedSectionFooterHeight = 22
         if let newsMenu = menuDetail?.newsMenu {
             categoryIsOpen = [Bool](count: newsMenu.count, repeatedValue: false)
         }
-        menuListTableViewController.tableFooterView = UIView(frame: CGRectZero)
+        menuListTableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
 }
@@ -78,15 +79,24 @@ extension MenuListViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 {
+            if openedSection != indexPath.section && openedSection != Int.min {
+                categoryIsOpen[openedSection] = false
+                reloadTableViewSection(openedSection)
+            }
             categoryIsOpen[indexPath.section] = !categoryIsOpen[indexPath.section]
-            let  indexRange = NSMakeRange(indexPath.section, 1)
-            let sectionsToReload = NSIndexSet(indexesInRange: indexRange)
-            tableView.reloadSections(sectionsToReload, withRowAnimation: UITableViewRowAnimation.Fade)
+            reloadTableViewSection(indexPath.section)
+            openedSection = indexPath.section
         }
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.min
+    }
+    
+    func reloadTableViewSection(section: Int) {
+        let  indexRange = NSMakeRange(section, 1)
+        let sectionsToReload = NSIndexSet(indexesInRange: indexRange)
+        menuListTableView.reloadSections(sectionsToReload, withRowAnimation: UITableViewRowAnimation.Fade)
     }
     
 }
