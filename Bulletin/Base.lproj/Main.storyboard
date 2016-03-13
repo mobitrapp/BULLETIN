@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MpW-F3-bTz">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Landing View Controller-->
@@ -23,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="810.5" y="262.5"/>
+            <point key="canvasLocation" x="214.5" y="82.5"/>
         </scene>
         <!--Menu List View Controller-->
         <scene sceneID="SpI-Y0-yHZ">
@@ -133,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0W-tk-Etr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1209.5" y="262.5"/>
+            <point key="canvasLocation" x="623.5" y="82.5"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="NfS-0z-uXM">
@@ -356,11 +357,76 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDC-Lm-L41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1618.5" y="262.5"/>
+            <point key="canvasLocation" x="1084.5" y="88.5"/>
+        </scene>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="F8L-84-7N2">
+            <objects>
+                <viewController id="MpW-F3-bTz" customClass="SplashScreenViewController" customModule="Bulletin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DPQ-JR-OrU"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ft3-Wv-j0F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h6C-q2-k2N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_icon" translatesAutoresizingMaskIntoConstraints="NO" id="tux-EW-Fqz">
+                                <rect key="frame" x="37" y="312" width="301" height="44"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="HGi-Kn-BiQ">
+                                <rect key="frame" x="169" y="429" width="37" height="37"/>
+                                <color key="tintColor" red="0.98823529409999999" green="0.1843137255" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="AVc-z0-Dk0"/>
+                                    <constraint firstAttribute="width" constant="37" id="vSP-cb-uyd"/>
+                                </constraints>
+                                <color key="color" red="0.64313725489999995" green="0.0" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dzp-N2-v4r">
+                                <rect key="frame" x="20" y="379" width="335" height="27"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="App initialisation failed ! Tap here to try again.">
+                                            <attributes>
+                                                <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="retryTokenGenerationButtonTapped:" destination="MpW-F3-bTz" eventType="touchUpInside" id="8bd-8F-llY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Dzp-N2-v4r" firstAttribute="leading" secondItem="h6C-q2-k2N" secondAttribute="leading" constant="20" id="SAz-av-14n"/>
+                            <constraint firstItem="tux-EW-Fqz" firstAttribute="height" secondItem="h6C-q2-k2N" secondAttribute="height" multiplier="0.065" id="SDn-1i-sWh"/>
+                            <constraint firstItem="tux-EW-Fqz" firstAttribute="centerX" secondItem="h6C-q2-k2N" secondAttribute="centerX" id="b30-1s-Wf9"/>
+                            <constraint firstItem="HGi-Kn-BiQ" firstAttribute="top" secondItem="tux-EW-Fqz" secondAttribute="bottom" constant="73" id="hah-yp-228"/>
+                            <constraint firstItem="tux-EW-Fqz" firstAttribute="centerY" secondItem="h6C-q2-k2N" secondAttribute="centerY" id="k8H-aH-9zv"/>
+                            <constraint firstItem="Dzp-N2-v4r" firstAttribute="top" secondItem="tux-EW-Fqz" secondAttribute="bottom" constant="23" id="nQP-nR-MzO"/>
+                            <constraint firstItem="tux-EW-Fqz" firstAttribute="width" secondItem="h6C-q2-k2N" secondAttribute="width" multiplier="0.805" id="oHJ-Jh-M7Q"/>
+                            <constraint firstAttribute="trailing" secondItem="Dzp-N2-v4r" secondAttribute="trailing" constant="20" id="ro7-Mq-a0I"/>
+                            <constraint firstItem="HGi-Kn-BiQ" firstAttribute="centerX" secondItem="h6C-q2-k2N" secondAttribute="centerX" id="xzP-lP-qaE"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="HGi-Kn-BiQ" id="WMC-lV-jyd"/>
+                        <outlet property="retryTokenGenerationButton" destination="Dzp-N2-v4r" id="9h6-kT-iA2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cJs-cS-wN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548.5" y="82.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="Plus" width="11" height="11"/>
         <image name="Special" width="16" height="16"/>
+        <image name="splash_icon" width="400" height="48"/>
     </resources>
 </document>

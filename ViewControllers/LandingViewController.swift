@@ -11,13 +11,15 @@ import UIKit
 
 class LandingViewController: UIViewController {
     var navigationIconImageView: UIImageView!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        configureNavigationBar()
+        
     }
 
     private func configureNavigationBar() {
