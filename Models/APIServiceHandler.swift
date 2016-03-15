@@ -10,22 +10,28 @@ import UIKit
 
 enum BulletinRequest: URLRequestConvertible {
     
+    case Intitiate
     case TokenAPI([String : String])
+    case TopNews([String : String])
     
     var requestMethod: Method {
         switch self {
         case .TokenAPI:
             return .POST
-            //        default:
-            //            return Method.GET
+        case .TopNews, .Intitiate :
+            return .GET
         }
         
     }
     
     var relativePath: String {
         switch self {
+        case .Intitiate:
+            return "https://dl.dropboxusercontent.com/s/1e9jl2e2bvoef45/app_status.json?dl=0"
         case .TokenAPI:
             return "auth"
+        case .TopNews :
+            return "api/v1/getCategoriesNews/CATEGORIES_TOP_NEWS"
         }
     }
     
@@ -37,15 +43,27 @@ enum BulletinRequest: URLRequestConvertible {
         switch self {
         case .TokenAPI(let header):
             return header
+        case .TopNews(let header):
+            return header
+        default:
+            return nil
         }
-        return nil
     }
     
     
     var URLRequest: NSMutableURLRequest {
+        let APIURL: NSURL!
         
-        let URL = NSURL(string: APIServiceManager.baseURL)!
-        let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(relativePath))
+        switch self {
+        case .Intitiate:
+            APIURL = NSURL(string: relativePath)!
+        
+        default:
+            let URL = NSURL(string: APIServiceManager.baseURL)!
+            APIURL = URL.URLByAppendingPathComponent(relativePath)
+        }
+
+        let mutableURLRequest = NSMutableURLRequest(URL: APIURL)
         mutableURLRequest.HTTPMethod = requestMethod.rawValue
         
         if let headers = headers {

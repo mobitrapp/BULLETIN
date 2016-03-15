@@ -11,15 +11,17 @@ import UIKit
 
 class LandingViewController: UIViewController {
     var navigationIconImageView: UIImageView!
+    var topNewsList: TopNewsList!
    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
+        slideMenuController()?.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        configureHomeScreen()
     }
 
     private func configureNavigationBar() {
@@ -31,6 +33,16 @@ class LandingViewController: UIViewController {
                 newsIconImageView.center = iconCenter
                 navigationBar.addSubview(newsIconImageView)
             }
+        }
+        
+    }
+    
+    func configureHomeScreen() {
+        if let homeSCreeViewController = storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController {
+            homeSCreeViewController.topNewsList = topNewsList
+            addChildViewController(homeSCreeViewController)
+            view.addSubview(homeSCreeViewController.view)
+            homeSCreeViewController.didMoveToParentViewController(self)
         }
         
     }

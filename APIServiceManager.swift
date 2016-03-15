@@ -24,7 +24,7 @@ class APIServiceManager: NSObject {
     }
     
     
-    func checkAPIStatus(json: AnyObject) throws -> Result<AnyObject, NSError> {
+    func checkTokenGenertaionAPIStatus(json: AnyObject) throws -> Result<AnyObject, NSError> {
         
         guard let jsonDict = json as? NSDictionary else {
             throw generalError
@@ -45,6 +45,26 @@ class APIServiceManager: NSObject {
     }
     
     
+    func checkTopNewsAPIStatus(json: AnyObject) throws -> Result<AnyObject, NSError> {
+        
+        guard let jsonDict = json as? NSDictionary else {
+            throw generalError
+        }
+    
+        guard let data = jsonDict["data"] as? NSDictionary else {
+            throw responseFieldUnavailable
+        }
+        
+        guard let newsList = data["news_details"] as? NSArray else {
+            throw responseFieldUnavailable
+        }
+    
+        return Result.Success(newsList)
+        
+    }
+    
+    
+    
     
     
     func generateTokenWithDeviceID(deviceID: String?, completionHandler: Result<AnyObject, NSError> -> Void) {
@@ -54,7 +74,7 @@ class APIServiceManager: NSObject {
                     switch response.result {
                     case .Success(let json):
                         do {
-                            switch try self.checkAPIStatus(json) {
+                            switch try self.checkTokenGenertaionAPIStatus(json) {
                             case .Success(let token):
                                 completionHandler(Result.Success(token))
                             case .Failure(let error):
@@ -68,9 +88,59 @@ class APIServiceManager: NSObject {
                         completionHandler(Result.Failure(error))
                     }
             }
-
+            
         } else {
-         return completionHandler(Result.Failure(generalError))
+            return completionHandler(Result.Failure(generalError))
+        }
+    }
+    
+    
+    func appShouldProceed(completionHandler: Result<AnyObject, NSError> -> Void) {
+        request(BulletinRequest.Intitiate).responseJSON { (response) -> Void in
+            switch response.result {
+                
+            case .Success(let json):
+                if let json = json as? NSDictionary {
+                    if let status = json["status"] as? String {
+                        status == "SUCCESS" ?  completionHandler(Result.Success(true)) :  completionHandler(Result.Success(false))
+                        return
+                    }
+                }
+                completionHandler(Result.Success(true))
+
+            case .Failure(let error):
+                
+                completionHandler(Result.Failure(error))
+            }
+            
+        }
+    }
+    
+    
+    func topNews(deviceID: String?, completionHandler: Result<AnyObject, NSError> -> Void) {
+        if let deviceID = deviceID , let hasKey = NSUserDefaults.standardUserDefaults().objectForKey(GlobalStrings.APIToken.rawValue) as? String {
+            request(BulletinRequest.TopNews(["X-Hash": hasKey,
+                "X-DeviceID":deviceID])).responseJSON { (response) -> Void in
+                    switch response.result {
+                    case .Success(let json):
+                        do {
+                            switch try self.checkTopNewsAPIStatus(json) {
+                            case .Success(let token):
+                                completionHandler(Result.Success(token))
+                            case .Failure(let error):
+                                completionHandler(Result.Failure(error))
+                            }
+                        }catch (let error){
+                            completionHandler(Result.Failure(error as NSError))
+                        }
+                        
+                    case .Failure(let error):
+                        completionHandler(Result.Failure(error))
+                    }
+            }
+            
+        } else {
+            return completionHandler(Result.Failure(generalError))
         }
     }
     

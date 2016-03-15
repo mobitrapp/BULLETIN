@@ -16,32 +16,56 @@ class SplashScreenViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         retryTokenGenerationButton.hidden = true
+        navigationController?.navigationBarHidden = true
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        generateToken()
+        initiateApp()
+    }
+    
+    func initiateApp() {
+        activityIndicator.startAnimating()
+        activityIndicator.hidden = false
+        APIServiceManager.sharedInstance.appShouldProceed { [weak self] (result) -> Void in
+            
+            switch result {
+            case .Success(let appShouldProceed):
+                if let appShouldProceed = appShouldProceed as? Bool {
+                    if !appShouldProceed {
+                        self?.showInitialisationFailedAlert()
+                        return
+                    }
+                }
+                self?.generateToken()
+            case .Failure:
+                self?.generateToken()
+            }
+            
+        }
     }
     
     func generateToken() {
+        
         activityIndicator.startAnimating()
-        if NSUserDefaults.standardUserDefaults().objectForKey(GlobalStrings.APIToken.rawValue) == nil {
+        activityIndicator.hidden = false
+        if NSUserDefaults.standardUserDefaults().objectForKey (GlobalStrings.APIToken.rawValue) == nil {
             APIServiceManager.sharedInstance.generateTokenWithDeviceID(UIDevice.currentDevice().identifierForVendor?.UUIDString) { [weak self](result) -> Void in
-                if let weakSelf = self {
-                    switch result {
-                        
-                    case .Success(let token):
-                        print(token)
-                        NSUserDefaults.standardUserDefaults().setObject(token, forKey: GlobalStrings.APIToken.rawValue)
-                        weakSelf.configureAndPuhLandingScreen()
-                        weakSelf.retryTokenGenerationButton.hidden = true
-                        
-                    case .Failure:
-                        weakSelf.showInitialisationFailedAlert()
-                    }
-                    weakSelf.activityIndicator.stopAnimating()
-                    weakSelf.activityIndicator.hidden = true
+                
+                switch result {
+                    
+                case .Success(let token):
+                    print(token)
+                    NSUserDefaults.standardUserDefaults().setObject(token, forKey: GlobalStrings.APIToken.rawValue)
+                    self?.configureAndPuhLandingScreen()
+                    self?.retryTokenGenerationButton.hidden = true
+                    
+                case .Failure:
+                    self?.showInitialisationFailedAlert()
                 }
+                self?.activityIndicator.stopAnimating()
+                self?.activityIndicator.hidden = true
+                
             }
         } else {
             configureAndPuhLandingScreen()
@@ -83,36 +107,50 @@ class SplashScreenViewController: UIViewController {
             slideMenuController.addRightBarButtonWithImage(menuButtonImage)
         }
         
-        let navigationController = UINavigationController(rootViewController: slideMenuController)
-        presentViewController(navigationController, animated: false, completion: nil)
-        
+        APIServiceManager.sharedInstance.topNews(UIDevice.currentDevice().identifierForVendor?.UUIDString) {[weak self] (result) -> Void in
+            switch result {
+            case .Success(let result):
+                if let newsArray = result as? NSArray {
+                    let topNewsList = TopNewsList(topNewsArray: newsArray)
+                    
+                    if let landingViewController = slideMenuController.mainViewController as? LandingViewController {
+                        landingViewController.topNewsList = topNewsList
+                    self?.navigationController?.pushViewController(slideMenuController, animated: false)
+                    }
+                }
+                
+            
+            case .Failure:
+                break
+                
+            }
+        }
+    
         
     }
     
     func showInitialisationFailedAlert() {
         let alertController = UIAlertController(title: "oops! App initialisation Failed", message: "Something went wrong while initialising the app. Would you like to try again?  ", preferredStyle: .Alert)
         let notNowAction = UIAlertAction(title: "Not Now", style: UIAlertActionStyle.Cancel) { [weak self](action) -> Void in
-            if let weakSelf = self {
-                weakSelf.activityIndicator.stopAnimating()
-                weakSelf.activityIndicator.hidden = true
-                weakSelf.retryTokenGenerationButton.hidden = false
-            }
+            self?.activityIndicator.stopAnimating()
+            self?.activityIndicator.hidden = true
+            self?.retryTokenGenerationButton.hidden = false
         }
         alertController.addAction(notNowAction)
         
         let tryAgainAction = UIAlertAction(title: "Try Again", style: .Default) { [weak self](action) -> Void in
-            if let weakSelf = self {
-                weakSelf.generateToken()
-            }
+            self?.initiateApp()
+            
         }
         alertController.addAction(tryAgainAction)
         
         presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     @IBAction func retryTokenGenerationButtonTapped(sender: AnyObject) {
         retryTokenGenerationButton.hidden = true
-        generateToken()
+        initiateApp()
     }
     
 }
