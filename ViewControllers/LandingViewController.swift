@@ -11,7 +11,8 @@ import UIKit
 
 class LandingViewController: UIViewController {
     var navigationIconImageView: UIImageView!
-    var topNewsList: TopNewsList!
+    var homeScreenViewModel: HomeScreenViewModel!
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class LandingViewController: UIViewController {
     
     func configureHomeScreen() {
         if let homeSCreeViewController = storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController {
-            homeSCreeViewController.topNewsList = topNewsList
+            homeSCreeViewController.homeScreenViewModel = homeScreenViewModel
             addChildViewController(homeSCreeViewController)
             view.addSubview(homeSCreeViewController.view)
             homeSCreeViewController.didMoveToParentViewController(self)

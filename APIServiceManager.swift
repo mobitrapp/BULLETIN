@@ -45,12 +45,12 @@ class APIServiceManager: NSObject {
     }
     
     
-    func checkTopNewsAPIStatus(json: AnyObject) throws -> Result<AnyObject, NSError> {
+    func checkNewsAPIStatus(json: AnyObject) throws -> Result<AnyObject, NSError> {
         
         guard let jsonDict = json as? NSDictionary else {
             throw generalError
         }
-    
+        
         guard let data = jsonDict["data"] as? NSDictionary else {
             throw responseFieldUnavailable
         }
@@ -58,7 +58,7 @@ class APIServiceManager: NSObject {
         guard let newsList = data["news_details"] as? NSArray else {
             throw responseFieldUnavailable
         }
-    
+        
         return Result.Success(newsList)
         
     }
@@ -107,7 +107,7 @@ class APIServiceManager: NSObject {
                     }
                 }
                 completionHandler(Result.Success(true))
-
+                
             case .Failure(let error):
                 
                 completionHandler(Result.Failure(error))
@@ -117,32 +117,40 @@ class APIServiceManager: NSObject {
     }
     
     
-    func topNews(deviceID: String?, completionHandler: Result<AnyObject, NSError> -> Void) {
-        if let deviceID = deviceID , let hasKey = NSUserDefaults.standardUserDefaults().objectForKey(GlobalStrings.APIToken.rawValue) as? String {
-            request(BulletinRequest.TopNews(["X-Hash": hasKey,
-                "X-DeviceID":deviceID])).responseJSON { (response) -> Void in
-                    switch response.result {
-                    case .Success(let json):
-                        do {
-                            switch try self.checkTopNewsAPIStatus(json) {
-                            case .Success(let token):
-                                completionHandler(Result.Success(token))
-                            case .Failure(let error):
-                                completionHandler(Result.Failure(error))
-                            }
-                        }catch (let error){
-                            completionHandler(Result.Failure(error as NSError))
-                        }
-                        
+    func getNews(type: BulletinRequest, completionHandler: Result<AnyObject, NSError> -> Void) {
+        
+        var URLRequest: URLRequestConvertible!
+        
+        switch type {
+            
+        case .TopNews:
+            URLRequest = BulletinRequest.TopNews
+            
+        case .SpecialNews:
+            URLRequest = BulletinRequest.SpecialNews
+            
+        default:
+            URLRequest = BulletinRequest.KarnatakaNews
+        }
+        
+        request(URLRequest).responseJSON { (response) -> Void in
+            switch response.result {
+            case .Success(let json):
+                do {
+                    switch try self.checkNewsAPIStatus(json) {
+                    case .Success(let newsDetails):
+                        completionHandler(Result.Success(newsDetails))
                     case .Failure(let error):
                         completionHandler(Result.Failure(error))
                     }
+                }catch (let error){
+                    completionHandler(Result.Failure(error as NSError))
+                }
+                
+            case .Failure(let error):
+                completionHandler(Result.Failure(error))
             }
-            
-        } else {
-            return completionHandler(Result.Failure(generalError))
         }
+        
     }
-    
-    
 }

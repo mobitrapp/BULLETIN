@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopNews {
+class News {
     
     var id = ""
     var title = ""
@@ -38,13 +38,18 @@ class TopNews {
 
 
 
-class TopNewsList {
-    var list: [TopNews]
-    init(topNewsArray: NSArray) {
-        list = [TopNews]()
-        for news in topNewsArray {
+class NewsList {
+    var list: [News]
+    
+    init() {
+        list = []
+    }
+    
+    init(newsArray: NSArray) {
+        list = [News]()
+        for news in newsArray {
             if let newsDictionary = news as? NSDictionary {
-                list.append(TopNews(topNewsDictionary: newsDictionary))
+                list.append(News(topNewsDictionary: newsDictionary))
             }
             
         }

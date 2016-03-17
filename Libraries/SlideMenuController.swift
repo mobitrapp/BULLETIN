@@ -84,6 +84,7 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
     public var rightPanGesture: UIPanGestureRecognizer?
     public var rightTapGesture: UITapGestureRecognizer?
     var delegate: SlideMenuControllerDelegate?
+    var drawerBarButton: FRDLivelyButton?
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -247,7 +248,7 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
             }
             
             if leftTapGesture == nil {
-                leftTapGesture = UITapGestureRecognizer(target: self, action: "toggleLeft")
+                leftTapGesture = UITapGestureRecognizer(target: self, action: "toggleLeft:")
                 leftTapGesture!.delegate = self
                 view.addGestureRecognizer(leftTapGesture!)
             }
@@ -348,6 +349,9 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
             let panInfo: PanInfo = panLeftResultInfoForVelocity(velocity)
             
             if panInfo.action == .Open {
+                if let drawerBarButton = drawerBarButton {
+                    drawerBarButton.setStyle( kFRDLivelyButtonStyleArrowLeft, animated: true)
+                }
                 if !LeftPanState.wasHiddenAtStartOfPan {
                     leftViewController?.beginAppearanceTransition(true, animated: true)
                 }
@@ -355,6 +359,9 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
                 track(.FlickOpen)
                 
             } else {
+                if let drawerBarButton = drawerBarButton {
+                    drawerBarButton.setStyle( kFRDLivelyButtonStyleHamburger, animated: true)
+                }
                 if LeftPanState.wasHiddenAtStartOfPan {
                     leftViewController?.beginAppearanceTransition(false, animated: true)
                 }
@@ -547,17 +554,23 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
     }
     
     
-    public override func toggleLeft() {
+    public override func toggleLeft(sender: AnyObject?) {
         if isLeftOpen() {
             closeLeft()
             setCloseWindowLebel()
             // closeMenuはメニュータップ時にも呼ばれるため、closeタップのトラッキングはここに入れる
-            
+            if let drawerBarButton = drawerBarButton {
+                drawerBarButton.setStyle( kFRDLivelyButtonStyleHamburger, animated: true)
+            }
             track(.TapClose)
         } else {
             openLeft()
+           if let drawerBarButton = drawerBarButton {
+                drawerBarButton.setStyle( kFRDLivelyButtonStyleArrowLeft, animated: true)
+            }
         }
     }
+    
     
     public func isLeftOpen() -> Bool {
         return leftContainerView.frame.origin.x == 0.0
@@ -939,8 +952,12 @@ extension UIViewController {
     }
     
     public func addLeftBarButtonWithImage(buttonImage: UIImage) {
-        let leftButton: UIBarButtonItem = UIBarButtonItem(image: buttonImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: "toggleLeft")
-        navigationItem.leftBarButtonItem = leftButton
+        
+        let leftButton = FRDLivelyButton(frame: CGRect(origin: CGPointZero,  size: CGSize(width: 29, height: 18)))
+        leftButton.setStyle(kFRDLivelyButtonStyleHamburger, animated: false)
+        leftButton.addTarget(self, action: "toggleLeft:", forControlEvents: UIControlEvents.TouchUpInside)
+         slideMenuController()?.drawerBarButton = leftButton
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
     }
     
     public func addRightBarButtonWithImage(buttonImage: UIImage) {
@@ -955,8 +972,9 @@ extension UIViewController {
         navigationItem.leftBarButtonItems = leftBarButtons
     }
     
-    public func toggleLeft() {
-        slideMenuController()?.toggleLeft()
+    public func toggleLeft(sender: AnyObject?) {
+        slideMenuController()?.toggleLeft(nil)
+        
     }
     
     public func settingsButtonTapped() {

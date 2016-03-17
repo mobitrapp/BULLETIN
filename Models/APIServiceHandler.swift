@@ -12,13 +12,15 @@ enum BulletinRequest: URLRequestConvertible {
     
     case Intitiate
     case TokenAPI([String : String])
-    case TopNews([String : String])
+    case TopNews
+    case KarnatakaNews
+    case SpecialNews
     
     var requestMethod: Method {
         switch self {
         case .TokenAPI:
             return .POST
-        case .TopNews, .Intitiate :
+        case .TopNews, .Intitiate, .KarnatakaNews, .SpecialNews:
             return .GET
         }
         
@@ -32,6 +34,10 @@ enum BulletinRequest: URLRequestConvertible {
             return "auth"
         case .TopNews :
             return "api/v1/getCategoriesNews/CATEGORIES_TOP_NEWS"
+        case .KarnatakaNews:
+            return "api/v1/getSectionNews/SECTION_CITIES"
+        case .SpecialNews:
+            return "api/v1/getSectionNews/SECTION_SPECIAL?exclude_category=CATEGORIES_FROM_THE_WEB"
         }
     }
     
@@ -43,27 +49,31 @@ enum BulletinRequest: URLRequestConvertible {
         switch self {
         case .TokenAPI(let header):
             return header
-        case .TopNews(let header):
-            return header
+            
         default:
-            return nil
+            var deviceID = ""
+            if let UUID = UIDevice.currentDevice().identifierForVendor?.UUIDString {
+                deviceID = UUID
+            }
+            return ["X-Hash": NSUserDefaults.standardUserDefaults().objectForKey(GlobalStrings.APIToken.rawValue) as? String ?? "" ,
+                "X-DeviceID": deviceID]
         }
     }
     
     
     var URLRequest: NSMutableURLRequest {
-        let APIURL: NSURL!
+        let APIURL: String!
         
         switch self {
         case .Intitiate:
-            APIURL = NSURL(string: relativePath)!
+            APIURL = relativePath
         
         default:
-            let URL = NSURL(string: APIServiceManager.baseURL)!
-            APIURL = URL.URLByAppendingPathComponent(relativePath)
+            APIURL = APIServiceManager.baseURL+"/"+relativePath
         }
-
-        let mutableURLRequest = NSMutableURLRequest(URL: APIURL)
+        
+        let encodedURL = APIURL.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: encodedURL!)!)
         mutableURLRequest.HTTPMethod = requestMethod.rawValue
         
         if let headers = headers {

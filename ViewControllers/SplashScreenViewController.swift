@@ -57,7 +57,7 @@ class SplashScreenViewController: UIViewController {
                 case .Success(let token):
                     print(token)
                     NSUserDefaults.standardUserDefaults().setObject(token, forKey: GlobalStrings.APIToken.rawValue)
-                    self?.configureAndPuhLandingScreen()
+                    self?.configureAndPushLandingScreen()
                     self?.retryTokenGenerationButton.hidden = true
                     
                 case .Failure:
@@ -68,14 +68,12 @@ class SplashScreenViewController: UIViewController {
                 
             }
         } else {
-            configureAndPuhLandingScreen()
-            activityIndicator.stopAnimating()
-            activityIndicator.hidden = true
+            configureAndPushLandingScreen()
         }
         
     }
     
-    func configureAndPuhLandingScreen() {
+    func configureAndPushLandingScreen() {
         
         let menuListWidth = UIScreen.mainScreen().bounds.width * 0.8
         SlideMenuOptions.leftViewWidth = menuListWidth
@@ -107,50 +105,43 @@ class SplashScreenViewController: UIViewController {
             slideMenuController.addRightBarButtonWithImage(menuButtonImage)
         }
         
-        APIServiceManager.sharedInstance.topNews(UIDevice.currentDevice().identifierForVendor?.UUIDString) {[weak self] (result) -> Void in
-            switch result {
-            case .Success(let result):
-                if let newsArray = result as? NSArray {
-                    let topNewsList = TopNewsList(topNewsArray: newsArray)
-                    
-                    if let landingViewController = slideMenuController.mainViewController as? LandingViewController {
-                        landingViewController.topNewsList = topNewsList
-                    self?.navigationController?.pushViewController(slideMenuController, animated: false)
-                    }
-                }
-                
-            
-            case .Failure:
-                break
+        activityIndicator.startAnimating()
+        activityIndicator.hidden = false
+        
+        HomeScreenViewModel.loadHomeScreenViewModelWithCompletionHandler { [weak self](homeScreenViewModel) -> () in
+            self?.activityIndicator.stopAnimating()
+            self?.activityIndicator.hidden = true
+            if let landingViewController = slideMenuController.mainViewController as? LandingViewController {
+                landingViewController.homeScreenViewModel = homeScreenViewModel
+                self?.navigationController?.pushViewController(slideMenuController, animated: false)
                 
             }
         }
-    
-        
     }
     
-    func showInitialisationFailedAlert() {
-        let alertController = UIAlertController(title: "oops! App initialisation Failed", message: "Something went wrong while initialising the app. Would you like to try again?  ", preferredStyle: .Alert)
-        let notNowAction = UIAlertAction(title: "Not Now", style: UIAlertActionStyle.Cancel) { [weak self](action) -> Void in
-            self?.activityIndicator.stopAnimating()
-            self?.activityIndicator.hidden = true
-            self?.retryTokenGenerationButton.hidden = false
-        }
-        alertController.addAction(notNowAction)
         
-        let tryAgainAction = UIAlertAction(title: "Try Again", style: .Default) { [weak self](action) -> Void in
-            self?.initiateApp()
+        func showInitialisationFailedAlert() {
+            let alertController = UIAlertController(title: "oops! App initialisation Failed", message: "Something went wrong while initialising the app. Would you like to try again?  ", preferredStyle: .Alert)
+            let notNowAction = UIAlertAction(title: "Not Now", style: UIAlertActionStyle.Cancel) { [weak self](action) -> Void in
+                self?.activityIndicator.stopAnimating()
+                self?.activityIndicator.hidden = true
+                self?.retryTokenGenerationButton.hidden = false
+            }
+            alertController.addAction(notNowAction)
+            
+            let tryAgainAction = UIAlertAction(title: "Try Again", style: .Default) { [weak self](action) -> Void in
+                self?.initiateApp()
+                
+            }
+            alertController.addAction(tryAgainAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
             
         }
-        alertController.addAction(tryAgainAction)
         
-        presentViewController(alertController, animated: true, completion: nil)
+        @IBAction func retryTokenGenerationButtonTapped(sender: AnyObject) {
+            retryTokenGenerationButton.hidden = true
+            initiateApp()
+        }
         
-    }
-    
-    @IBAction func retryTokenGenerationButtonTapped(sender: AnyObject) {
-        retryTokenGenerationButton.hidden = true
-        initiateApp()
-    }
-    
 }

@@ -52,6 +52,21 @@
 		F2E28A4F1C4BB2DD00D8C976 /* menu_details.json in Resources */ = {isa = PBXBuildFile; fileRef = F2E28A4E1C4BB2DD00D8C976 /* menu_details.json */; };
 		F2E28A521C4BB78900D8C976 /* MenuCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A511C4BB78900D8C976 /* MenuCategoryTableViewCell.swift */; };
 		F2E28A541C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A531C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift */; };
+		F2E4E26C1C98950E00D19906 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E25E1C98950E00D19906 /* Image.swift */; };
+		F2E4E26D1C98950E00D19906 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E25F1C98950E00D19906 /* ImageCache.swift */; };
+		F2E4E26E1C98950E00D19906 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E2601C98950E00D19906 /* ImageDownloader.swift */; };
+		F2E4E26F1C98950E00D19906 /* ImagePrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E2611C98950E00D19906 /* ImagePrefetcher.swift */; };
+		F2E4E2701C98950E00D19906 /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E2621C98950E00D19906 /* ImageTransition.swift */; };
+		F2E4E2711C98950E00D19906 /* ImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E2631C98950E00D19906 /* ImageView+Kingfisher.swift */; };
+		F2E4E2721C98950E00D19906 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2E4E2641C98950E00D19906 /* Info.plist */; };
+		F2E4E2731C98950E00D19906 /* KingfisherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E2661C98950E00D19906 /* KingfisherManager.swift */; };
+		F2E4E2741C98950E00D19906 /* KingfisherOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E2671C98950E00D19906 /* KingfisherOptionsInfo.swift */; };
+		F2E4E2751C98950E00D19906 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E2681C98950E00D19906 /* Resource.swift */; };
+		F2E4E2761C98950E00D19906 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E2691C98950E00D19906 /* String+MD5.swift */; };
+		F2E4E2771C98950E00D19906 /* ThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E26A1C98950E00D19906 /* ThreadHelper.swift */; };
+		F2E4E2781C98950E00D19906 /* UIButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E26B1C98950E00D19906 /* UIButton+Kingfisher.swift */; };
+		F2E4E27C1C98A93900D19906 /* FRDLivelyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E27B1C98A93900D19906 /* FRDLivelyButton.m */; };
+		F2E6CC071C99C91C00E0092A /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E6CC061C99C91C00E0092A /* HomeScreenViewModel.swift */; };
 		F2E890711C95D9CC0034C488 /* GlobalStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E890701C95D9CC0034C488 /* GlobalStrings.swift */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +140,24 @@
 		F2E28A4E1C4BB2DD00D8C976 /* menu_details.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu_details.json; sourceTree = "<group>"; };
 		F2E28A511C4BB78900D8C976 /* MenuCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		F2E28A531C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSubCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		F2E4E25E1C98950E00D19906 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		F2E4E25F1C98950E00D19906 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		F2E4E2601C98950E00D19906 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		F2E4E2611C98950E00D19906 /* ImagePrefetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePrefetcher.swift; sourceTree = "<group>"; };
+		F2E4E2621C98950E00D19906 /* ImageTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTransition.swift; sourceTree = "<group>"; };
+		F2E4E2631C98950E00D19906 /* ImageView+Kingfisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageView+Kingfisher.swift"; sourceTree = "<group>"; };
+		F2E4E2641C98950E00D19906 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2E4E2651C98950E00D19906 /* Kingfisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kingfisher.h; sourceTree = "<group>"; };
+		F2E4E2661C98950E00D19906 /* KingfisherManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingfisherManager.swift; sourceTree = "<group>"; };
+		F2E4E2671C98950E00D19906 /* KingfisherOptionsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingfisherOptionsInfo.swift; sourceTree = "<group>"; };
+		F2E4E2681C98950E00D19906 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		F2E4E2691C98950E00D19906 /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		F2E4E26A1C98950E00D19906 /* ThreadHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadHelper.swift; sourceTree = "<group>"; };
+		F2E4E26B1C98950E00D19906 /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
+		F2E4E2791C98A93800D19906 /* Bulletin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bulletin-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		F2E4E27A1C98A93900D19906 /* FRDLivelyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRDLivelyButton.h; sourceTree = "<group>"; };
+		F2E4E27B1C98A93900D19906 /* FRDLivelyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRDLivelyButton.m; sourceTree = "<group>"; };
+		F2E6CC061C99C91C00E0092A /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		F2E890701C95D9CC0034C488 /* GlobalStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalStrings.swift; path = Models/GlobalStrings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +216,7 @@
 				F20497181C48496200BF8F3D /* Assets.xcassets */,
 				F204971A1C48496200BF8F3D /* LaunchScreen.storyboard */,
 				F204971D1C48496200BF8F3D /* Info.plist */,
+				F2E4E2791C98A93800D19906 /* Bulletin-Bridging-Header.h */,
 				F2E28A4D1C4BB29A00D8C976 /* Resources */,
 				F218AD301C4A2FE30038D80D /* ViewControllers */,
 				F20497401C4849C200BF8F3D /* SDK */,
@@ -237,9 +271,12 @@
 		F218AD331C4A31330038D80D /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				F2E4E25D1C98950E00D19906 /* Kingfisher */,
 				F2AC7F841C9548CB005FA79F /* Alamofire */,
 				F2E28A4B1C4BB29300D8C976 /* SwiftHEXColors.swift */,
 				F218AD341C4A31560038D80D /* SlideMenuController.swift */,
+				F2E4E27A1C98A93900D19906 /* FRDLivelyButton.h */,
+				F2E4E27B1C98A93900D19906 /* FRDLivelyButton.m */,
 			);
 			name = Libraries;
 			path = ..;
@@ -286,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				F2E28A491C4BB27E00D8C976 /* NewsMenu.swift */,
+				F2E6CC061C99C91C00E0092A /* HomeScreenViewModel.swift */,
 				F20CE81D1C973A5E002AD73A /* TopNewsList.swift */,
 				F2AC7FAC1C9548ED005FA79F /* APIServiceManager.swift */,
 				F2AC7FAE1C954A67005FA79F /* APIServiceHandler.swift */,
@@ -314,6 +352,27 @@
 			);
 			name = Views;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		F2E4E25D1C98950E00D19906 /* Kingfisher */ = {
+			isa = PBXGroup;
+			children = (
+				F2E4E25E1C98950E00D19906 /* Image.swift */,
+				F2E4E25F1C98950E00D19906 /* ImageCache.swift */,
+				F2E4E2601C98950E00D19906 /* ImageDownloader.swift */,
+				F2E4E2611C98950E00D19906 /* ImagePrefetcher.swift */,
+				F2E4E2621C98950E00D19906 /* ImageTransition.swift */,
+				F2E4E2631C98950E00D19906 /* ImageView+Kingfisher.swift */,
+				F2E4E2641C98950E00D19906 /* Info.plist */,
+				F2E4E2651C98950E00D19906 /* Kingfisher.h */,
+				F2E4E2661C98950E00D19906 /* KingfisherManager.swift */,
+				F2E4E2671C98950E00D19906 /* KingfisherOptionsInfo.swift */,
+				F2E4E2681C98950E00D19906 /* Resource.swift */,
+				F2E4E2691C98950E00D19906 /* String+MD5.swift */,
+				F2E4E26A1C98950E00D19906 /* ThreadHelper.swift */,
+				F2E4E26B1C98950E00D19906 /* UIButton+Kingfisher.swift */,
+			);
+			path = Kingfisher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +438,7 @@
 		F20497061C48496200BF8F3D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = com.Mobitrapp;
 				TargetAttributes = {
@@ -426,6 +486,7 @@
 				F20497191C48496200BF8F3D /* Assets.xcassets in Resources */,
 				F20497171C48496200BF8F3D /* Main.storyboard in Resources */,
 				F2E28A4F1C4BB2DD00D8C976 /* menu_details.json in Resources */,
+				F2E4E2721C98950E00D19906 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +530,7 @@
 				F2AC7FA21C9548CB005FA79F /* ParameterEncoding.swift in Sources */,
 				F2E28A521C4BB78900D8C976 /* MenuCategoryTableViewCell.swift in Sources */,
 				F218AD321C4A30340038D80D /* LandingViewController.swift in Sources */,
+				F2E4E26F1C98950E00D19906 /* ImagePrefetcher.swift in Sources */,
 				F2AC7FA01C9548CB005FA79F /* NetworkReachabilityManager.swift in Sources */,
 				F2AC7FAB1C9548CB005FA79F /* Validation.swift in Sources */,
 				F2AC7FA41C9548CB005FA79F /* Response.swift in Sources */,
@@ -480,23 +542,36 @@
 				F218AD351C4A31560038D80D /* SlideMenuController.swift in Sources */,
 				F2AC7FA91C9548CB005FA79F /* Timeline.swift in Sources */,
 				F20497121C48496200BF8F3D /* AppDelegate.swift in Sources */,
+				F2E4E2701C98950E00D19906 /* ImageTransition.swift in Sources */,
 				F2E28A4A1C4BB27E00D8C976 /* NewsMenu.swift in Sources */,
 				F2AC7FA61C9548CB005FA79F /* Result.swift in Sources */,
+				F2E4E2751C98950E00D19906 /* Resource.swift in Sources */,
+				F2E4E2781C98950E00D19906 /* UIButton+Kingfisher.swift in Sources */,
 				F2B586DE1C4C5B4A004FAFA4 /* SettingsTableViewController.swift in Sources */,
 				F2AC7FA71C9548CB005FA79F /* ServerTrustPolicy.swift in Sources */,
+				F2E4E27C1C98A93900D19906 /* FRDLivelyButton.m in Sources */,
+				F2E4E2761C98950E00D19906 /* String+MD5.swift in Sources */,
 				F218AD3A1C4A7A9F0038D80D /* UIColor+Bulletin.swift in Sources */,
 				F2AC7F9F1C9548CB005FA79F /* MultipartFormData.swift in Sources */,
 				F20CE8221C974CF9002AD73A /* NewsListTableViewCell.swift in Sources */,
 				F2AC7FA31C9548CB005FA79F /* Request.swift in Sources */,
 				F2AC7F991C9548CB005FA79F /* Alamofire.swift in Sources */,
+				F2E6CC071C99C91C00E0092A /* HomeScreenViewModel.swift in Sources */,
+				F2E4E2771C98950E00D19906 /* ThreadHelper.swift in Sources */,
 				F2E890711C95D9CC0034C488 /* GlobalStrings.swift in Sources */,
 				F2AC7F9A1C9548CB005FA79F /* Download.swift in Sources */,
+				F2E4E2731C98950E00D19906 /* KingfisherManager.swift in Sources */,
 				F20CE81E1C973A5E002AD73A /* TopNewsList.swift in Sources */,
 				F2AC7FA11C9548CB005FA79F /* Notifications.swift in Sources */,
 				F2AC7FA81C9548CB005FA79F /* Stream.swift in Sources */,
+				F2E4E26E1C98950E00D19906 /* ImageDownloader.swift in Sources */,
+				F2E4E26D1C98950E00D19906 /* ImageCache.swift in Sources */,
+				F2E4E2711C98950E00D19906 /* ImageView+Kingfisher.swift in Sources */,
 				F20CE8241C974E18002AD73A /* SectionTitleTableViewCell.swift in Sources */,
 				F2AC7F9E1C9548CB005FA79F /* Manager.swift in Sources */,
+				F2E4E2741C98950E00D19906 /* KingfisherOptionsInfo.swift in Sources */,
 				F218AD371C4A338D0038D80D /* MenuListViewController.swift in Sources */,
+				F2E4E26C1C98950E00D19906 /* Image.swift in Sources */,
 				F20CE8201C974B58002AD73A /* HomeViewController.swift in Sources */,
 				F2AC7FAF1C954A67005FA79F /* APIServiceHandler.swift in Sources */,
 				F20CE8261C975752002AD73A /* String+Bulletin.swift in Sources */,
@@ -642,6 +717,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -658,6 +734,8 @@
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mobitrapp.Bulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bulletin-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -666,6 +744,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -680,6 +759,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mobitrapp.Bulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bulletin-Bridging-Header.h";
 			};
 			name = Release;
 		};

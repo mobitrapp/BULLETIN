@@ -14,11 +14,10 @@ class NewsListTableViewCell: UITableViewCell {
     @IBOutlet weak var newsImageView: UIImageView!
     @IBOutlet weak var newsTitleLabel: UILabel!
     
-    
- 
-    func  configureWithTopNews(topNews: TopNews) {
+    func  configureWithNews(news: News) {
         newsImageView.layer.borderColor = UIColor.grayColor().CGColor
         newsImageView.layer.borderWidth = 0.7
-        newsTitleLabel.text = topNews.title.plainText()
+        newsImageView.kf_setImageWithURL(NSURL(string: news.imageURL)!, placeholderImage: UIImage(named: "NewsImagePlaceHolder"))
+        newsTitleLabel.text = news.title.plainText()
     }
 }
