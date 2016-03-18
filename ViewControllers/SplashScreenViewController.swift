@@ -111,10 +111,14 @@ class SplashScreenViewController: UIViewController {
         HomeScreenViewModel.loadHomeScreenViewModelWithCompletionHandler { [weak self](homeScreenViewModel) -> () in
             self?.activityIndicator.stopAnimating()
             self?.activityIndicator.hidden = true
-            if let landingViewController = slideMenuController.mainViewController as? LandingViewController {
-                landingViewController.homeScreenViewModel = homeScreenViewModel
-                self?.navigationController?.pushViewController(slideMenuController, animated: false)
-                
+            if homeScreenViewModel.newsIsAvailable() {
+                if let landingViewController = slideMenuController.mainViewController as? LandingViewController {
+                    landingViewController.homeScreenViewModel = homeScreenViewModel
+                    self?.navigationController?.pushViewController(slideMenuController, animated: false)
+                    
+                }
+            } else {
+                self?.showInitialisationFailedAlert()
             }
         }
     }

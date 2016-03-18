@@ -462,30 +462,34 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top news" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJp-xP-XTG">
-                                                    <rect key="frame" x="20" y="6" width="275" height="21"/>
+                                                    <rect key="frame" x="10" y="6" width="285" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More &gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1S9-QD-iVj">
-                                                    <rect key="frame" x="308" y="8" width="47" height="17"/>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Oq-PK-imm">
+                                                    <rect key="frame" x="306" y="8" width="59" height="17"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="47" id="Clf-gl-Erh"/>
+                                                        <constraint firstAttribute="height" constant="17" id="ko0-e2-bX9"/>
+                                                        <constraint firstAttribute="width" constant="59" id="ubB-fe-w9f"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                                    <state key="normal" title="More &gt;">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="1S9-QD-iVj" firstAttribute="leading" secondItem="LJp-xP-XTG" secondAttribute="trailing" constant="13" id="0yD-T8-oDp"/>
                                                 <constraint firstItem="LJp-xP-XTG" firstAttribute="top" secondItem="p4M-Az-irD" secondAttribute="top" constant="6" id="1d9-Hu-4rK"/>
-                                                <constraint firstAttribute="trailing" secondItem="1S9-QD-iVj" secondAttribute="trailing" constant="20" id="3cc-XH-Rxq"/>
-                                                <constraint firstItem="LJp-xP-XTG" firstAttribute="centerY" secondItem="1S9-QD-iVj" secondAttribute="centerY" id="Uml-lT-BfN"/>
-                                                <constraint firstItem="LJp-xP-XTG" firstAttribute="leading" secondItem="p4M-Az-irD" secondAttribute="leading" constant="20" id="ZfL-FH-h0w"/>
+                                                <constraint firstItem="3Oq-PK-imm" firstAttribute="leading" secondItem="LJp-xP-XTG" secondAttribute="trailing" constant="11" id="66T-0r-AFG"/>
+                                                <constraint firstItem="LJp-xP-XTG" firstAttribute="leading" secondItem="p4M-Az-irD" secondAttribute="leading" constant="10" id="ZfL-FH-h0w"/>
+                                                <constraint firstAttribute="trailing" secondItem="3Oq-PK-imm" secondAttribute="trailing" constant="10" id="cXf-nb-SBL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.71372549019999998" green="0.047058823530000002" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="sectionTitle" destination="LJp-xP-XTG" id="x4m-Jx-y2d"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsListTableViewCell" rowHeight="90" id="lKK-xG-doY" customClass="NewsListTableViewCell" customModule="Bulletin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="63" width="375" height="90"/>

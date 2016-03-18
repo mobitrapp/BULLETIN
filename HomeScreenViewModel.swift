@@ -49,8 +49,6 @@ class HomeScreenViewModel: NSObject {
             }
             
         }
-        
-        
     }
     
     class func getHomeScreenNewsWithRequest(request: BulletinRequest, completionHandler: (NewsList) -> () ) {
@@ -68,5 +66,17 @@ class HomeScreenViewModel: NSObject {
         })
     }
     
+    
+    func newsIsAvailable() -> Bool {
+        if let topNewsList = topNewsList, let karnatakaNewsList = karnatakaNewsList , let specialNewsList = specialNewsList {
+            if topNewsList.list.isEmpty && karnatakaNewsList.list.isEmpty && specialNewsList.list.isEmpty {
+                return false
+            }
+        } else {
+            return false
+        }
+        
+        return true
+    }
     
 }

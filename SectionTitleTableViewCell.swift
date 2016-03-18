@@ -10,10 +10,10 @@ import UIKit
 
 class SectionTitleTableViewCell: UITableViewCell {
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    @IBOutlet weak var sectionTitle: UILabel!
 
-        // Configure the view for the selected state
+    func configureWithTitle(title: String) {
+        sectionTitle.text = title
     }
-
+    
 }

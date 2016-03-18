@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var homeTableView: UITableView!
+    lazy var refreshControl = UIRefreshControl()
     var homeScreenViewModel: HomeScreenViewModel!
     let headerHeight: CGFloat = 35.0
     let cellHeight: CGFloat = 90
@@ -20,6 +21,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        homeTableView.addSubview(refreshControl)
+        refreshControl.tintColor = UIColor.bulletinRed()
+        refreshControl.addTarget(self, action: "refreshFeed", forControlEvents: UIControlEvents.ValueChanged)
         homeTableView.contentInset = UIEdgeInsets(top: 2, left: 0, bottom: 70, right: 0)
         homeTableView.estimatedRowHeight = 50
     }
@@ -31,6 +35,22 @@ extension HomeViewController: UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 3
+    }
+    
+    func titleForNewsAtIndexPath(indexPath: NSIndexPath) -> String {
+        
+        var title = ""
+        switch indexPath.section {
+        case 0:
+            title = "News"
+            
+        case 1:
+            title = "Karnataka"
+            
+        default:
+            title = "Special"
+        }
+        return title
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,6 +87,7 @@ extension HomeViewController: UITableViewDataSource {
         
         if indexPath.row == 0 {
             cell = tableView.dequeueReusableCellWithIdentifier("SectionTitleTableViewCell", forIndexPath: indexPath)
+            (cell as? SectionTitleTableViewCell)?.configureWithTitle(titleForNewsAtIndexPath(indexPath))
         } else {
             
             var news: News?
@@ -75,7 +96,7 @@ extension HomeViewController: UITableViewDataSource {
             } else if indexPath.section == 1{
                 news = homeScreenViewModel.karnatakaNewsList!.list[indexPath.row - 1]
             } else if indexPath.section == 2 {
-                 news = homeScreenViewModel.specialNewsList!.list[indexPath.row - 1]
+                news = homeScreenViewModel.specialNewsList!.list[indexPath.row - 1]
             }
             
             cell = tableView.dequeueReusableCellWithIdentifier("NewsListTableViewCell", forIndexPath: indexPath)
@@ -84,6 +105,21 @@ extension HomeViewController: UITableViewDataSource {
             }
         }
         return cell
+        
+    }
+    
+    func refreshFeed() {
+        
+        
+        HomeScreenViewModel.loadHomeScreenViewModelWithCompletionHandler { [weak self](homeScreenViewModel) -> () in
+            if homeScreenViewModel.newsIsAvailable() {
+                self?.homeScreenViewModel = homeScreenViewModel
+                self?.refreshControl.endRefreshing()
+                self?.homeTableView.reloadData()
+            } else {
+                self?.refreshControl.endRefreshing()
+            }
+        }
         
     }
     
