@@ -127,6 +127,6 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return (indexPath.row == 0) ? headerHeight : cellHeight
+        return UITableViewAutomaticDimension
     }
 }
