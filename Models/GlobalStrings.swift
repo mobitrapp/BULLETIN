@@ -10,4 +10,5 @@ import UIKit
 
 enum GlobalStrings: String {
     case APIToken
+    case CachedHomeScreenModel
 }

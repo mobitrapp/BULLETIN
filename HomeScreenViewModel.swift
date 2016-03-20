@@ -10,21 +10,44 @@ import UIKit
 
 typealias homeScreenResponseHandler = (HomeScreenViewModel) -> ()
 
-class HomeScreenViewModel: NSObject {
+class HomeScreenViewModel: NSObject, NSCoding {
     var topNewsList: NewsList?
     var karnatakaNewsList : NewsList?
     var specialNewsList: NewsList?
     static var totalDownloadedNews = 0
     static var expcetedNumberOfNews = 3
-    override init() {
+    
+    
+    required convenience init?(coder decoder: NSCoder) {
+        guard let topNewsList = decoder.decodeObjectForKey("topNewsList") as? NewsList,
+            let karnatakaNewsList = decoder.decodeObjectForKey("karnatakaNewsList") as? NewsList,
+            let specialNewsList = decoder.decodeObjectForKey("specialNewsList") as? NewsList
+            else {
+                
+                
+                return nil }
         
+        self.init(topNewsList: topNewsList, karnatakaNewsList: karnatakaNewsList, specialNewsList: specialNewsList)
+    }
+    
+    init(topNewsList: NewsList?, karnatakaNewsList: NewsList?, specialNewsList: NewsList?) {
+        self.topNewsList = topNewsList
+        self.karnatakaNewsList = karnatakaNewsList
+        self.specialNewsList = specialNewsList
     }
     
     
+    
+    func encodeWithCoder(coder: NSCoder) {
+        coder.encodeObject(self.topNewsList, forKey: "topNewsList")
+        coder.encodeObject(self.karnatakaNewsList, forKey: "karnatakaNewsList")
+        coder.encodeObject(self.specialNewsList, forKey: "specialNewsList")
+    }
+    
     class func loadHomeScreenViewModelWithCompletionHandler(completionHandler: homeScreenResponseHandler) {
         totalDownloadedNews = 0
-        let homeScreenViewModel = HomeScreenViewModel()
-
+        let homeScreenViewModel = HomeScreenViewModel(topNewsList: nil, karnatakaNewsList: nil, specialNewsList: nil)
+        
         let requestList : [BulletinRequest] = [.TopNews, .KarnatakaNews, .SpecialNews]
         
         for request in requestList {
@@ -44,6 +67,12 @@ class HomeScreenViewModel: NSObject {
                     break
                 }
                 if totalDownloadedNews == expcetedNumberOfNews {
+                    
+                    if homeScreenViewModel.newsIsAvailable() {
+                        let encodedData = NSKeyedArchiver.archivedDataWithRootObject(homeScreenViewModel)
+                        NSUserDefaults.standardUserDefaults().setObject(encodedData, forKey: GlobalStrings.CachedHomeScreenModel.rawValue)
+                    }
+                    
                     completionHandler(homeScreenViewModel)
                 }
             }

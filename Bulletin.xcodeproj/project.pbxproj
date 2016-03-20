@@ -52,6 +52,8 @@
 		F2E28A4F1C4BB2DD00D8C976 /* menu_details.json in Resources */ = {isa = PBXBuildFile; fileRef = F2E28A4E1C4BB2DD00D8C976 /* menu_details.json */; };
 		F2E28A521C4BB78900D8C976 /* MenuCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A511C4BB78900D8C976 /* MenuCategoryTableViewCell.swift */; };
 		F2E28A541C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A531C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift */; };
+		F2E32CC31C9EB768004DA46B /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E32CC21C9EB768004DA46B /* Reach.swift */; };
+		F2E32CC51C9EB856004DA46B /* UIViewController+Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E32CC41C9EB856004DA46B /* UIViewController+Bulletin.swift */; };
 		F2E4E26C1C98950E00D19906 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E25E1C98950E00D19906 /* Image.swift */; };
 		F2E4E26D1C98950E00D19906 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E25F1C98950E00D19906 /* ImageCache.swift */; };
 		F2E4E26E1C98950E00D19906 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E2601C98950E00D19906 /* ImageDownloader.swift */; };
@@ -140,6 +142,8 @@
 		F2E28A4E1C4BB2DD00D8C976 /* menu_details.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu_details.json; sourceTree = "<group>"; };
 		F2E28A511C4BB78900D8C976 /* MenuCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		F2E28A531C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSubCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		F2E32CC21C9EB768004DA46B /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
+		F2E32CC41C9EB856004DA46B /* UIViewController+Bulletin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Bulletin.swift"; path = "Extension/UIViewController+Bulletin.swift"; sourceTree = "<group>"; };
 		F2E4E25E1C98950E00D19906 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		F2E4E25F1C98950E00D19906 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		F2E4E2601C98950E00D19906 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 				F218AD341C4A31560038D80D /* SlideMenuController.swift */,
 				F2E4E27A1C98A93900D19906 /* FRDLivelyButton.h */,
 				F2E4E27B1C98A93900D19906 /* FRDLivelyButton.m */,
+				F2E32CC21C9EB768004DA46B /* Reach.swift */,
 			);
 			name = Libraries;
 			path = ..;
@@ -287,6 +292,7 @@
 			children = (
 				F218AD391C4A7A9F0038D80D /* UIColor+Bulletin.swift */,
 				F20CE8251C975752002AD73A /* String+Bulletin.swift */,
+				F2E32CC41C9EB856004DA46B /* UIViewController+Bulletin.swift */,
 			);
 			name = Extension;
 			path = ..;
@@ -534,6 +540,7 @@
 				F2AC7FA01C9548CB005FA79F /* NetworkReachabilityManager.swift in Sources */,
 				F2AC7FAB1C9548CB005FA79F /* Validation.swift in Sources */,
 				F2AC7FA41C9548CB005FA79F /* Response.swift in Sources */,
+				F2E32CC31C9EB768004DA46B /* Reach.swift in Sources */,
 				F2E28A541C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift in Sources */,
 				F2AC7FAA1C9548CB005FA79F /* Upload.swift in Sources */,
 				F235A17D1C95940A002A7522 /* SplashScreenViewController.swift in Sources */,
@@ -563,6 +570,7 @@
 				F2E4E2731C98950E00D19906 /* KingfisherManager.swift in Sources */,
 				F20CE81E1C973A5E002AD73A /* TopNewsList.swift in Sources */,
 				F2AC7FA11C9548CB005FA79F /* Notifications.swift in Sources */,
+				F2E32CC51C9EB856004DA46B /* UIViewController+Bulletin.swift in Sources */,
 				F2AC7FA81C9548CB005FA79F /* Stream.swift in Sources */,
 				F2E4E26E1C98950E00D19906 /* ImageDownloader.swift in Sources */,
 				F2E4E26D1C98950E00D19906 /* ImageCache.swift in Sources */,

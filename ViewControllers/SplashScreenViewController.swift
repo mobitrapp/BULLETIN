@@ -108,44 +108,66 @@ class SplashScreenViewController: UIViewController {
         activityIndicator.startAnimating()
         activityIndicator.hidden = false
         
-        HomeScreenViewModel.loadHomeScreenViewModelWithCompletionHandler { [weak self](homeScreenViewModel) -> () in
-            self?.activityIndicator.stopAnimating()
-            self?.activityIndicator.hidden = true
-            if homeScreenViewModel.newsIsAvailable() {
-                if let landingViewController = slideMenuController.mainViewController as? LandingViewController {
-                    landingViewController.homeScreenViewModel = homeScreenViewModel
-                    self?.navigationController?.pushViewController(slideMenuController, animated: false)
-                    
-                }
-            } else {
-                self?.showInitialisationFailedAlert()
-            }
-        }
-    }
-    
-        
-        func showInitialisationFailedAlert() {
-            let alertController = UIAlertController(title: "oops! App initialisation Failed", message: "Something went wrong while initialising the app. Would you like to try again?  ", preferredStyle: .Alert)
-            let notNowAction = UIAlertAction(title: "Not Now", style: UIAlertActionStyle.Cancel) { [weak self](action) -> Void in
-                self?.activityIndicator.stopAnimating()
-                self?.activityIndicator.hidden = true
-                self?.retryTokenGenerationButton.hidden = false
-            }
-            alertController.addAction(notNowAction)
-            
-            let tryAgainAction = UIAlertAction(title: "Try Again", style: .Default) { [weak self](action) -> Void in
-                self?.initiateApp()
+        if !interNetIsAvailable() {
+            if let cachedData = NSUserDefaults.standardUserDefaults().objectForKey(GlobalStrings.CachedHomeScreenModel.rawValue) as? NSData {
+                if let cachedViewModel = NSKeyedUnarchiver.unarchiveObjectWithData(cachedData) as? HomeScreenViewModel {
+                        pushHomeScreenViewControllerWithModel(cachedViewModel, onViewController: slideMenuController)
+                        return
                 
             }
-            alertController.addAction(tryAgainAction)
+                showInitialisationFailedAlert()
+            } else {
+                showInitialisationFailedAlert()
+            }
             
-            presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            HomeScreenViewModel.loadHomeScreenViewModelWithCompletionHandler { [weak self](homeScreenViewModel) -> () in
+                self?.activityIndicator.stopAnimating()
+                self?.activityIndicator.hidden = true
+                if homeScreenViewModel.newsIsAvailable() {
+                    self?.pushHomeScreenViewControllerWithModel(homeScreenViewModel, onViewController: slideMenuController)
+                } else {
+                    self?.showInitialisationFailedAlert()
+                }
+            }
             
         }
         
-        @IBAction func retryTokenGenerationButtonTapped(sender: AnyObject) {
-            retryTokenGenerationButton.hidden = true
-            initiateApp()
+    }
+    
+    func pushHomeScreenViewControllerWithModel(homeScreenViewModel: HomeScreenViewModel, onViewController slideMenuViewController: SlideMenuController) {
+        
+        if let landingViewController = slideMenuViewController.mainViewController as? LandingViewController {
+            landingViewController.homeScreenViewModel = homeScreenViewModel
+            navigationController?.pushViewController(slideMenuViewController, animated: false)
+            
         }
         
+    }
+    
+    
+    func showInitialisationFailedAlert() {
+        let alertController = UIAlertController(title: "oops! App initialisation Failed", message: "Something went wrong while initialising the app. Would you like to try again?  ", preferredStyle: .Alert)
+        let notNowAction = UIAlertAction(title: "Not Now", style: UIAlertActionStyle.Cancel) { [weak self](action) -> Void in
+            self?.activityIndicator.stopAnimating()
+            self?.activityIndicator.hidden = true
+            self?.retryTokenGenerationButton.hidden = false
+        }
+        alertController.addAction(notNowAction)
+        
+        let tryAgainAction = UIAlertAction(title: "Try Again", style: .Default) { [weak self](action) -> Void in
+            self?.initiateApp()
+            
+        }
+        alertController.addAction(tryAgainAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func retryTokenGenerationButtonTapped(sender: AnyObject) {
+        retryTokenGenerationButton.hidden = true
+        initiateApp()
+    }
+    
 }
