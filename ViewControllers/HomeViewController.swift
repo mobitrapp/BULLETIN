@@ -21,6 +21,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         homeTableView.addSubview(refreshControl)
         refreshControl.tintColor = UIColor.bulletinRed()
+        if !homeScreenViewModel.newsIsAvailable() {
+            showNoNewscreen()
+        }
+        
         refreshControl.addTarget(self, action: "refreshFeed", forControlEvents: UIControlEvents.ValueChanged)
         
         var bottomInset = navigationController?.navigationBar.frame.height ?? 0.0
@@ -113,17 +117,20 @@ extension HomeViewController: UITableViewDataSource {
     
     func refreshFeed() {
         
-        
         HomeScreenViewModel.loadHomeScreenViewModelWithCompletionHandler { [weak self](homeScreenViewModel) -> () in
             if homeScreenViewModel.newsIsAvailable() {
                 self?.homeScreenViewModel = homeScreenViewModel
+                self?.removeNoNewsScreen()
                 self?.refreshControl.endRefreshing()
                 self?.homeTableView.reloadData()
             } else {
                 self?.refreshControl.endRefreshing()
             }
         }
-        
+    }
+    
+    override func retryButtonTapped() {
+        refreshFeed()
     }
     
 }

@@ -21,5 +21,31 @@ extension UIViewController {
         }
         return status
     }
+    
+    func showNoNewscreen() {
+        if let noNetworkViewController = self.storyboard?.instantiateViewControllerWithIdentifier("NoNetworkViewCOntroller") as? NoNetworkViewController {
+            
+            addChildViewController(noNetworkViewController)
+            noNetworkViewController.didMoveToParentViewController(self)
+            noNetworkViewController.delegate = self
+            view.addSubview(noNetworkViewController.view)
+        }
+    }
+    
+    func removeNoNewsScreen() {
+        childViewControllers.forEach {
+            if let childViewController = $0 as? NoNetworkViewController {
+                childViewController.willMoveToParentViewController(nil)
+                childViewController.view.removeFromSuperview()
+                childViewController.removeFromParentViewController()
+            }
+        }
+    }
 
+}
+
+extension UIViewController: NoNewsDelegate {
+    func retryButtonTapped() {
+        
+    }
 }

@@ -111,27 +111,29 @@ class SplashScreenViewController: UIViewController {
         if !interNetIsAvailable() {
             if let cachedData = NSUserDefaults.standardUserDefaults().objectForKey(GlobalStrings.CachedHomeScreenModel.rawValue) as? NSData {
                 if let cachedViewModel = NSKeyedUnarchiver.unarchiveObjectWithData(cachedData) as? HomeScreenViewModel {
-                        pushHomeScreenViewControllerWithModel(cachedViewModel, onViewController: slideMenuController)
-                        return
-                
-            }
+                    pushHomeScreenViewControllerWithModel(cachedViewModel, onViewController: slideMenuController)
+                    return
+                    
+                }
                 showInitialisationFailedAlert()
             } else {
-                showInitialisationFailedAlert()
+                pushHomeSceenOnSlideMenuController(slideMenuController)
             }
             
         } else {
-            HomeScreenViewModel.loadHomeScreenViewModelWithCompletionHandler { [weak self](homeScreenViewModel) -> () in
-                self?.activityIndicator.stopAnimating()
-                self?.activityIndicator.hidden = true
-                if homeScreenViewModel.newsIsAvailable() {
-                    self?.pushHomeScreenViewControllerWithModel(homeScreenViewModel, onViewController: slideMenuController)
-                } else {
-                    self?.showInitialisationFailedAlert()
-                }
-            }
-            
+            pushHomeSceenOnSlideMenuController(slideMenuController)
         }
+        
+    }
+    
+    func pushHomeSceenOnSlideMenuController(slideMenuController: SlideMenuController) {
+        HomeScreenViewModel.loadHomeScreenViewModelWithCompletionHandler { [weak self](homeScreenViewModel) -> () in
+            self?.activityIndicator.stopAnimating()
+            self?.activityIndicator.hidden = true
+            
+            self?.pushHomeScreenViewControllerWithModel(homeScreenViewModel, onViewController: slideMenuController)
+        }
+        
         
     }
     

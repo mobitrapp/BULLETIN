@@ -42,7 +42,7 @@ class News: NSObject, NSCoding {
             let publishedAt = decoder.decodeObjectForKey("published_at") as? String,
             let shortDescription = decoder.decodeObjectForKey("short_description") as? String,
             let imageURL = decoder.decodeObjectForKey("image_preview") as? String,
-            let postedBy = decoder.decodeObjectForKey("posted_by") as? String,
+            let _ = decoder.decodeObjectForKey("posted_by") as? String,
             let displayPostedBy = decoder.decodeObjectForKey("display_posted_by") as? Int,
             let updatedAt = decoder.decodeObjectForKey("updated_at") as? Int
             else {

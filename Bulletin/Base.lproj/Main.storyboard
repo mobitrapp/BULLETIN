@@ -436,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJs-cS-wN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2070.5" y="10.5"/>
+            <point key="canvasLocation" x="1774.5" y="-45.5"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="geq-oJ-VGh">
@@ -574,7 +574,63 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SY9-ao-RWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2487.5" y="10.5"/>
+            <point key="canvasLocation" x="2175.5" y="-45.5"/>
+        </scene>
+        <!--No Network View Controller-->
+        <scene sceneID="MyQ-TY-i2V">
+            <objects>
+                <viewController storyboardIdentifier="NoNetworkViewCOntroller" id="Eun-xp-oHD" customClass="NoNetworkViewController" customModule="Bulletin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xwE-Z4-jgL"/>
+                        <viewControllerLayoutGuide type="bottom" id="foG-y0-j3a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NcR-wm-QHW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No News available in current section, Please try again later." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neA-sr-7wb">
+                                <rect key="frame" x="10" y="312" width="355" height="43"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoNews" translatesAutoresizingMaskIntoConstraints="NO" id="Ptc-Qd-h39">
+                                <rect key="frame" x="137" y="204" width="100" height="100"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JhN-wL-q1O">
+                                <rect key="frame" x="165" y="365" width="45" height="33"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Retry">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="HelveticaNeue-Medium"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="retryButtonTapped:" destination="Eun-xp-oHD" eventType="touchUpInside" id="lnH-r6-V90"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="neA-sr-7wb" firstAttribute="top" secondItem="Ptc-Qd-h39" secondAttribute="bottom" constant="8" id="EZK-Fo-jno"/>
+                            <constraint firstItem="neA-sr-7wb" firstAttribute="leading" secondItem="NcR-wm-QHW" secondAttribute="leading" constant="10" id="M9f-F4-qDB"/>
+                            <constraint firstItem="JhN-wL-q1O" firstAttribute="top" secondItem="neA-sr-7wb" secondAttribute="bottom" constant="10" id="R8k-Hx-wIW"/>
+                            <constraint firstItem="JhN-wL-q1O" firstAttribute="centerX" secondItem="neA-sr-7wb" secondAttribute="centerX" id="cDd-T6-lem"/>
+                            <constraint firstAttribute="trailing" secondItem="neA-sr-7wb" secondAttribute="trailing" constant="10" id="fzv-ZX-qQS"/>
+                            <constraint firstItem="Ptc-Qd-h39" firstAttribute="centerX" secondItem="NcR-wm-QHW" secondAttribute="centerX" id="gr6-v1-qEX"/>
+                            <constraint firstItem="neA-sr-7wb" firstAttribute="centerY" secondItem="NcR-wm-QHW" secondAttribute="centerY" id="kEj-8D-igv"/>
+                            <constraint firstItem="neA-sr-7wb" firstAttribute="centerX" secondItem="NcR-wm-QHW" secondAttribute="centerX" id="pDO-Yk-fPS"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7sU-wJ-Emy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2563.5" y="-45.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nuu-1U-KBC">
@@ -593,7 +649,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKi-yj-xEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1539.5" y="88.5"/>
+            <point key="canvasLocation" x="1379.5" y="-45.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="A27-B7-MNY">
@@ -615,6 +671,7 @@
     </scenes>
     <resources>
         <image name="NewsImagePlaceHolder" width="66" height="66"/>
+        <image name="NoNews" width="100" height="100"/>
         <image name="Plus" width="11" height="11"/>
         <image name="Special" width="16" height="16"/>
         <image name="splash_icon" width="400" height="48"/>

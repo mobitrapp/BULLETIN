@@ -209,7 +209,9 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
     
     public override func openLeft() {
         setOpenWindowLevel()
-        
+        if let drawerBarButton = drawerBarButton {
+            drawerBarButton.setStyle( kFRDLivelyButtonStyleArrowLeft, animated: true)
+        }
         //leftViewControllerのviewWillAppearを呼ぶため
         leftViewController?.beginAppearanceTransition(isLeftHidden(), animated: true)
         openLeftWithVelocity(0.0)
@@ -226,6 +228,9 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
     }
     
     public override func closeLeft() {
+        if let drawerBarButton = drawerBarButton {
+            drawerBarButton.setStyle( kFRDLivelyButtonStyleHamburger, animated: true)
+        }
         leftViewController?.beginAppearanceTransition(isLeftHidden(), animated: true)
         closeLeftWithVelocity(0.0)
         setCloseWindowLebel()
@@ -559,15 +564,11 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
             closeLeft()
             setCloseWindowLebel()
             // closeMenuはメニュータップ時にも呼ばれるため、closeタップのトラッキングはここに入れる
-            if let drawerBarButton = drawerBarButton {
-                drawerBarButton.setStyle( kFRDLivelyButtonStyleHamburger, animated: true)
-            }
+        
             track(.TapClose)
         } else {
             openLeft()
-           if let drawerBarButton = drawerBarButton {
-                drawerBarButton.setStyle( kFRDLivelyButtonStyleArrowLeft, animated: true)
-            }
+        
         }
     }
     

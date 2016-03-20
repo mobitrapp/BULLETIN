@@ -86,7 +86,18 @@ extension MenuListViewController: UITableViewDelegate {
             categoryIsOpen[indexPath.section] = !categoryIsOpen[indexPath.section]
             reloadTableViewSection(indexPath.section)
             openedSection = indexPath.section
+        } else {
+            categoryIsOpen[openedSection] = false
+            reloadTableViewSection(indexPath.section)
+            
+            
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.30 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+              self.closeLeft()
+            }
+            
         }
+        
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

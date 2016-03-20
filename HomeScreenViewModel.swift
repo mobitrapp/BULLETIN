@@ -36,6 +36,9 @@ class HomeScreenViewModel: NSObject, NSCoding {
         self.specialNewsList = specialNewsList
     }
     
+    override init() {
+        
+    }
     
     
     func encodeWithCoder(coder: NSCoder) {
