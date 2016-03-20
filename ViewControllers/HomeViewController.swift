@@ -13,8 +13,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var homeTableView: UITableView!
     lazy var refreshControl = UIRefreshControl()
     var homeScreenViewModel: HomeScreenViewModel!
-    let headerHeight: CGFloat = 35.0
-    let cellHeight: CGFloat = 90
     let topNewsCount = 4
     let karntakaNewsCount = 8
     let specialCount = 3
@@ -24,7 +22,12 @@ class HomeViewController: UIViewController {
         homeTableView.addSubview(refreshControl)
         refreshControl.tintColor = UIColor.bulletinRed()
         refreshControl.addTarget(self, action: "refreshFeed", forControlEvents: UIControlEvents.ValueChanged)
-        homeTableView.contentInset = UIEdgeInsets(top: 2, left: 0, bottom: 70, right: 0)
+        
+        var bottomInset = navigationController?.navigationBar.frame.height ?? 0.0
+        
+        bottomInset += UIApplication.sharedApplication().statusBarFrame.size.height ?? 0.0
+        
+        homeTableView.contentInset = UIEdgeInsets(top: 2, left: 0, bottom: bottomInset, right: 0)
         homeTableView.estimatedRowHeight = 50
     }
     
@@ -127,6 +130,6 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return (indexPath.row == 0) ? headerHeight : cellHeight
+        return UITableViewAutomaticDimension
     }
 }
