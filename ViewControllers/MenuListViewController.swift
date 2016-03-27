@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MenuListViewControllerDelegate {
+    func menuListDidSelectWithValue()
+}
+
 class MenuListViewController: UIViewController {
     
     @IBOutlet weak var menuListTableView: UITableView!
@@ -15,6 +19,7 @@ class MenuListViewController: UIViewController {
     var menuDetail: NewsMenu?
     var categoryIsOpen: [Bool]!
     var openedSection = Int.min
+    var delegate: MenuListViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +83,13 @@ extension MenuListViewController: UITableViewDataSource {
 extension MenuListViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if let cateogry = menuDetail?.newsMenu?[indexPath.section] {
+            if cateogry.subCategories == nil {
+                delegate?.menuListDidSelectWithValue()
+                closeLeft()
+            }
+        }
         if indexPath.row == 0 {
             if openedSection != indexPath.section && openedSection != Int.min {
                 categoryIsOpen[openedSection] = false
@@ -92,8 +104,9 @@ extension MenuListViewController: UITableViewDelegate {
             
             
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.30 * Double(NSEC_PER_SEC)))
-            dispatch_after(delayTime, dispatch_get_main_queue()) {
-              self.closeLeft()
+            dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] _ in
+                self?.delegate?.menuListDidSelectWithValue()
+                self?.closeLeft()
             }
             
         }

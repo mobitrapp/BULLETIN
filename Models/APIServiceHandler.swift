@@ -8,13 +8,26 @@
 
 import UIKit
 
-enum BulletinRequest: URLRequestConvertible {
+class PaginationTracker {
+    var limit = 10
+    var page = 1
+    var description: String {
+        return "?limit=\(limit)&page=\(page)"
+    }
+    
+     func incrementToNextSetOfNews() {
+        page++
+    }
+    
+}
+
+enum BulletinRequest: URLRequestConvertible  {
     
     case Intitiate
     case TokenAPI([String : String])
-    case TopNews
-    case KarnatakaNews
-    case SpecialNews
+    case TopNews(PaginationTracker)
+    case KarnatakaNews(PaginationTracker)
+    case SpecialNews(PaginationTracker)
     
     var requestMethod: Method {
         switch self {
@@ -25,6 +38,23 @@ enum BulletinRequest: URLRequestConvertible {
         }
         
     }
+    var pageIndicator: PaginationTracker {
+        var paginationTracker = PaginationTracker()
+        switch self {
+        case .TopNews(let tracker):
+            paginationTracker = tracker
+            
+        case .KarnatakaNews(let tracker):
+            paginationTracker = tracker
+            
+        case .SpecialNews(let tracker):
+            paginationTracker = tracker
+            
+        default:
+            break
+        }
+        return paginationTracker
+    }
     
     var relativePath: String {
         switch self {
@@ -32,12 +62,14 @@ enum BulletinRequest: URLRequestConvertible {
             return "https://dl.dropboxusercontent.com/s/1e9jl2e2bvoef45/app_status.json?dl=0"
         case .TokenAPI:
             return "auth"
-        case .TopNews :
-            return "api/v1/getCategoriesNews/CATEGORIES_TOP_NEWS"
-        case .KarnatakaNews:
-            return "api/v1/getSectionNews/SECTION_CITIES"
-        case .SpecialNews:
-            return "api/v1/getSectionNews/SECTION_SPECIAL?exclude_category=CATEGORIES_FROM_THE_WEB"
+        case .TopNews(let paginationTracker) :
+            return "api/v1/getCategoriesNews/CATEGORIES_TOP_NEWS" + paginationTracker.description
+        case .KarnatakaNews(let paginationTracker) :
+            return "api/v1/getSectionNews/SECTION_CITIES" + paginationTracker.description
+            
+        case .SpecialNews(let paginationTracker) :
+            return "api/v1/getSectionNews/SECTION_SPECIAL?exclude_category=CATEGORIES_FROM_THE_WEB" + paginationTracker.description
+            
         }
     }
     
@@ -67,7 +99,7 @@ enum BulletinRequest: URLRequestConvertible {
         switch self {
         case .Intitiate:
             APIURL = relativePath
-        
+            
         default:
             APIURL = APIServiceManager.baseURL+"/"+relativePath
         }

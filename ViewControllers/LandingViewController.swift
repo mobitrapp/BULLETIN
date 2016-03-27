@@ -12,8 +12,9 @@ import UIKit
 class LandingViewController: UIViewController {
     var navigationIconImageView: UIImageView!
     var homeScreenViewModel: HomeScreenViewModel!
+    var childViewController: UIViewController?
     
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -24,7 +25,7 @@ class LandingViewController: UIViewController {
         super.viewWillAppear(animated)
         configureHomeScreen()
     }
-
+    
     private func configureNavigationBar() {
         if let navigationBar = slideMenuController()?.navigationController?.navigationBar {
             if let newsIcon = UIImage(named: "NavigationIcon") {
@@ -40,10 +41,10 @@ class LandingViewController: UIViewController {
     
     func configureHomeScreen() {
         if let homeSCreeViewController = storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController {
+            childViewController = homeSCreeViewController
             homeSCreeViewController.homeScreenViewModel = homeScreenViewModel
-            addChildViewController(homeSCreeViewController)
-            view.addSubview(homeSCreeViewController.view)
-            homeSCreeViewController.didMoveToParentViewController(self)
+            homeSCreeViewController.delegate = self
+            addViewControllerAsChild(homeSCreeViewController)
         }
         
     }
@@ -54,11 +55,42 @@ class LandingViewController: UIViewController {
 extension LandingViewController: SlideMenuControllerDelegate {
     
     func settingsButtonDidTap() {
-        
         let settingsViewController = storyboard?.instantiateViewControllerWithIdentifier("settingsTableViewController")
         if let settingsViewController = settingsViewController {
             let settingsNavigationController = UINavigationController(rootViewController: settingsViewController)
             slideMenuController()?.navigationController?.presentViewController(settingsNavigationController, animated: true, completion: nil)
         }
+    }
+}
+
+
+extension LandingViewController: HomeViewControllerDelegate {
+    func moreButtonTappedWithSectionType(sectionType: HomeScreenNewsSectionType) {
+        var newsRequestType: BulletinRequest!
+        switch sectionType {
+        case .TopNews :
+            newsRequestType = BulletinRequest.TopNews(PaginationTracker())
+        case .Karnataka:
+            newsRequestType = BulletinRequest.KarnatakaNews(PaginationTracker())
+        case .Special:
+            newsRequestType = BulletinRequest.SpecialNews(PaginationTracker())
+        }
+        
+        if let childViewController = childViewController {
+            removeViewControllerFromParent(childViewController)
+            if let newsListViewController = storyboard?.instantiateViewControllerWithIdentifier("NewsListViewController") as? NewsListViewController {
+                newsListViewController.requestType = newsRequestType
+                addViewControllerAsChild(newsListViewController)
+            }
+        }
+    }
+}
+
+extension LandingViewController: MenuListViewControllerDelegate {
+    func menuListDidSelectWithValue() {
+        if let childViewController = childViewController {
+            removeViewControllerFromParent(childViewController)
+        }
+        configureHomeScreen()
     }
 }

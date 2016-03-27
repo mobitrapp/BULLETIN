@@ -9,15 +9,27 @@
 import UIKit
 
 class NewsListTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var publishedOnLabel: UILabel!
     @IBOutlet weak var newsImageView: UIImageView!
     @IBOutlet weak var newsTitleLabel: UILabel!
     
+    override func awakeFromNib() {
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.bulletinLightRed()
+        selectedBackgroundView = backgroundView
+        
+    }
+    
     func  configureWithNews(news: News) {
         newsImageView.layer.borderColor = UIColor.grayColor().CGColor
         newsImageView.layer.borderWidth = 0.7
-        newsImageView.kf_setImageWithURL(NSURL(string: news.imageURL)!, placeholderImage: UIImage(named: "NewsImagePlaceHolder"))
+        if let imageURL = NSURL(string: news.imageURL) {
+            newsImageView.kf_setImageWithURL(imageURL, placeholderImage: UIImage(named: "NewsImagePlaceHolder"))
+        } else {
+            newsImageView.image = UIImage(named: "NewsImagePlaceHolder")
+        }
+        
         newsTitleLabel.text = news.title.plainText()
     }
 }

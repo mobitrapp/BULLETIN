@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol HomeViewControllerDelegate {
+    func moreButtonTappedWithSectionType(sectionType: HomeScreenNewsSectionType)
+}
+
+
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var homeTableView: UITableView!
     lazy var refreshControl = UIRefreshControl()
     var homeScreenViewModel: HomeScreenViewModel!
+    var delegate: HomeViewControllerDelegate?
     let topNewsCount = 4
     let karntakaNewsCount = 8
     let specialCount = 3
@@ -24,15 +30,9 @@ class HomeViewController: UIViewController {
         if !homeScreenViewModel.newsIsAvailable() {
             showNoNewscreen()
         }
-        
-        refreshControl.addTarget(self, action: "refreshFeed", forControlEvents: UIControlEvents.ValueChanged)
-        
-        var bottomInset = navigationController?.navigationBar.frame.height ?? 0.0
-        
-        bottomInset += UIApplication.sharedApplication().statusBarFrame.size.height ?? 0.0
-        
-        homeTableView.contentInset = UIEdgeInsets(top: 2, left: 0, bottom: bottomInset, right: 0)
+         refreshControl.addTarget(self, action: "refreshFeed", forControlEvents: UIControlEvents.ValueChanged)
         homeTableView.estimatedRowHeight = 50
+        homeTableView.contentInset = childTableViewContentInset(2)
     }
     
 }
@@ -49,7 +49,7 @@ extension HomeViewController: UITableViewDataSource {
         var title = ""
         switch indexPath.section {
         case 0:
-            title = "News"
+            title = "Top news"
             
         case 1:
             title = "Karnataka"
@@ -94,7 +94,8 @@ extension HomeViewController: UITableViewDataSource {
         
         if indexPath.row == 0 {
             cell = tableView.dequeueReusableCellWithIdentifier("SectionTitleTableViewCell", forIndexPath: indexPath)
-            (cell as? SectionTitleTableViewCell)?.configureWithTitle(titleForNewsAtIndexPath(indexPath))
+            (cell as? SectionTitleTableViewCell)?.configureWithTitle(titleForNewsAtIndexPath(indexPath), sectionType: HomeScreenNewsSectionType(rawValue: indexPath.section)!)
+            (cell as? SectionTitleTableViewCell)?.delegate = self
         } else {
             
             var news: News?
@@ -138,5 +139,11 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+}
+
+extension HomeViewController: SectionTitleTableViewCellDelegate {
+    func moreButtonTappedForSectionType(sectionType: HomeScreenNewsSectionType) {
+        delegate?.moreButtonTappedWithSectionType(sectionType)
     }
 }

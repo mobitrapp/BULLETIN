@@ -23,8 +23,6 @@ class HomeScreenViewModel: NSObject, NSCoding {
             let karnatakaNewsList = decoder.decodeObjectForKey("karnatakaNewsList") as? NewsList,
             let specialNewsList = decoder.decodeObjectForKey("specialNewsList") as? NewsList
             else {
-                
-                
                 return nil }
         
         self.init(topNewsList: topNewsList, karnatakaNewsList: karnatakaNewsList, specialNewsList: specialNewsList)
@@ -50,11 +48,11 @@ class HomeScreenViewModel: NSObject, NSCoding {
     class func loadHomeScreenViewModelWithCompletionHandler(completionHandler: homeScreenResponseHandler) {
         totalDownloadedNews = 0
         let homeScreenViewModel = HomeScreenViewModel(topNewsList: nil, karnatakaNewsList: nil, specialNewsList: nil)
-        
-        let requestList : [BulletinRequest] = [.TopNews, .KarnatakaNews, .SpecialNews]
+        let defaultPagination = PaginationTracker()
+        let requestList : [BulletinRequest] = [.TopNews(defaultPagination), .KarnatakaNews(defaultPagination), .SpecialNews(defaultPagination)]
         
         for request in requestList {
-            getHomeScreenNewsWithRequest(request) { (newsList) -> () in
+            getNewsWithRequest(request) { (newsList) -> () in
                 totalDownloadedNews++
                 switch request {
                 case .TopNews:
@@ -83,7 +81,7 @@ class HomeScreenViewModel: NSObject, NSCoding {
         }
     }
     
-    class func getHomeScreenNewsWithRequest(request: BulletinRequest, completionHandler: (NewsList) -> () ) {
+    class func getNewsWithRequest(request: BulletinRequest, completionHandler: (NewsList) -> () ) {
         APIServiceManager.sharedInstance.getNews(request, completionHandler: { (result) -> Void in
             switch result {
             case .Success(let result):

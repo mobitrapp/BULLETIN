@@ -9,7 +9,14 @@
 import UIKit
 
 extension UIViewController {
-
+    
+    func childTableViewContentInset(toppadding: CGFloat = 0.0) -> UIEdgeInsets {
+        var bottomInset = navigationController?.navigationBar.frame.height ?? 0.0
+        bottomInset += UIApplication.sharedApplication().statusBarFrame.size.height ?? 0.0
+        
+        return UIEdgeInsets(top: toppadding, left: 0.0, bottom: bottomInset, right: 0.0)
+    }
+    
     func interNetIsAvailable() -> Bool {
         let newtworkReachability = Reach()
         var status = false
@@ -24,24 +31,33 @@ extension UIViewController {
     
     func showNoNewscreen() {
         if let noNetworkViewController = self.storyboard?.instantiateViewControllerWithIdentifier("NoNetworkViewCOntroller") as? NoNetworkViewController {
-            
-            addChildViewController(noNetworkViewController)
-            noNetworkViewController.didMoveToParentViewController(self)
             noNetworkViewController.delegate = self
-            view.addSubview(noNetworkViewController.view)
+            addViewControllerAsChild(noNetworkViewController)
         }
     }
     
     func removeNoNewsScreen() {
         childViewControllers.forEach {
             if let childViewController = $0 as? NoNetworkViewController {
-                childViewController.willMoveToParentViewController(nil)
-                childViewController.view.removeFromSuperview()
-                childViewController.removeFromParentViewController()
+                removeViewControllerFromParent(childViewController)
             }
         }
     }
-
+    
+    func addViewControllerAsChild(childViewController: UIViewController) {
+        
+        addChildViewController(childViewController)
+        childViewController.didMoveToParentViewController(self)
+        view.addSubview(childViewController.view)
+        
+    }
+    
+    func removeViewControllerFromParent(childViewController: UIViewController) {
+        childViewController.willMoveToParentViewController(nil)
+        childViewController.view.removeFromSuperview()
+        childViewController.removeFromParentViewController()
+    }
+    
 }
 
 extension UIViewController: NoNewsDelegate {

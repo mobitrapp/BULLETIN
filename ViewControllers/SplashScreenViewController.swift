@@ -88,6 +88,9 @@ class SplashScreenViewController: UIViewController {
         if let menuListController = leftMenuViewController as? MenuListViewController {
             let menuDetail = NewsMenu.loadMenuFromJsonFile()
             menuListController.menuDetail = menuDetail
+            if let landingViewController = mainViewController as? LandingViewController {
+                 menuListController.delegate = landingViewController
+            }
         }
         
         let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: leftMenuViewController)

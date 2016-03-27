@@ -121,16 +121,17 @@ class APIServiceManager: NSObject {
         
         var URLRequest: URLRequestConvertible!
         
+        let defaultPaginagtion = PaginationTracker()
         switch type {
             
-        case .TopNews:
-            URLRequest = BulletinRequest.TopNews
+        case .TopNews(let paginationTracker):
+            URLRequest = BulletinRequest.TopNews(paginationTracker)
             
-        case .SpecialNews:
-            URLRequest = BulletinRequest.SpecialNews
+        case .SpecialNews(let paginationTracker):
+            URLRequest = BulletinRequest.SpecialNews(paginationTracker)
             
         default:
-            URLRequest = BulletinRequest.KarnatakaNews
+            URLRequest = BulletinRequest.KarnatakaNews(defaultPaginagtion)
         }
         
         request(URLRequest).responseJSON { (response) -> Void in

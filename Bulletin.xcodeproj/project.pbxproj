@@ -47,6 +47,7 @@
 		F2AC7FAD1C9548ED005FA79F /* APIServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC7FAC1C9548ED005FA79F /* APIServiceManager.swift */; };
 		F2AC7FAF1C954A67005FA79F /* APIServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC7FAE1C954A67005FA79F /* APIServiceHandler.swift */; };
 		F2B586DE1C4C5B4A004FAFA4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B586DD1C4C5B4A004FAFA4 /* SettingsTableViewController.swift */; };
+		F2DAC6B01CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DAC6AF1CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift */; };
 		F2E28A4A1C4BB27E00D8C976 /* NewsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A491C4BB27E00D8C976 /* NewsMenu.swift */; };
 		F2E28A4C1C4BB29300D8C976 /* SwiftHEXColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A4B1C4BB29300D8C976 /* SwiftHEXColors.swift */; };
 		F2E28A4F1C4BB2DD00D8C976 /* menu_details.json in Resources */ = {isa = PBXBuildFile; fileRef = F2E28A4E1C4BB2DD00D8C976 /* menu_details.json */; };
@@ -55,6 +56,7 @@
 		F2E32CC31C9EB768004DA46B /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E32CC21C9EB768004DA46B /* Reach.swift */; };
 		F2E32CC51C9EB856004DA46B /* UIViewController+Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E32CC41C9EB856004DA46B /* UIViewController+Bulletin.swift */; };
 		F2E3F6331C9F2D0500FA16EC /* NoNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E3F6321C9F2D0500FA16EC /* NoNetworkViewController.swift */; };
+		F2E40B241CA05A8F0031EB22 /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E40B231CA05A8F0031EB22 /* NewsListViewController.swift */; };
 		F2E4E26C1C98950E00D19906 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E25E1C98950E00D19906 /* Image.swift */; };
 		F2E4E26D1C98950E00D19906 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E25F1C98950E00D19906 /* ImageCache.swift */; };
 		F2E4E26E1C98950E00D19906 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E2601C98950E00D19906 /* ImageDownloader.swift */; };
@@ -71,6 +73,8 @@
 		F2E4E27C1C98A93900D19906 /* FRDLivelyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E4E27B1C98A93900D19906 /* FRDLivelyButton.m */; };
 		F2E6CC071C99C91C00E0092A /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E6CC061C99C91C00E0092A /* HomeScreenViewModel.swift */; };
 		F2E890711C95D9CC0034C488 /* GlobalStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E890701C95D9CC0034C488 /* GlobalStrings.swift */; };
+		F2F367E81CA31DE700168FD0 /* USerGuidanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F367E71CA31DE700168FD0 /* USerGuidanceViewController.swift */; };
+		F2F367EA1CA322A800168FD0 /* About us.txt in Resources */ = {isa = PBXBuildFile; fileRef = F2F367E91CA322A800168FD0 /* About us.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +142,7 @@
 		F2AC7FAC1C9548ED005FA79F /* APIServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceManager.swift; sourceTree = "<group>"; };
 		F2AC7FAE1C954A67005FA79F /* APIServiceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIServiceHandler.swift; path = Models/APIServiceHandler.swift; sourceTree = "<group>"; };
 		F2B586DD1C4C5B4A004FAFA4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = ViewControllers/SettingsTableViewController.swift; sourceTree = "<group>"; };
+		F2DAC6AF1CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorTableViewCell.swift; sourceTree = "<group>"; };
 		F2E28A491C4BB27E00D8C976 /* NewsMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsMenu.swift; path = Models/NewsMenu.swift; sourceTree = "<group>"; };
 		F2E28A4B1C4BB29300D8C976 /* SwiftHEXColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftHEXColors.swift; path = Libraries/SwiftHEXColors.swift; sourceTree = "<group>"; };
 		F2E28A4E1C4BB2DD00D8C976 /* menu_details.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu_details.json; sourceTree = "<group>"; };
@@ -146,6 +151,7 @@
 		F2E32CC21C9EB768004DA46B /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
 		F2E32CC41C9EB856004DA46B /* UIViewController+Bulletin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Bulletin.swift"; path = "Extension/UIViewController+Bulletin.swift"; sourceTree = "<group>"; };
 		F2E3F6321C9F2D0500FA16EC /* NoNetworkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoNetworkViewController.swift; path = ViewControllers/NoNetworkViewController.swift; sourceTree = "<group>"; };
+		F2E40B231CA05A8F0031EB22 /* NewsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsListViewController.swift; path = ViewControllers/NewsListViewController.swift; sourceTree = "<group>"; };
 		F2E4E25E1C98950E00D19906 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		F2E4E25F1C98950E00D19906 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		F2E4E2601C98950E00D19906 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
@@ -165,6 +171,8 @@
 		F2E4E27B1C98A93900D19906 /* FRDLivelyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRDLivelyButton.m; sourceTree = "<group>"; };
 		F2E6CC061C99C91C00E0092A /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		F2E890701C95D9CC0034C488 /* GlobalStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalStrings.swift; path = Models/GlobalStrings.swift; sourceTree = "<group>"; };
+		F2F367E71CA31DE700168FD0 /* USerGuidanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USerGuidanceViewController.swift; sourceTree = "<group>"; };
+		F2F367E91CA322A800168FD0 /* About us.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "About us.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +278,8 @@
 				F218AD361C4A338D0038D80D /* MenuListViewController.swift */,
 				F20CE81F1C974B58002AD73A /* HomeViewController.swift */,
 				F2E3F6321C9F2D0500FA16EC /* NoNetworkViewController.swift */,
+				F2E40B231CA05A8F0031EB22 /* NewsListViewController.swift */,
+				F2F367E71CA31DE700168FD0 /* USerGuidanceViewController.swift */,
 			);
 			name = ViewControllers;
 			path = ..;
@@ -346,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				F2E28A4E1C4BB2DD00D8C976 /* menu_details.json */,
+				F2F367E91CA322A800168FD0 /* About us.txt */,
 			);
 			name = Resources;
 			path = ..;
@@ -358,6 +369,7 @@
 				F2E28A531C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift */,
 				F20CE8211C974CF9002AD73A /* NewsListTableViewCell.swift */,
 				F20CE8231C974E18002AD73A /* SectionTitleTableViewCell.swift */,
+				F2DAC6AF1CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift */,
 			);
 			name = Views;
 			path = ..;
@@ -494,6 +506,7 @@
 				F2AC7F9D1C9548CB005FA79F /* Info.plist in Resources */,
 				F20497191C48496200BF8F3D /* Assets.xcassets in Resources */,
 				F20497171C48496200BF8F3D /* Main.storyboard in Resources */,
+				F2F367EA1CA322A800168FD0 /* About us.txt in Resources */,
 				F2E28A4F1C4BB2DD00D8C976 /* menu_details.json in Resources */,
 				F2E4E2721C98950E00D19906 /* Info.plist in Resources */,
 			);
@@ -569,6 +582,8 @@
 				F2AC7F991C9548CB005FA79F /* Alamofire.swift in Sources */,
 				F2E6CC071C99C91C00E0092A /* HomeScreenViewModel.swift in Sources */,
 				F2E4E2771C98950E00D19906 /* ThreadHelper.swift in Sources */,
+				F2E40B241CA05A8F0031EB22 /* NewsListViewController.swift in Sources */,
+				F2F367E81CA31DE700168FD0 /* USerGuidanceViewController.swift in Sources */,
 				F2E890711C95D9CC0034C488 /* GlobalStrings.swift in Sources */,
 				F2AC7F9A1C9548CB005FA79F /* Download.swift in Sources */,
 				F2E4E2731C98950E00D19906 /* KingfisherManager.swift in Sources */,
@@ -581,6 +596,7 @@
 				F2E4E2711C98950E00D19906 /* ImageView+Kingfisher.swift in Sources */,
 				F20CE8241C974E18002AD73A /* SectionTitleTableViewCell.swift in Sources */,
 				F2AC7F9E1C9548CB005FA79F /* Manager.swift in Sources */,
+				F2DAC6B01CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift in Sources */,
 				F2E4E2741C98950E00D19906 /* KingfisherOptionsInfo.swift in Sources */,
 				F218AD371C4A338D0038D80D /* MenuListViewController.swift in Sources */,
 				F2E4E26C1C98950E00D19906 /* Image.swift in Sources */,
