@@ -19,12 +19,10 @@ class LandingViewController: UIViewController {
         super.viewDidLoad()
         configureNavigationBar()
         slideMenuController()?.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         configureHomeScreen()
     }
+    
+    
     
     private func configureNavigationBar() {
         if let navigationBar = slideMenuController()?.navigationController?.navigationBar {
@@ -76,21 +74,44 @@ extension LandingViewController: HomeViewControllerDelegate {
             newsRequestType = BulletinRequest.SpecialNews(PaginationTracker())
         }
         
+        showNewsScreenWithRequest(newsRequestType, subcategory: "")
+    }
+    
+    
+    func viewModelDidUpdate(viewModel: HomeScreenViewModel) {
+        homeScreenViewModel = viewModel
+    }
+    
+    func showNewsScreenWithRequest(request: BulletinRequest, subcategory: String) {
+        
         if let childViewController = childViewController {
             removeViewControllerFromParent(childViewController)
-            if let newsListViewController = storyboard?.instantiateViewControllerWithIdentifier("NewsListViewController") as? NewsListViewController {
-                newsListViewController.requestType = newsRequestType
-                addViewControllerAsChild(newsListViewController)
-            }
+        }
+        
+        if let newsListViewController = storyboard?.instantiateViewControllerWithIdentifier("NewsListViewController") as? NewsListViewController {
+            newsListViewController.requestType = request
+            newsListViewController.subCategory = subcategory
+            addViewControllerAsChild(newsListViewController)
+            childViewController = newsListViewController
         }
     }
+    
+    
 }
 
 extension LandingViewController: MenuListViewControllerDelegate {
-    func menuListDidSelectWithValue() {
+    func menuListDidSelectWithSubCategory(subCategory: SubCategory?) {
         if let childViewController = childViewController {
             removeViewControllerFromParent(childViewController)
         }
-        configureHomeScreen()
+        
+        if let subCategory = subCategory {
+            
+            showNewsScreenWithRequest(BulletinRequest.commonNews(PaginationTracker(), subCategory.code),subcategory: subCategory.name)
+
+        } else {
+            configureHomeScreen()
+        }
+        
     }
 }

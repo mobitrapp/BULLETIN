@@ -27,19 +27,20 @@ enum BulletinRequest: URLRequestConvertible  {
     case TokenAPI([String : String])
     case TopNews(PaginationTracker)
     case KarnatakaNews(PaginationTracker)
-    case SpecialNews(PaginationTracker)
+    case SpecialNews(PaginationTracker?)
+    case commonNews(PaginationTracker,String)
     
     var requestMethod: Method {
         switch self {
         case .TokenAPI:
             return .POST
-        case .TopNews, .Intitiate, .KarnatakaNews, .SpecialNews:
+        case .TopNews, .Intitiate, .KarnatakaNews, .SpecialNews, .commonNews:
             return .GET
         }
         
     }
-    var pageIndicator: PaginationTracker {
-        var paginationTracker = PaginationTracker()
+    var pageIndicator: PaginationTracker? {
+        var paginationTracker: PaginationTracker?
         switch self {
         case .TopNews(let tracker):
             paginationTracker = tracker
@@ -50,6 +51,9 @@ enum BulletinRequest: URLRequestConvertible  {
         case .SpecialNews(let tracker):
             paginationTracker = tracker
             
+        case .commonNews(let tracker, _):
+             paginationTracker = tracker
+            
         default:
             break
         }
@@ -57,19 +61,26 @@ enum BulletinRequest: URLRequestConvertible  {
     }
     
     var relativePath: String {
+        var paginationDescription = ""
+        if let paginationTracker = pageIndicator {
+            paginationDescription = paginationTracker.description
+        }
+        
         switch self {
         case .Intitiate:
             return "https://dl.dropboxusercontent.com/s/1e9jl2e2bvoef45/app_status.json?dl=0"
         case .TokenAPI:
             return "auth"
-        case .TopNews(let paginationTracker) :
-            return "api/v1/getCategoriesNews/CATEGORIES_TOP_NEWS" + paginationTracker.description
-        case .KarnatakaNews(let paginationTracker) :
-            return "api/v1/getSectionNews/SECTION_CITIES" + paginationTracker.description
+        case .TopNews :
+            return "api/v1/getCategoriesNews/CATEGORIES_TOP_NEWS" + paginationDescription
+        case .KarnatakaNews :
+            return "api/v1/getSectionNews/SECTION_CITIES" + paginationDescription
             
-        case .SpecialNews(let paginationTracker) :
-            return "api/v1/getSectionNews/SECTION_SPECIAL?exclude_category=CATEGORIES_FROM_THE_WEB" + paginationTracker.description
-            
+        case .SpecialNews :
+            return "api/v1/getSectionNews/SECTION_SPECIAL?exclude_category=CATEGORIES_FROM_THE_WEB" + paginationDescription
+         
+        case .commonNews( _, let category) :
+             return "api/v1/getCategoriesNews/" + category + paginationDescription
         }
     }
     

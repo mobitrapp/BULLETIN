@@ -18,7 +18,7 @@ class News: NSObject, NSCoding {
     var imageURL = ""
     var postedBy = ""
     var categoryID = 0
-    var displayPostedBy = 0
+    var displayPostedBy = ""
     var updatedAt = 0
     
     init(topNewsDictionary: NSDictionary) {
@@ -28,8 +28,8 @@ class News: NSObject, NSCoding {
         publishedAt = topNewsDictionary["published_at"] as? String ?? ""
         shortDescription = topNewsDictionary["short_description"] as? String ?? ""
         imageURL = topNewsDictionary["image_preview"] as? String ?? ""
-        categoryID = topNewsDictionary["posted_by"] as? Int ?? Int.min
-        displayPostedBy = topNewsDictionary["display_posted_by"] as? Int ?? 0
+        postedBy = topNewsDictionary["posted_by"] as? String ?? ""
+        displayPostedBy = topNewsDictionary["display_posted_by"] as? String ?? ""
         updatedAt = topNewsDictionary["updated_at"] as? Int ?? 0
         
     }
@@ -43,7 +43,7 @@ class News: NSObject, NSCoding {
             let shortDescription = decoder.decodeObjectForKey("short_description") as? String,
             let imageURL = decoder.decodeObjectForKey("image_preview") as? String,
             let _ = decoder.decodeObjectForKey("posted_by") as? String,
-            let displayPostedBy = decoder.decodeObjectForKey("display_posted_by") as? Int,
+            let displayPostedBy = decoder.decodeObjectForKey("display_posted_by") as? String,
             let updatedAt = decoder.decodeObjectForKey("updated_at") as? Int
             else {
                 
@@ -52,7 +52,7 @@ class News: NSObject, NSCoding {
         self.init(id: ID, title: title, slug: slug, publishedAt: publishedAt, description: shortDescription, url: imageURL,categoryID: 0, displayPostedBy: displayPostedBy,updatedAt: updatedAt)
     }
     
-    init(id: String, title: String, slug: String, publishedAt: String, description: String, url: String, categoryID: Int, displayPostedBy: Int,updatedAt: Int) {
+    init(id: String, title: String, slug: String, publishedAt: String, description: String, url: String, categoryID: Int, displayPostedBy: String,updatedAt: Int) {
         self.id = id
         self.title = title
         self.slug = slug
@@ -74,14 +74,11 @@ class News: NSObject, NSCoding {
         coder.encodeObject(self.shortDescription, forKey: "short_description")
         coder.encodeObject(self.imageURL, forKey: "image_preview")
         coder.encodeObject(self.postedBy, forKey: "posted_by")
-        coder.encodeObject(self.categoryID, forKey: "display_posted_by")
-        coder.encodeObject(self.displayPostedBy, forKey: "updated_at")
+        coder.encodeObject(self.categoryID, forKey: "category_id")
+        coder.encodeObject(self.displayPostedBy, forKey: "display_posted_by")
+        coder.encodeObject(self.updatedAt, forKey: "updated_at")
         
     }
-    
-    
-    
-    
     
     
 }

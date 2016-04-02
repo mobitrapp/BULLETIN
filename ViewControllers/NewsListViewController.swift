@@ -15,7 +15,16 @@ class NewsListViewController: UIViewController {
     var newsList: NewsList?
     var pageIndicator: PaginationTracker!
     var requestType: BulletinRequest?
+    var subCategory = ""
     var newsIsFetching = false
+    var shouldShowIndicator = true
+    
+    lazy var activityIndicator : UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        activityIndicator.color = UIColor.bulletinRed()
+        return activityIndicator
+    }()
+    
     @IBOutlet weak var newsListTableView: UITableView!
     
     override func viewDidLoad() {
@@ -28,9 +37,19 @@ class NewsListViewController: UIViewController {
     }
     
     func fetchFeed() {
+        newsIsFetching = true
         if let requestType = requestType {
             
+            if newsList == nil {
+                newsListTableView.showActivityIndicator(activityIndicator)
+            }
+            
             HomeScreenViewModel.getNewsWithRequest(requestType, completionHandler: { [weak self](newsList) -> () in
+                
+                if let activityIndicator = self?.activityIndicator {
+                    self?.newsListTableView.hideActivityIndicator(activityIndicator)
+                }
+                
                 
                 if self?.newsList == nil {
                     self?.newsList = newsList
@@ -39,9 +58,22 @@ class NewsListViewController: UIViewController {
                 }
                 
                 self?.newsIsFetching = false
-                if newsList.list.count <= 0 {
+                if self?.newsList?.list.count <= 0 {
                     self?.showNoNewscreen()
                 } else {
+                    if let pageIndicator = self?.pageIndicator {
+                        if  self?.newsList?.list.count < (pageIndicator.limit * pageIndicator.page) {
+                            if let interNetisAvailable = self?.interNetIsAvailable() {
+                                if interNetisAvailable {
+                                    self?.shouldShowIndicator = false
+                                }
+                            }
+                        } else {
+                            self?.shouldShowIndicator = true
+                        }
+
+                    }
+                    
                     self?.removeNoNewsScreen()
                     self?.newsListTableView.reloadData()
                 }
@@ -52,7 +84,13 @@ class NewsListViewController: UIViewController {
     }
     
     override func retryButtonTapped() {
-        fetchFeed()
+        if interNetIsAvailable() {
+            fetchFeed()
+            if newsList?.list.count <= 0 {
+                removeNoNewsScreen()
+                newsListTableView.showActivityIndicator(activityIndicator)
+            }
+        }
     }
     
     func newsTitleForCurrentScreen() -> String {
@@ -70,7 +108,7 @@ class NewsListViewController: UIViewController {
                 newsTitle = "Special"
                 
             default:
-                newsTitle = ""
+                newsTitle = subCategory
             }
             
         }
@@ -83,6 +121,9 @@ extension NewsListViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let newsCount = newsList?.list.count {
+            if !shouldShowIndicator {
+                return newsCount
+            }
             return pageIndicator.page < 5 ? newsCount + 1 : newsCount
         } else {
             return 0
@@ -113,12 +154,11 @@ extension NewsListViewController: UITableViewDataSource {
         let contentYoffset = scrollView.contentOffset.y
         let distanceFromBottom = scrollView.contentSize.height - contentYoffset
         if distanceFromBottom <= height {
-            if !newsIsFetching && interNetIsAvailable() {
-                newsIsFetching = true
+            if !newsIsFetching && interNetIsAvailable() &&  pageIndicator.page <= 4 && shouldShowIndicator {
+    
                 pageIndicator.incrementToNextSetOfNews()
-                if pageIndicator.page <= 5 {
-                   fetchFeed()
-                }
+                fetchFeed()
+                
             }
         }
         
@@ -141,3 +181,4 @@ extension NewsListViewController: UITableViewDelegate {
         return UITableViewAutomaticDimension
     }
 }
+

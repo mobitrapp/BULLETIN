@@ -131,8 +131,7 @@ class SplashScreenViewController: UIViewController {
     
     func pushHomeSceenOnSlideMenuController(slideMenuController: SlideMenuController) {
         HomeScreenViewModel.loadHomeScreenViewModelWithCompletionHandler { [weak self](homeScreenViewModel) -> () in
-            self?.activityIndicator.stopAnimating()
-            self?.activityIndicator.hidden = true
+           
             
             self?.pushHomeScreenViewControllerWithModel(homeScreenViewModel, onViewController: slideMenuController)
         }
@@ -143,6 +142,8 @@ class SplashScreenViewController: UIViewController {
     func pushHomeScreenViewControllerWithModel(homeScreenViewModel: HomeScreenViewModel, onViewController slideMenuViewController: SlideMenuController) {
         
         if let landingViewController = slideMenuViewController.mainViewController as? LandingViewController {
+            activityIndicator.stopAnimating()
+            activityIndicator.hidden = true
             landingViewController.homeScreenViewModel = homeScreenViewModel
             navigationController?.pushViewController(slideMenuViewController, animated: false)
             

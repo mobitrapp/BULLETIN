@@ -10,6 +10,7 @@ import UIKit
 
 protocol HomeViewControllerDelegate {
     func moreButtonTappedWithSectionType(sectionType: HomeScreenNewsSectionType)
+    func viewModelDidUpdate(viewModel: HomeScreenViewModel)
 }
 
 
@@ -23,6 +24,13 @@ class HomeViewController: UIViewController {
     let karntakaNewsCount = 8
     let specialCount = 3
     
+    lazy var activityIndicator : UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        activityIndicator.color = UIColor.bulletinRed()
+        return activityIndicator
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         homeTableView.addSubview(refreshControl)
@@ -30,7 +38,7 @@ class HomeViewController: UIViewController {
         if !homeScreenViewModel.newsIsAvailable() {
             showNoNewscreen()
         }
-         refreshControl.addTarget(self, action: "refreshFeed", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: "refreshFeed", forControlEvents: UIControlEvents.ValueChanged)
         homeTableView.estimatedRowHeight = 50
         homeTableView.contentInset = childTableViewContentInset(2)
     }
@@ -119,19 +127,35 @@ extension HomeViewController: UITableViewDataSource {
     func refreshFeed() {
         
         HomeScreenViewModel.loadHomeScreenViewModelWithCompletionHandler { [weak self](homeScreenViewModel) -> () in
+            
+            if let activityIndicator = self?.activityIndicator {
+                self?.homeTableView?.hideActivityIndicator(activityIndicator)
+            }
             if homeScreenViewModel.newsIsAvailable() {
                 self?.homeScreenViewModel = homeScreenViewModel
+                self?.delegate?.viewModelDidUpdate(homeScreenViewModel)
                 self?.removeNoNewsScreen()
                 self?.refreshControl.endRefreshing()
                 self?.homeTableView.reloadData()
             } else {
                 self?.refreshControl.endRefreshing()
+                if let homeScreenViewModel = self?.homeScreenViewModel {
+                    if !homeScreenViewModel.newsIsAvailable() {
+                        self?.showNoNewscreen()
+                    }
+                }
             }
         }
     }
     
     override func retryButtonTapped() {
         refreshFeed()
+        if let homeScreenViewModel = self.homeScreenViewModel {
+            if !homeScreenViewModel.newsIsAvailable() {
+                homeTableView?.showActivityIndicator(activityIndicator)
+                removeNoNewsScreen()
+            }
+        }
     }
     
 }

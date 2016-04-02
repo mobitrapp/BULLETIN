@@ -17,6 +17,7 @@ class SubCategory {
         self.name = name
         self.slug = slug
         self.code = code
+        
     }
     
     class func newsSubCategoriesInDictionary(subCategoryArray: NSArray) -> [SubCategory]? {

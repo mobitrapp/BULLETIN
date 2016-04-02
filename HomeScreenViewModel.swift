@@ -49,7 +49,7 @@ class HomeScreenViewModel: NSObject, NSCoding {
         totalDownloadedNews = 0
         let homeScreenViewModel = HomeScreenViewModel(topNewsList: nil, karnatakaNewsList: nil, specialNewsList: nil)
         let defaultPagination = PaginationTracker()
-        let requestList : [BulletinRequest] = [.TopNews(defaultPagination), .KarnatakaNews(defaultPagination), .SpecialNews(defaultPagination)]
+        let requestList: [BulletinRequest] = [.TopNews(defaultPagination), .KarnatakaNews(defaultPagination), .SpecialNews(nil)]
         
         for request in requestList {
             getNewsWithRequest(request) { (newsList) -> () in

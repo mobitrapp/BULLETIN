@@ -129,10 +129,22 @@ class APIServiceManager: NSObject {
             
         case .SpecialNews(let paginationTracker):
             URLRequest = BulletinRequest.SpecialNews(paginationTracker)
-            
+         
+        case .commonNews(let paginationTracker, let category):
+            URLRequest = BulletinRequest.commonNews(paginationTracker, category)
         default:
             URLRequest = BulletinRequest.KarnatakaNews(defaultPaginagtion)
         }
+        
+        perfromRequest(URLRequest, withCompletionHandler: completionHandler)
+    }
+    
+    func getNewsForSubCategory(subCategory: String, completionHandler: Result<AnyObject, NSError> -> Void) {
+        perfromRequest( BulletinRequest.commonNews(PaginationTracker(), subCategory), withCompletionHandler: completionHandler)
+    }
+    
+    
+    func perfromRequest(URLRequest:URLRequestConvertible, withCompletionHandler completionHandler: Result<AnyObject, NSError> -> Void) {
         
         request(URLRequest).responseJSON { (response) -> Void in
             switch response.result {
@@ -152,6 +164,7 @@ class APIServiceManager: NSObject {
                 completionHandler(Result.Failure(error))
             }
         }
-        
+
     }
+    
 }

@@ -10,6 +10,7 @@ import UIKit
 
 extension UIViewController {
     
+    
     func childTableViewContentInset(toppadding: CGFloat = 0.0) -> UIEdgeInsets {
         var bottomInset = navigationController?.navigationBar.frame.height ?? 0.0
         bottomInset += UIApplication.sharedApplication().statusBarFrame.size.height ?? 0.0

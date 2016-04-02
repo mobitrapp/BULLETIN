@@ -14,6 +14,7 @@ class NewsListTableViewCell: UITableViewCell {
     @IBOutlet weak var newsImageView: UIImageView!
     @IBOutlet weak var newsTitleLabel: UILabel!
     
+    @IBOutlet weak var postedByLabel: UILabel!
     override func awakeFromNib() {
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.bulletinLightRed()
@@ -24,6 +25,14 @@ class NewsListTableViewCell: UITableViewCell {
     func  configureWithNews(news: News) {
         newsImageView.layer.borderColor = UIColor.grayColor().CGColor
         newsImageView.layer.borderWidth = 0.7
+        if postedByLabel != nil {
+            postedByLabel.text = ""
+            if news.displayPostedBy == "Y" {
+                postedByLabel.text = news.postedBy
+            }
+        }
+        
+        
         if let imageURL = NSURL(string: news.imageURL) {
             newsImageView.kf_setImageWithURL(imageURL, placeholderImage: UIImage(named: "NewsImagePlaceHolder"))
         } else {

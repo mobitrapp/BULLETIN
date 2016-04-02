@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MenuListViewControllerDelegate {
-    func menuListDidSelectWithValue()
+    func menuListDidSelectWithSubCategory(subCategory: SubCategory?)
 }
 
 class MenuListViewController: UIViewController {
@@ -86,7 +86,7 @@ extension MenuListViewController: UITableViewDelegate {
         
         if let cateogry = menuDetail?.newsMenu?[indexPath.section] {
             if cateogry.subCategories == nil {
-                delegate?.menuListDidSelectWithValue()
+                delegate?.menuListDidSelectWithSubCategory(nil)
                 closeLeft()
             }
         }
@@ -105,7 +105,14 @@ extension MenuListViewController: UITableViewDelegate {
             
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.30 * Double(NSEC_PER_SEC)))
             dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] _ in
-                self?.delegate?.menuListDidSelectWithValue()
+                
+                if let menuDetail = self?.menuDetail {
+                    if let subCategory = menuDetail.newsMenu?[indexPath.section].subCategories?[indexPath.row - 1] {
+                     
+                         self?.delegate?.menuListDidSelectWithSubCategory(subCategory)
+                    }
+                    
+                }
                 self?.closeLeft()
             }
             
@@ -122,5 +129,7 @@ extension MenuListViewController: UITableViewDelegate {
         let sectionsToReload = NSIndexSet(indexesInRange: indexRange)
         menuListTableView.reloadSections(sectionsToReload, withRowAnimation: UITableViewRowAnimation.Fade)
     }
+    
+    
     
 }
