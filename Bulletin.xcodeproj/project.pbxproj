@@ -74,6 +74,7 @@
 		F2E6CC071C99C91C00E0092A /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E6CC061C99C91C00E0092A /* HomeScreenViewModel.swift */; };
 		F2E890711C95D9CC0034C488 /* GlobalStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E890701C95D9CC0034C488 /* GlobalStrings.swift */; };
 		F2EF5A0F1CAF980800F605D8 /* UITableView+Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EF5A0E1CAF980800F605D8 /* UITableView+Bulletin.swift */; };
+		F2EF5A111CB04F6C00F605D8 /* NSDate+Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EF5A101CB04F6C00F605D8 /* NSDate+Bulletin.swift */; };
 		F2F367E81CA31DE700168FD0 /* USerGuidanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F367E71CA31DE700168FD0 /* USerGuidanceViewController.swift */; };
 		F2F367EA1CA322A800168FD0 /* About us.txt in Resources */ = {isa = PBXBuildFile; fileRef = F2F367E91CA322A800168FD0 /* About us.txt */; };
 /* End PBXBuildFile section */
@@ -173,6 +174,7 @@
 		F2E6CC061C99C91C00E0092A /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		F2E890701C95D9CC0034C488 /* GlobalStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalStrings.swift; path = Models/GlobalStrings.swift; sourceTree = "<group>"; };
 		F2EF5A0E1CAF980800F605D8 /* UITableView+Bulletin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView+Bulletin.swift"; path = "Extension/UITableView+Bulletin.swift"; sourceTree = "<group>"; };
+		F2EF5A101CB04F6C00F605D8 /* NSDate+Bulletin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Bulletin.swift"; path = "Extension/NSDate+Bulletin.swift"; sourceTree = "<group>"; };
 		F2F367E71CA31DE700168FD0 /* USerGuidanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USerGuidanceViewController.swift; sourceTree = "<group>"; };
 		F2F367E91CA322A800168FD0 /* About us.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "About us.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -309,6 +311,7 @@
 				F2EF5A0E1CAF980800F605D8 /* UITableView+Bulletin.swift */,
 				F20CE8251C975752002AD73A /* String+Bulletin.swift */,
 				F2E32CC41C9EB856004DA46B /* UIViewController+Bulletin.swift */,
+				F2EF5A101CB04F6C00F605D8 /* NSDate+Bulletin.swift */,
 			);
 			name = Extension;
 			path = ..;
@@ -595,6 +598,7 @@
 				F2AC7FA11C9548CB005FA79F /* Notifications.swift in Sources */,
 				F2E32CC51C9EB856004DA46B /* UIViewController+Bulletin.swift in Sources */,
 				F2AC7FA81C9548CB005FA79F /* Stream.swift in Sources */,
+				F2EF5A111CB04F6C00F605D8 /* NSDate+Bulletin.swift in Sources */,
 				F2E4E26E1C98950E00D19906 /* ImageDownloader.swift in Sources */,
 				F2E4E26D1C98950E00D19906 /* ImageCache.swift in Sources */,
 				F2E4E2711C98950E00D19906 /* ImageView+Kingfisher.swift in Sources */,

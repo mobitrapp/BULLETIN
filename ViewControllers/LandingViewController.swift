@@ -15,11 +15,14 @@ class LandingViewController: UIViewController {
     var childViewController: UIViewController?
     
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        configureHomeScreen()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
         slideMenuController()?.navigationController?.setNavigationBarHidden(false, animated: false)
-        configureHomeScreen()
     }
     
     
@@ -41,6 +44,7 @@ class LandingViewController: UIViewController {
         if let homeSCreeViewController = storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController {
             childViewController = homeSCreeViewController
             homeSCreeViewController.homeScreenViewModel = homeScreenViewModel
+            
             homeSCreeViewController.delegate = self
             addViewControllerAsChild(homeSCreeViewController)
         }
@@ -108,7 +112,7 @@ extension LandingViewController: MenuListViewControllerDelegate {
         if let subCategory = subCategory {
             
             showNewsScreenWithRequest(BulletinRequest.commonNews(PaginationTracker(), subCategory.code),subcategory: subCategory.name)
-
+            
         } else {
             configureHomeScreen()
         }

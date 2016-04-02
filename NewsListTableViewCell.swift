@@ -13,7 +13,7 @@ class NewsListTableViewCell: UITableViewCell {
     @IBOutlet weak var publishedOnLabel: UILabel!
     @IBOutlet weak var newsImageView: UIImageView!
     @IBOutlet weak var newsTitleLabel: UILabel!
-    
+
     @IBOutlet weak var postedByLabel: UILabel!
     override func awakeFromNib() {
         let backgroundView = UIView()
@@ -40,5 +40,24 @@ class NewsListTableViewCell: UITableViewCell {
         }
         
         newsTitleLabel.text = news.title.plainText()
+        publishedOnLabel.text = timePassedSinceDate(news.publishedAt)
+    }
+    
+    func timePassedSinceDate(date: String) -> String {
+        let publishedDate = NSDate.pusblishDateWithString(date)
+        let currentDate = NSDate()
+        if let publishedDate = publishedDate {
+            if  currentDate.minutesFrom(publishedDate) > 60 {
+                if currentDate.hoursFrom(publishedDate) > 24 {
+                    return "\(currentDate.daysFrom(publishedDate))d"
+                } else {
+                    return "\(currentDate.hoursFrom(publishedDate))h"
+                }
+            } else {
+                return "\(currentDate.minutesFrom(publishedDate))m"
+            }
+        }
+        
+        return ""
     }
 }
