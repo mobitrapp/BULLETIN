@@ -63,8 +63,24 @@ class APIServiceManager: NSObject {
         
     }
     
-    
-    
+    func checkNewsDetailAPIStatus(json: AnyObject) throws -> Result<AnyObject, NSError> {
+        
+        guard let jsonDict = json as? NSDictionary else {
+            throw generalError
+        }
+        
+        guard let data = jsonDict["data"] as? NSDictionary else {
+            throw responseFieldUnavailable
+        }
+        
+        guard let newsList = data["news_details"] as? NSDictionary else {
+            throw responseFieldUnavailable
+        }
+        
+        return Result.Success(newsList)
+        
+    }
+
     
     
     func generateTokenWithDeviceID(deviceID: String?, completionHandler: Result<AnyObject, NSError> -> Void) {
@@ -165,6 +181,33 @@ class APIServiceManager: NSObject {
             }
         }
 
+    }
+    
+    
+    func getNewsDetailWIihSlug(slug: String,completionHandler: Result<AnyObject, NSError> -> Void) {
+    
+    
+        request(BulletinRequest.NewsDetail(slug)).responseJSON { (response) -> Void in
+            switch response.result {
+            case .Success(let json):
+                do {
+                    switch try self.checkNewsDetailAPIStatus(json) {
+                    case .Success(let newsDetails):
+                        completionHandler(Result.Success(newsDetails))
+                    case .Failure(let error):
+                        completionHandler(Result.Failure(error))
+                    }
+                }catch (let error){
+                    completionHandler(Result.Failure(error as NSError))
+                }
+                
+            case .Failure(let error):
+                completionHandler(Result.Failure(error))
+            }
+        }
+
+        
+        
     }
     
 }

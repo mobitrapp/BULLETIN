@@ -29,12 +29,13 @@ enum BulletinRequest: URLRequestConvertible  {
     case KarnatakaNews(PaginationTracker)
     case SpecialNews(PaginationTracker?)
     case commonNews(PaginationTracker,String)
+    case NewsDetail(String)
     
     var requestMethod: Method {
         switch self {
         case .TokenAPI:
             return .POST
-        case .TopNews, .Intitiate, .KarnatakaNews, .SpecialNews, .commonNews:
+        case .TopNews, .Intitiate, .KarnatakaNews, .SpecialNews, .commonNews ,.NewsDetail:
             return .GET
         }
         
@@ -81,6 +82,9 @@ enum BulletinRequest: URLRequestConvertible  {
          
         case .commonNews( _, let category) :
              return "api/v1/getCategoriesNews/" + category + paginationDescription
+         
+        case .NewsDetail(let slug):
+             return "api/v1/getNewsDetails/" + slug
         }
     }
     

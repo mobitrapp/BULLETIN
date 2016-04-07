@@ -48,6 +48,7 @@
 		F2AC7FAF1C954A67005FA79F /* APIServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC7FAE1C954A67005FA79F /* APIServiceHandler.swift */; };
 		F2B586DE1C4C5B4A004FAFA4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B586DD1C4C5B4A004FAFA4 /* SettingsTableViewController.swift */; };
 		F2DAC6B01CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DAC6AF1CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift */; };
+		F2E00AF31CB18D9F00FC6502 /* NewsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E00AF21CB18D9F00FC6502 /* NewsDetail.swift */; };
 		F2E28A4A1C4BB27E00D8C976 /* NewsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A491C4BB27E00D8C976 /* NewsMenu.swift */; };
 		F2E28A4C1C4BB29300D8C976 /* SwiftHEXColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A4B1C4BB29300D8C976 /* SwiftHEXColors.swift */; };
 		F2E28A4F1C4BB2DD00D8C976 /* menu_details.json in Resources */ = {isa = PBXBuildFile; fileRef = F2E28A4E1C4BB2DD00D8C976 /* menu_details.json */; };
@@ -145,6 +146,7 @@
 		F2AC7FAE1C954A67005FA79F /* APIServiceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIServiceHandler.swift; path = Models/APIServiceHandler.swift; sourceTree = "<group>"; };
 		F2B586DD1C4C5B4A004FAFA4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = ViewControllers/SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F2DAC6AF1CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorTableViewCell.swift; sourceTree = "<group>"; };
+		F2E00AF21CB18D9F00FC6502 /* NewsDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsDetail.swift; path = Models/NewsDetail.swift; sourceTree = "<group>"; };
 		F2E28A491C4BB27E00D8C976 /* NewsMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsMenu.swift; path = Models/NewsMenu.swift; sourceTree = "<group>"; };
 		F2E28A4B1C4BB29300D8C976 /* SwiftHEXColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftHEXColors.swift; path = Libraries/SwiftHEXColors.swift; sourceTree = "<group>"; };
 		F2E28A4E1C4BB2DD00D8C976 /* menu_details.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu_details.json; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				F2AC7FAC1C9548ED005FA79F /* APIServiceManager.swift */,
 				F2AC7FAE1C954A67005FA79F /* APIServiceHandler.swift */,
 				F2E890701C95D9CC0034C488 /* GlobalStrings.swift */,
+				F2E00AF21CB18D9F00FC6502 /* NewsDetail.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -607,6 +610,7 @@
 				F2DAC6B01CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift in Sources */,
 				F2E4E2741C98950E00D19906 /* KingfisherOptionsInfo.swift in Sources */,
 				F218AD371C4A338D0038D80D /* MenuListViewController.swift in Sources */,
+				F2E00AF31CB18D9F00FC6502 /* NewsDetail.swift in Sources */,
 				F2E4E26C1C98950E00D19906 /* Image.swift in Sources */,
 				F20CE8201C974B58002AD73A /* HomeViewController.swift in Sources */,
 				F2AC7FAF1C954A67005FA79F /* APIServiceHandler.swift in Sources */,

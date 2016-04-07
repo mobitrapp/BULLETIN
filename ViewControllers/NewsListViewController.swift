@@ -71,7 +71,7 @@ class NewsListViewController: UIViewController {
                         } else {
                             self?.shouldShowIndicator = true
                         }
-
+                        
                     }
                     
                     self?.removeNoNewsScreen()
@@ -155,7 +155,7 @@ extension NewsListViewController: UITableViewDataSource {
         let distanceFromBottom = scrollView.contentSize.height - contentYoffset
         if distanceFromBottom <= height {
             if !newsIsFetching && interNetIsAvailable() &&  pageIndicator.page <= 4 && shouldShowIndicator {
-    
+                
                 pageIndicator.incrementToNextSetOfNews()
                 fetchFeed()
                 
@@ -180,5 +180,20 @@ extension NewsListViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+      
+        
+        NewsDetail.newsDetailWithSlug(newsList?.list[indexPath.row].slug ?? "") { (newsDetail) -> () in
+            
+        }
+        
+        
+    }
+    
 }
 
