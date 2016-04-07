@@ -48,6 +48,12 @@
 		F2AC7FAF1C954A67005FA79F /* APIServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC7FAE1C954A67005FA79F /* APIServiceHandler.swift */; };
 		F2B586DE1C4C5B4A004FAFA4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B586DD1C4C5B4A004FAFA4 /* SettingsTableViewController.swift */; };
 		F2DAC6B01CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DAC6AF1CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift */; };
+		F2DDFA091CB6D85C00A5FC50 /* ViewPagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DDFA081CB6D85C00A5FC50 /* ViewPagerController.swift */; };
+		F2DDFA0C1CB6D87000A5FC50 /* ViewPagerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DDFA0A1CB6D87000A5FC50 /* ViewPagerOptions.swift */; };
+		F2DDFA0D1CB6D87000A5FC50 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DDFA0B1CB6D87000A5FC50 /* ItemViewController.swift */; };
+		F2DDFA0F1CB6D8BC00A5FC50 /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DDFA0E1CB6D8BC00A5FC50 /* NewsDetailsViewController.swift */; };
+		F2DDFA111CB6D97600A5FC50 /* NewsTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DDFA101CB6D97600A5FC50 /* NewsTitleTableViewCell.swift */; };
+		F2DDFA131CB6DA6500A5FC50 /* NewsDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DDFA121CB6DA6500A5FC50 /* NewsDetailTableViewCell.swift */; };
 		F2E00AF31CB18D9F00FC6502 /* NewsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E00AF21CB18D9F00FC6502 /* NewsDetail.swift */; };
 		F2E28A4A1C4BB27E00D8C976 /* NewsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A491C4BB27E00D8C976 /* NewsMenu.swift */; };
 		F2E28A4C1C4BB29300D8C976 /* SwiftHEXColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A4B1C4BB29300D8C976 /* SwiftHEXColors.swift */; };
@@ -146,6 +152,12 @@
 		F2AC7FAE1C954A67005FA79F /* APIServiceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIServiceHandler.swift; path = Models/APIServiceHandler.swift; sourceTree = "<group>"; };
 		F2B586DD1C4C5B4A004FAFA4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = ViewControllers/SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F2DAC6AF1CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorTableViewCell.swift; sourceTree = "<group>"; };
+		F2DDFA081CB6D85C00A5FC50 /* ViewPagerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPagerController.swift; sourceTree = "<group>"; };
+		F2DDFA0A1CB6D87000A5FC50 /* ViewPagerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPagerOptions.swift; sourceTree = "<group>"; };
+		F2DDFA0B1CB6D87000A5FC50 /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		F2DDFA0E1CB6D8BC00A5FC50 /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsDetailsViewController.swift; path = ViewControllers/NewsDetailsViewController.swift; sourceTree = "<group>"; };
+		F2DDFA101CB6D97600A5FC50 /* NewsTitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTitleTableViewCell.swift; sourceTree = "<group>"; };
+		F2DDFA121CB6DA6500A5FC50 /* NewsDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailTableViewCell.swift; sourceTree = "<group>"; };
 		F2E00AF21CB18D9F00FC6502 /* NewsDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsDetail.swift; path = Models/NewsDetail.swift; sourceTree = "<group>"; };
 		F2E28A491C4BB27E00D8C976 /* NewsMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsMenu.swift; path = Models/NewsMenu.swift; sourceTree = "<group>"; };
 		F2E28A4B1C4BB29300D8C976 /* SwiftHEXColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftHEXColors.swift; path = Libraries/SwiftHEXColors.swift; sourceTree = "<group>"; };
@@ -286,6 +298,7 @@
 				F2E3F6321C9F2D0500FA16EC /* NoNetworkViewController.swift */,
 				F2E40B231CA05A8F0031EB22 /* NewsListViewController.swift */,
 				F2F367E71CA31DE700168FD0 /* USerGuidanceViewController.swift */,
+				F2DDFA0E1CB6D8BC00A5FC50 /* NewsDetailsViewController.swift */,
 			);
 			name = ViewControllers;
 			path = ..;
@@ -294,6 +307,7 @@
 		F218AD331C4A31330038D80D /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				F2DDFA071CB6D84B00A5FC50 /* ViewPagerController */,
 				F2E4E25D1C98950E00D19906 /* Kingfisher */,
 				F2AC7F841C9548CB005FA79F /* Alamofire */,
 				F2E28A4B1C4BB29300D8C976 /* SwiftHEXColors.swift */,
@@ -346,6 +360,16 @@
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
+		F2DDFA071CB6D84B00A5FC50 /* ViewPagerController */ = {
+			isa = PBXGroup;
+			children = (
+				F2DDFA081CB6D85C00A5FC50 /* ViewPagerController.swift */,
+				F2DDFA0A1CB6D87000A5FC50 /* ViewPagerOptions.swift */,
+				F2DDFA0B1CB6D87000A5FC50 /* ItemViewController.swift */,
+			);
+			name = ViewPagerController;
+			sourceTree = "<group>";
+		};
 		F2E28A461C4B9C4700D8C976 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +403,8 @@
 				F20CE8211C974CF9002AD73A /* NewsListTableViewCell.swift */,
 				F20CE8231C974E18002AD73A /* SectionTitleTableViewCell.swift */,
 				F2DAC6AF1CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift */,
+				F2DDFA101CB6D97600A5FC50 /* NewsTitleTableViewCell.swift */,
+				F2DDFA121CB6DA6500A5FC50 /* NewsDetailTableViewCell.swift */,
 			);
 			name = Views;
 			path = ..;
@@ -559,7 +585,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2AC7FA21C9548CB005FA79F /* ParameterEncoding.swift in Sources */,
+				F2DDFA0D1CB6D87000A5FC50 /* ItemViewController.swift in Sources */,
 				F2E28A521C4BB78900D8C976 /* MenuCategoryTableViewCell.swift in Sources */,
+				F2DDFA091CB6D85C00A5FC50 /* ViewPagerController.swift in Sources */,
 				F218AD321C4A30340038D80D /* LandingViewController.swift in Sources */,
 				F2E4E26F1C98950E00D19906 /* ImagePrefetcher.swift in Sources */,
 				F2AC7FA01C9548CB005FA79F /* NetworkReachabilityManager.swift in Sources */,
@@ -574,12 +602,14 @@
 				F2AC7F9B1C9548CB005FA79F /* Error.swift in Sources */,
 				F218AD351C4A31560038D80D /* SlideMenuController.swift in Sources */,
 				F2AC7FA91C9548CB005FA79F /* Timeline.swift in Sources */,
+				F2DDFA0F1CB6D8BC00A5FC50 /* NewsDetailsViewController.swift in Sources */,
 				F20497121C48496200BF8F3D /* AppDelegate.swift in Sources */,
 				F2E4E2701C98950E00D19906 /* ImageTransition.swift in Sources */,
 				F2E28A4A1C4BB27E00D8C976 /* NewsMenu.swift in Sources */,
 				F2AC7FA61C9548CB005FA79F /* Result.swift in Sources */,
 				F2E4E2751C98950E00D19906 /* Resource.swift in Sources */,
 				F2E4E2781C98950E00D19906 /* UIButton+Kingfisher.swift in Sources */,
+				F2DDFA111CB6D97600A5FC50 /* NewsTitleTableViewCell.swift in Sources */,
 				F2B586DE1C4C5B4A004FAFA4 /* SettingsTableViewController.swift in Sources */,
 				F2AC7FA71C9548CB005FA79F /* ServerTrustPolicy.swift in Sources */,
 				F2E4E27C1C98A93900D19906 /* FRDLivelyButton.m in Sources */,
@@ -607,6 +637,7 @@
 				F2E4E2711C98950E00D19906 /* ImageView+Kingfisher.swift in Sources */,
 				F20CE8241C974E18002AD73A /* SectionTitleTableViewCell.swift in Sources */,
 				F2AC7F9E1C9548CB005FA79F /* Manager.swift in Sources */,
+				F2DDFA131CB6DA6500A5FC50 /* NewsDetailTableViewCell.swift in Sources */,
 				F2DAC6B01CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift in Sources */,
 				F2E4E2741C98950E00D19906 /* KingfisherOptionsInfo.swift in Sources */,
 				F218AD371C4A338D0038D80D /* MenuListViewController.swift in Sources */,
@@ -617,6 +648,7 @@
 				F20CE8261C975752002AD73A /* String+Bulletin.swift in Sources */,
 				F2AC7FA51C9548CB005FA79F /* ResponseSerialization.swift in Sources */,
 				F2E28A4C1C4BB29300D8C976 /* SwiftHEXColors.swift in Sources */,
+				F2DDFA0C1CB6D87000A5FC50 /* ViewPagerOptions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

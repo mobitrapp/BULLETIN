@@ -16,6 +16,7 @@ class NewsDetail {
     var imageURLs = [String]()
     var publishedBy = ""
     var displayPostedBy = ""
+    var news = ""
     
     init () {
         
@@ -27,7 +28,7 @@ class NewsDetail {
         updatedDate = detailDictionary["updated_at"] as? String ?? ""
         publishedBy = detailDictionary["posted_by"] as? String ?? ""
         displayPostedBy = detailDictionary["display_posted_by"] as? String ?? ""
-        
+        news = detailDictionary["content"] as? String ?? ""
     }
     
     class func newsDetailWithSlug(slug: String, completionHandler: newsDetailResponseHandler)  {

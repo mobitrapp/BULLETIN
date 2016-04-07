@@ -161,12 +161,40 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController: UITableViewDelegate {
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        if indexPath.row != 0 {
+            if let newsDetailsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("newsDetailsViewController") as? NewsDetailsViewController {
+                
+                
+                var slug = ""
+                if indexPath.section == 0 {
+                    slug = homeScreenViewModel.topNewsList!.list[indexPath.row - 1].slug
+                } else if indexPath.section == 1{
+                    slug = homeScreenViewModel.karnatakaNewsList!.list[indexPath.row - 1].slug
+                } else if indexPath.section == 2 {
+                    slug = homeScreenViewModel.specialNewsList!.list[indexPath.row - 1].slug
+                }
+                
+                
+                newsDetailsViewController.slug = slug
+                self.navigationController?.pushViewController(newsDetailsViewController, animated: true)
+            }
+        }
+    }
+    
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
 }
 
 extension HomeViewController: SectionTitleTableViewCellDelegate {
+    
     func moreButtonTappedForSectionType(sectionType: HomeScreenNewsSectionType) {
         delegate?.moreButtonTappedWithSectionType(sectionType)
     }

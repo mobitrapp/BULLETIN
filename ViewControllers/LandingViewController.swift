@@ -15,13 +15,10 @@ class LandingViewController: UIViewController {
     var childViewController: UIViewController?
     
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        configureHomeScreen()
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
+        configureHomeScreen()
         slideMenuController()?.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     

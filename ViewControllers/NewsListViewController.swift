@@ -186,12 +186,14 @@ extension NewsListViewController: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      
         
-        NewsDetail.newsDetailWithSlug(newsList?.list[indexPath.row].slug ?? "") { (newsDetail) -> () in
-            
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        
+        if let newsDetailsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("newsDetailsViewController") as? NewsDetailsViewController {
+            newsDetailsViewController.slug = newsList?.list[indexPath.row].slug ?? ""
+            self.navigationController?.pushViewController(newsDetailsViewController, animated: true)
         }
-        
         
     }
     

@@ -691,10 +691,10 @@
             </objects>
             <point key="canvasLocation" x="2563.5" y="-45.5"/>
         </scene>
-        <!--View Controller-->
+        <!--News Details View Controller-->
         <scene sceneID="8Yr-L3-YVS">
             <objects>
-                <viewController id="AZs-z1-pj5" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newsDetailsViewController" id="AZs-z1-pj5" customClass="NewsDetailsViewController" customModule="Bulletin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="63W-2j-JQr"/>
                         <viewControllerLayoutGuide type="bottom" id="QC1-ng-h9S"/>
@@ -704,10 +704,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WHp-7w-42V">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsHeadingCell" rowHeight="88" id="J5p-43-UdC">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsHeadingCell" rowHeight="88" id="J5p-43-UdC" customClass="NewsTitleTableViewCell" customModule="Bulletin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J5p-43-UdC" id="sey-oX-Ktb">
@@ -737,8 +737,12 @@
                                                 <constraint firstAttribute="trailing" secondItem="Scn-FS-Rjd" secondAttribute="trailing" constant="10" id="vgK-jm-Pzt"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="newsTitleLabel" destination="Scn-FS-Rjd" id="SiL-Ce-G5z"/>
+                                            <outlet property="newsUpdatedDate" destination="g2Z-2d-YxB" id="1El-z3-8Z8"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsDetailTableviewCell" rowHeight="103" id="oe1-19-aIy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsDetailTableviewCell" rowHeight="103" id="oe1-19-aIy" customClass="NewsDetailTableViewCell" customModule="Bulletin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="116" width="375" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oe1-19-aIy" id="uYG-Ir-bEX">
@@ -768,19 +772,36 @@
                                                 <constraint firstItem="SxB-nE-dDW" firstAttribute="top" secondItem="uYG-Ir-bEX" secondAttribute="top" constant="30" id="yIB-fM-oEv"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="newsDetailLabel" destination="SxB-nE-dDW" id="xL3-34-AVX"/>
+                                            <outlet property="newsPublishedAtLabel" destination="M7W-Fl-z46" id="h0f-cp-0wq"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="AZs-z1-pj5" id="jet-nQ-ydq"/>
+                                    <outlet property="delegate" destination="AZs-z1-pj5" id="DXT-J0-Evt"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WHp-7w-42V" firstAttribute="leading" secondItem="QTA-tv-yZB" secondAttribute="leading" id="M4c-8S-l4a"/>
+                            <constraint firstItem="WHp-7w-42V" firstAttribute="top" secondItem="QTA-tv-yZB" secondAttribute="top" id="Rfj-Tg-SeD"/>
                             <constraint firstAttribute="trailing" secondItem="WHp-7w-42V" secondAttribute="trailing" id="Y85-PI-x3F"/>
                             <constraint firstItem="WHp-7w-42V" firstAttribute="top" secondItem="63W-2j-JQr" secondAttribute="bottom" id="gnv-v6-3qH"/>
                             <constraint firstItem="QC1-ng-h9S" firstAttribute="top" secondItem="WHp-7w-42V" secondAttribute="bottom" id="vTp-KX-vWz"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="gnv-v6-3qH"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="newsDetailTableView" destination="WHp-7w-42V" id="rCu-us-K47"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YO-sF-PXJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
