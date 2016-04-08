@@ -168,22 +168,29 @@ extension HomeViewController: UITableViewDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         if indexPath.row != 0 {
-            if let newsDetailsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("newsDetailsViewController") as? NewsDetailsViewController {
+            if let newsPagerViewController = self.storyboard?.instantiateViewControllerWithIdentifier("newsPagerViewController") as? NewsPagerViewController  {
                 
                 
-                var slug = ""
+                var newsList: NewsList!
                 if indexPath.section == 0 {
-                    slug = homeScreenViewModel.topNewsList!.list[indexPath.row - 1].slug
+                    newsList = homeScreenViewModel.topNewsList
                 } else if indexPath.section == 1{
-                    slug = homeScreenViewModel.karnatakaNewsList!.list[indexPath.row - 1].slug
+                    newsList = homeScreenViewModel.karnatakaNewsList
                 } else if indexPath.section == 2 {
-                    slug = homeScreenViewModel.specialNewsList!.list[indexPath.row - 1].slug
+                    newsList = homeScreenViewModel.specialNewsList
                 }
                 
+                if let newsList = newsList {
+                    newsPagerViewController.newsList = newsList
+                    newsPagerViewController.pagerTitle = titleForNewsAtIndexPath(indexPath)
+                    newsPagerViewController.selectedIndex = indexPath.row - 1
+                }
                 
-                newsDetailsViewController.slug = slug
-                self.navigationController?.pushViewController(newsDetailsViewController, animated: true)
+                let newsDetailNavigationController = UINavigationController(rootViewController: newsPagerViewController)
+                
+                presentViewController(newsDetailNavigationController, animated: true, completion: nil)
             }
+            
         }
     }
     

@@ -190,9 +190,15 @@ extension NewsListViewController: UITableViewDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         
-        if let newsDetailsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("newsDetailsViewController") as? NewsDetailsViewController {
-            newsDetailsViewController.slug = newsList?.list[indexPath.row].slug ?? ""
-            self.navigationController?.pushViewController(newsDetailsViewController, animated: true)
+        if let newsPagerViewController = self.storyboard?.instantiateViewControllerWithIdentifier("newsPagerViewController") as? NewsPagerViewController {
+            if let newsList = newsList {
+                newsPagerViewController.newsList = newsList
+                newsPagerViewController.pagerTitle = newsTitleForCurrentScreen()
+                newsPagerViewController.selectedIndex = indexPath.row
+            }
+            let newsDetailNavigationController = UINavigationController(rootViewController: newsPagerViewController)
+            
+            presentViewController(newsDetailNavigationController, animated: true, completion: nil)
         }
         
     }

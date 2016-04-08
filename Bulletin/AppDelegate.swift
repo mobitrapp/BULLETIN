@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if !DEBUG
             //  Fabric.with([Crashlytics.self])
         #endif
-        configureRootViewController()
+        configureNavigationBarAppearance()
         return true
     }
     
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func configureRootViewController() {
+    func configureNavigationBarAppearance() {
         if let bulletInRed = UIColor.bulletinRed() {
             UINavigationBar.appearance().barTintColor = bulletInRed
             UINavigationBar.appearance().tintColor =

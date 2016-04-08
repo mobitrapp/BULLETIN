@@ -47,6 +47,7 @@
 		F2AC7FAD1C9548ED005FA79F /* APIServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC7FAC1C9548ED005FA79F /* APIServiceManager.swift */; };
 		F2AC7FAF1C954A67005FA79F /* APIServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC7FAE1C954A67005FA79F /* APIServiceHandler.swift */; };
 		F2B586DE1C4C5B4A004FAFA4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B586DD1C4C5B4A004FAFA4 /* SettingsTableViewController.swift */; };
+		F2BA2E121CB8188900F00970 /* NewsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BA2E111CB8188900F00970 /* NewsPagerViewController.swift */; };
 		F2DAC6B01CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DAC6AF1CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift */; };
 		F2DDFA091CB6D85C00A5FC50 /* ViewPagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DDFA081CB6D85C00A5FC50 /* ViewPagerController.swift */; };
 		F2DDFA0C1CB6D87000A5FC50 /* ViewPagerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DDFA0A1CB6D87000A5FC50 /* ViewPagerOptions.swift */; };
@@ -151,6 +152,7 @@
 		F2AC7FAC1C9548ED005FA79F /* APIServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceManager.swift; sourceTree = "<group>"; };
 		F2AC7FAE1C954A67005FA79F /* APIServiceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIServiceHandler.swift; path = Models/APIServiceHandler.swift; sourceTree = "<group>"; };
 		F2B586DD1C4C5B4A004FAFA4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = ViewControllers/SettingsTableViewController.swift; sourceTree = "<group>"; };
+		F2BA2E111CB8188900F00970 /* NewsPagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsPagerViewController.swift; sourceTree = "<group>"; };
 		F2DAC6AF1CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorTableViewCell.swift; sourceTree = "<group>"; };
 		F2DDFA081CB6D85C00A5FC50 /* ViewPagerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPagerController.swift; sourceTree = "<group>"; };
 		F2DDFA0A1CB6D87000A5FC50 /* ViewPagerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPagerOptions.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				F2E40B231CA05A8F0031EB22 /* NewsListViewController.swift */,
 				F2F367E71CA31DE700168FD0 /* USerGuidanceViewController.swift */,
 				F2DDFA0E1CB6D8BC00A5FC50 /* NewsDetailsViewController.swift */,
+				F2BA2E111CB8188900F00970 /* NewsPagerViewController.swift */,
 			);
 			name = ViewControllers;
 			path = ..;
@@ -635,6 +638,7 @@
 				F2E4E26E1C98950E00D19906 /* ImageDownloader.swift in Sources */,
 				F2E4E26D1C98950E00D19906 /* ImageCache.swift in Sources */,
 				F2E4E2711C98950E00D19906 /* ImageView+Kingfisher.swift in Sources */,
+				F2BA2E121CB8188900F00970 /* NewsPagerViewController.swift in Sources */,
 				F20CE8241C974E18002AD73A /* SectionTitleTableViewCell.swift in Sources */,
 				F2AC7F9E1C9548CB005FA79F /* Manager.swift in Sources */,
 				F2DDFA131CB6DA6500A5FC50 /* NewsDetailTableViewCell.swift in Sources */,

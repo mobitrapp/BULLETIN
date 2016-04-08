@@ -7,7 +7,7 @@
 //
 
 import UIKit
-typealias newsDetailResponseHandler = (NewsDetail) -> ()
+typealias newsDetailResponseHandler = (NewsDetail?) -> ()
 
 class NewsDetail {
     var title = ""
@@ -40,7 +40,8 @@ class NewsDetail {
                     completionHandler(NewsDetail(detailDictionary: detailDictionary))
                 }
             case .Failure:
-                completionHandler(NewsDetail())
+                
+                completionHandler(nil)
             }
             
         }
