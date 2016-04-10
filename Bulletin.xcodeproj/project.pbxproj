@@ -85,6 +85,8 @@
 		F2EF5A111CB04F6C00F605D8 /* NSDate+Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EF5A101CB04F6C00F605D8 /* NSDate+Bulletin.swift */; };
 		F2F367E81CA31DE700168FD0 /* USerGuidanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F367E71CA31DE700168FD0 /* USerGuidanceViewController.swift */; };
 		F2F367EA1CA322A800168FD0 /* About us.txt in Resources */ = {isa = PBXBuildFile; fileRef = F2F367E91CA322A800168FD0 /* About us.txt */; };
+		F2F516DD1CBA357000E7EFFA /* NewsImagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F516DC1CBA357000E7EFFA /* NewsImagesTableViewCell.swift */; };
+		F2F516DF1CBA366A00E7EFFA /* NewsImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F516DE1CBA366A00E7EFFA /* NewsImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +195,8 @@
 		F2EF5A101CB04F6C00F605D8 /* NSDate+Bulletin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Bulletin.swift"; path = "Extension/NSDate+Bulletin.swift"; sourceTree = "<group>"; };
 		F2F367E71CA31DE700168FD0 /* USerGuidanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USerGuidanceViewController.swift; sourceTree = "<group>"; };
 		F2F367E91CA322A800168FD0 /* About us.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "About us.txt"; sourceTree = "<group>"; };
+		F2F516DC1CBA357000E7EFFA /* NewsImagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsImagesTableViewCell.swift; sourceTree = "<group>"; };
+		F2F516DE1CBA366A00E7EFFA /* NewsImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsImageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,6 +412,8 @@
 				F2DAC6AF1CA1CAB000B4A6F8 /* ActivityIndicatorTableViewCell.swift */,
 				F2DDFA101CB6D97600A5FC50 /* NewsTitleTableViewCell.swift */,
 				F2DDFA121CB6DA6500A5FC50 /* NewsDetailTableViewCell.swift */,
+				F2F516DC1CBA357000E7EFFA /* NewsImagesTableViewCell.swift */,
+				F2F516DE1CBA366A00E7EFFA /* NewsImageCollectionViewCell.swift */,
 			);
 			name = Views;
 			path = ..;
@@ -601,8 +607,10 @@
 				F2E28A541C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift in Sources */,
 				F2AC7FAA1C9548CB005FA79F /* Upload.swift in Sources */,
 				F235A17D1C95940A002A7522 /* SplashScreenViewController.swift in Sources */,
+				F2F516DD1CBA357000E7EFFA /* NewsImagesTableViewCell.swift in Sources */,
 				F2AC7FAD1C9548ED005FA79F /* APIServiceManager.swift in Sources */,
 				F2AC7F9B1C9548CB005FA79F /* Error.swift in Sources */,
+				F2F516DF1CBA366A00E7EFFA /* NewsImageCollectionViewCell.swift in Sources */,
 				F218AD351C4A31560038D80D /* SlideMenuController.swift in Sources */,
 				F2AC7FA91C9548CB005FA79F /* Timeline.swift in Sources */,
 				F2DDFA0F1CB6D8BC00A5FC50 /* NewsDetailsViewController.swift in Sources */,

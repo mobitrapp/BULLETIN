@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol NewsPagerViewControllerDelegate {
+    func URLToShareNews() -> String?
+}
+
 class NewsPagerViewController: UIViewController {
     
     var newsList: NewsList!
     var viewPager = ViewPagerController()
     var pagerTitle = ""
     var selectedIndex = 0
+    var delegate: NewsPagerViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +42,12 @@ class NewsPagerViewController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func shareButtonTapped(sender: AnyObject) {
+        if let newsURL = delegate?.URLToShareNews() {
+            presentActivityControllerWithURL(newsURL)
+        }
+        
+    }
 }
 
 
@@ -52,6 +63,7 @@ extension NewsPagerViewController: ViewPagerControllerDataSource {
     {
         if let newsDetailsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("newsDetailsViewController") as? NewsDetailsViewController {
             newsDetailsViewController.slug = newsList.list[position].slug ?? ""
+            delegate = newsDetailsViewController
             return newsDetailsViewController
         }
         return UIViewController()

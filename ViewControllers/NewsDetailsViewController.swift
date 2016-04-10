@@ -13,6 +13,8 @@ class NewsDetailsViewController: UIViewController {
     var newsDetails: NewsDetail?
     var slug = ""
     
+    let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
+    
     lazy var activityIndicator : UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         activityIndicator.color = UIColor.bulletinRed()
@@ -29,12 +31,19 @@ class NewsDetailsViewController: UIViewController {
     }
     
     func loadNewsDetails() {
-        NewsDetail.newsDetailWithSlug(slug) { [weak self](newsDetail) -> () in
-            self?.newsDetails = newsDetail
-            if let activityIndicator = self?.activityIndicator {
-                self?.newsDetailTableView.hideActivityIndicator(activityIndicator)
+        dispatch_async(backgroundQueue) {[weak self] () -> Void in
+            
+            NewsDetail.newsDetailWithSlug(self?.slug ?? "") { [weak self](newsDetail) -> () in
+                self?.newsDetails = newsDetail
+                if let activityIndicator = self?.activityIndicator {
+                    self?.newsDetailTableView.hideActivityIndicator(activityIndicator)
+                }
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    self?.newsDetailTableView.reloadData()
+                }
             }
-            self?.newsDetailTableView.reloadData()
+            
+            
         }
     }
     
@@ -49,16 +58,35 @@ extension NewsDetailsViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if newsDetails?.imageURLs.count > 0 {
+            return 3
+        }
+        
         return 2
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let reuseIndetifier = indexPath.row == 0 ? "newsHeadingCell" : "newsDetailTableviewCell"
+        
+        
+        var reuseIndetifier = ""
+        
+        if indexPath.row == 0 {
+            reuseIndetifier = "newsHeadingCell"
+        } else {
+            if tableView.numberOfRowsInSection(indexPath.section) == 3 && indexPath.row == 1 {
+                reuseIndetifier = "newsImagesTableViewCell"
+            } else {
+                reuseIndetifier = "newsDetailTableviewCell"
+            }
+        }
+        
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIndetifier, forIndexPath: indexPath)
         if let newsDetails = newsDetails {
             (cell as? NewsDetailTableViewCell)?.configureWithNewsDetail(newsDetails)
             (cell as? NewsTitleTableViewCell)?.configureWithNewsDetail(newsDetails)
+            (cell as? NewsImagesTableViewCell)?.imagesURL = newsDetails.imageURLs
         }
         
         return cell
@@ -70,5 +98,17 @@ extension NewsDetailsViewController: UITableViewDataSource {
 extension NewsDetailsViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+}
+
+extension NewsDetailsViewController: NewsPagerViewControllerDelegate {
+    func URLToShareNews() -> String? {
+        if let shareLink = newsDetails?.shareLink {
+            if !shareLink.isEmpty {
+                return shareLink
+            }
+        }
+        return nil
+        
     }
 }

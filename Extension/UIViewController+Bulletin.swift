@@ -59,6 +59,16 @@ extension UIViewController {
         childViewController.removeFromParentViewController()
     }
     
+    
+    func presentActivityControllerWithURL(URL: String) {
+        
+        if let newsURL = NSURL(string: URL) {
+            let objectsToShare = [newsURL]
+            let activityViewController = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            self.presentViewController(activityViewController, animated: true, completion: nil)
+        }
+    }
 }
 
 extension UIViewController: NoNewsDelegate {

@@ -13,15 +13,21 @@ class LandingViewController: UIViewController {
     var navigationIconImageView: UIImageView!
     var homeScreenViewModel: HomeScreenViewModel!
     var childViewController: UIViewController?
-    
+    var homeScreenLoaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
-        configureHomeScreen()
         slideMenuController()?.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if !homeScreenLoaded {
+           configureHomeScreen()
+           homeScreenLoaded = true
+        }
+    }
     
     
     private func configureNavigationBar() {
@@ -41,7 +47,6 @@ class LandingViewController: UIViewController {
         if let homeSCreeViewController = storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController {
             childViewController = homeSCreeViewController
             homeSCreeViewController.homeScreenViewModel = homeScreenViewModel
-            
             homeSCreeViewController.delegate = self
             addViewControllerAsChild(homeSCreeViewController)
         }

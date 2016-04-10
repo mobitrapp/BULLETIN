@@ -18,8 +18,10 @@ extension UITableView {
     }
     
     func hideActivityIndicator(activityIndicator: UIActivityIndicatorView) {
-        activityIndicator.stopAnimating()
-        activityIndicator.removeFromSuperview()
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
+        }
     }
     
 }
