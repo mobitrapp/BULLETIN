@@ -65,15 +65,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Special" translatesAutoresizingMaskIntoConstraints="NO" id="mW5-Ie-omG">
-                                                    <rect key="frame" x="20" y="11" width="20" height="20"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home" translatesAutoresizingMaskIntoConstraints="NO" id="mW5-Ie-omG">
+                                                    <rect key="frame" x="20" y="9" width="25" height="25"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="AXF-nN-o13"/>
+                                                        <constraint firstAttribute="height" constant="25" id="5qy-KX-PYu"/>
                                                         <constraint firstAttribute="height" constant="20" id="B9A-bn-V2O"/>
+                                                        <constraint firstAttribute="width" constant="25" id="dIp-UF-uPe"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="B9A-bn-V2O"/>
+                                                        </mask>
+                                                    </variation>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Special" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXN-CN-jLn">
-                                                    <rect key="frame" x="48" y="11" width="53" height="21"/>
+                                                    <rect key="frame" x="53" y="11" width="53" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -163,7 +169,7 @@
                         <sections>
                             <tableViewSection id="UDg-sz-wdk">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="W2x-cl-ZdZ">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="W2x-cl-ZdZ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W2x-cl-ZdZ" id="xd1-Tr-6T8">
@@ -172,7 +178,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJZ-Oi-6oZ">
                                                     <rect key="frame" x="20" y="11" width="335" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.71372549019607845" green="0.047058823529411764" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -273,7 +279,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dp9-q9-Hv1">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dp9-q9-Hv1">
                                         <rect key="frame" x="0.0" y="220" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dp9-q9-Hv1" id="z0Q-Cr-skk">
@@ -282,7 +288,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd0-0m-Abz">
                                                     <rect key="frame" x="20" y="11" width="335" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.71372549019999998" green="0.047058823530000002" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -717,7 +723,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="reply" id="Gea-xS-aut">
+                        <barButtonItem key="rightBarButtonItem" image="Upload" id="Gea-xS-aut">
                             <connections>
                                 <action selector="shareButtonTapped:" destination="Aka-8J-Kgy" id="QbE-SZ-Ubq"/>
                             </connections>
@@ -1142,10 +1148,11 @@
     </scenes>
     <resources>
         <image name="Back" width="10" height="15"/>
+        <image name="Home" width="25" height="25"/>
         <image name="NewsImagePlaceHolder" width="66" height="66"/>
         <image name="NoNews" width="100" height="100"/>
         <image name="Plus" width="11" height="11"/>
-        <image name="Special" width="16" height="16"/>
+        <image name="Upload" width="25" height="25"/>
         <image name="splash_icon" width="400" height="48"/>
     </resources>
 </document>
