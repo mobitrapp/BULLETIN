@@ -30,9 +30,10 @@ extension UIViewController {
         return status
     }
     
-    func showNoNewscreen() {
+    func showNoNewscreen(screenMode:ScreenMode = .NoNews) {
         if let noNetworkViewController = self.storyboard?.instantiateViewControllerWithIdentifier("NoNetworkViewCOntroller") as? NoNetworkViewController {
             noNetworkViewController.delegate = self
+            noNetworkViewController.screenMode = screenMode
             addViewControllerAsChild(noNetworkViewController)
         }
     }

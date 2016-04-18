@@ -59,7 +59,11 @@ class NewsListViewController: UIViewController {
                 
                 self?.newsIsFetching = false
                 if self?.newsList?.list.count <= 0 {
-                    self?.showNoNewscreen()
+                    if let weakSelf = self where !weakSelf.interNetIsAvailable() {
+                       self?.showNoNewscreen(.NoInternet)
+                    } else {
+                        self?.showNoNewscreen()
+                    }
                 } else {
                     if let pageIndicator = self?.pageIndicator {
                         if  self?.newsList?.list.count < (pageIndicator.limit * pageIndicator.page) {
@@ -179,10 +183,6 @@ extension NewsListViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableViewAutomaticDimension
-    }
-    
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

@@ -10,16 +10,19 @@ import UIKit
 import MessageUI
 
 enum SettingCellTitle: Int {
+    case support
     case ShareThisApp = 1
     case Help
     case Feedback
     case RateUs
+    case Information
     case Aboutus
     case ServiceTerms
     case PrivacyPolicy
 }
 
 class SettingsTableViewController: UITableViewController {
+    var guidanceMode = GuidanceMode.AboutUs
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +44,15 @@ class SettingsTableViewController: UITableViewController {
         switch indexPath.row {
         case SettingCellTitle.Help.rawValue, SettingCellTitle.Feedback.rawValue:
             showMailComposerViewControllerForCellTitle(SettingCellTitle(rawValue: indexPath.row )!)
-            break
-        default:
+            
+        case SettingCellTitle.ServiceTerms.rawValue,
+        SettingCellTitle.Aboutus.rawValue,
+        SettingCellTitle.PrivacyPolicy.rawValue:
+            guidanceMode = indexPath.row == SettingCellTitle.ServiceTerms.rawValue ? GuidanceMode.ServiceTerms : indexPath.row ==  SettingCellTitle.Aboutus.rawValue ? GuidanceMode.AboutUs : GuidanceMode.PrivacyPolicy
             pushGuidanceViewController()
+            
+        default:
+            break
         }
     }
     
@@ -73,8 +82,9 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func pushGuidanceViewController() {
-        if let guidanceViewController = storyboard?.instantiateViewControllerWithIdentifier("GuidanceViewController") {
-        navigationController?.pushViewController(guidanceViewController, animated: true)
+        if let guidanceViewController = storyboard?.instantiateViewControllerWithIdentifier("GuidanceViewController") as? USerGuidanceViewController{
+            guidanceViewController.guidanceMode = guidanceMode
+            navigationController?.pushViewController(guidanceViewController, animated: true)
         }
     }
 }

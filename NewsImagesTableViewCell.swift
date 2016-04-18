@@ -9,10 +9,11 @@
 import UIKit
 
 class NewsImagesTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var newsPageControl: UIPageControl!
     @IBOutlet weak var imagesCollectionView: UICollectionView!
     var imagesURL: [String]!
-   
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         imagesCollectionView.dataSource = self
@@ -25,6 +26,7 @@ extension NewsImagesTableViewCell: UICollectionViewDataSource {
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        newsPageControl.numberOfPages = imagesURL.count
         return imagesURL.count
     }
     
@@ -34,10 +36,25 @@ extension NewsImagesTableViewCell: UICollectionViewDataSource {
         return collectionViewCell
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let pageToBeSelected = lround(Double(scrollView.contentOffset.x / scrollView.bounds.size.width))
+        newsPageControl.currentPage = pageToBeSelected
+    }
 }
 
 extension NewsImagesTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSize(width: contentView.bounds.width, height: imagesCollectionView.bounds.height)
+    }
+}
+
+
+extension NewsImagesTableViewCell {
+    
+    @IBAction func pageControlValueChanged(sender: AnyObject) {
+        let x = CGFloat(newsPageControl.currentPage) * imagesCollectionView.frame.size.width
+        if x >= 0 && x <= imagesCollectionView.contentSize.width {
+            imagesCollectionView.setContentOffset(CGPoint(x: x, y: 0.0), animated: true)
+        }
     }
 }

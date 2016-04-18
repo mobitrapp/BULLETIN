@@ -8,36 +8,32 @@
 
 import UIKit
 
+enum GuidanceMode: String {
+    case AboutUs = "About us"
+    case ServiceTerms = "Service terms" 
+    case PrivacyPolicy = "Privacy policy"
+}
+
 class USerGuidanceViewController: UIViewController {
     @IBOutlet weak var userGuidanceTextView: UITextView!
+    var guidanceMode = GuidanceMode.PrivacyPolicy
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadContentInTextView()
-        
+        title = guidanceMode.rawValue
     }
     
     func loadContentInTextView() {
-        let path = NSBundle.mainBundle().pathForResource("About us", ofType: "txt")
+        let path = NSBundle.mainBundle().pathForResource(guidanceMode.rawValue, ofType: "txt")
         var guidanceString = ""
         if let path = path {
             
             do {
                 guidanceString = try String(contentsOfFile:path, encoding: NSUTF8StringEncoding)
-                
+                userGuidanceTextView.text = guidanceString
             } catch  {
                 
-            }
-            
-            
-            do {
-                let guidanceContentString = try NSAttributedString(data: guidanceString.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
-                
-                let mutableAttributedString = NSMutableAttributedString(attributedString: guidanceContentString)
-                mutableAttributedString.setAttributes([ NSFontAttributeName: UIFont.systemFontOfSize(30)], range: NSRangeFromString(guidanceContentString.string))
-                userGuidanceTextView.attributedText = mutableAttributedString
-            } catch {
-                print(error)
             }
             
         }

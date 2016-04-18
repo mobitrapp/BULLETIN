@@ -242,7 +242,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FeedBack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdP-9k-rfR">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdP-9k-rfR">
                                                     <rect key="frame" x="20" y="11" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
@@ -352,7 +352,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PrivacyPolicy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-to-oAt">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-to-oAt">
                                                     <rect key="frame" x="20" y="11" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
@@ -393,11 +393,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="umA-rw-r49">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="umA-rw-r49">
                                 <rect key="frame" x="10" y="0.0" width="355" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
@@ -405,11 +405,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="umA-rw-r49" firstAttribute="leading" secondItem="GyJ-Io-iuU" secondAttribute="leading" constant="10" id="5SL-95-u5j"/>
+                            <constraint firstItem="umA-rw-r49" firstAttribute="top" secondItem="GyJ-Io-iuU" secondAttribute="top" id="6cx-Kl-sgZ"/>
                             <constraint firstItem="BYa-ss-TYP" firstAttribute="top" secondItem="umA-rw-r49" secondAttribute="bottom" id="MZ5-2S-bU6"/>
                             <constraint firstItem="umA-rw-r49" firstAttribute="top" secondItem="GyJ-Io-iuU" secondAttribute="top" id="UAP-23-OZm"/>
                             <constraint firstAttribute="trailing" secondItem="umA-rw-r49" secondAttribute="trailing" constant="10" id="d1B-Ng-anG"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UAP-23-OZm"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="userGuidanceTextView" destination="umA-rw-r49" id="Uli-vy-DU9"/>
@@ -417,7 +424,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THp-4M-Gez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996.5" y="-445.5"/>
+            <point key="canvasLocation" x="1014.5" y="-99.5"/>
         </scene>
         <!--Splash Screen View Controller-->
         <scene sceneID="F8L-84-7N2">
@@ -694,6 +701,10 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="newsImageView" destination="Ptc-Qd-h39" id="0B2-Zi-F1H"/>
+                        <outlet property="problemDescriptionLabel" destination="neA-sr-7wb" id="ux2-z3-j0S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sU-wJ-Emy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -886,6 +897,9 @@
                                                     <rect key="frame" x="168" y="164" width="39" height="37"/>
                                                     <color key="pageIndicatorTintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="currentPageIndicatorTintColor" red="0.64313725489999995" green="0.0" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="pageControlValueChanged:" destination="JlX-53-1zs" eventType="valueChanged" id="TYo-eK-eGx"/>
+                                                    </connections>
                                                 </pageControl>
                                             </subviews>
                                             <constraints>
@@ -900,6 +914,7 @@
                                         <color key="backgroundColor" red="1" green="0.25950030860000001" blue="0.29890369259999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="imagesCollectionView" destination="azT-ru-B22" id="HO8-03-bKU"/>
+                                            <outlet property="newsPageControl" destination="Usz-uq-ONK" id="pf1-w3-yx0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -949,7 +964,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKi-yj-xEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1320.5" y="-45.5"/>
+            <point key="canvasLocation" x="1430.5" y="-99.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="A27-B7-MNY">
@@ -1153,6 +1168,6 @@
         <image name="NoNews" width="100" height="100"/>
         <image name="Plus" width="11" height="11"/>
         <image name="Upload" width="25" height="25"/>
-        <image name="splash_icon" width="400" height="48"/>
+        <image name="splash_icon" width="241" height="29"/>
     </resources>
 </document>
