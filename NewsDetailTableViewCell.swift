@@ -25,5 +25,11 @@ class NewsDetailTableViewCell: UITableViewCell {
         
         newsDetailLabel.text = newsDetail.news.plainText().stringByReplacingOccurrencesOfString("\n", withString: "\n\n")
         
+        if let updatedDate = NSDate.bulletInDateFormatter().dateFromString(newsDetail.publishedDate) {
+            
+            newsPublishedAtLabel.text = "Published at: \(NSDate.publishDateDecriptionFormatter().stringFromDate(updatedDate)) IST"
+            
+        }
+        
     }
 }

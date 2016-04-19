@@ -9,15 +9,19 @@
 import UIKit
 
 class NewsTitleTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var newsTitleLabel: UILabel!
     @IBOutlet weak var newsUpdatedDate: UILabel!
-
+    
     
     func configureWithNewsDetail(newsDetail: NewsDetail) {
         newsTitleLabel.text = newsDetail.title.plainText()
-        newsUpdatedDate.text = "Updated: \(newsDetail.updatedDate) IST"
         
+        if let updatedDate = NSDate.bulletInDateFormatter().dateFromString(newsDetail.updatedDate) {
+            
+            newsUpdatedDate.text = "Updated: \(NSDate.publishDateDecriptionFormatter().stringFromDate(updatedDate)) IST"
+            
+        }
     }
-
+    
 }

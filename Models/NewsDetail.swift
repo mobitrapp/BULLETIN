@@ -30,6 +30,7 @@ class NewsDetail {
         publishedBy = detailDictionary["posted_by"] as? String ?? ""
         displayPostedBy = detailDictionary["display_posted_by"] as? String ?? ""
         news = detailDictionary["content"] as? String ?? ""
+        publishedDate = detailDictionary["published_at"] as? String ?? ""
         shareLink = detailDictionary["share_link"] as? String ?? ""
         imageURLs = detailDictionary["uploaded_more_image"] as? [String] ?? [String]()
     }

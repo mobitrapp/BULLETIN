@@ -20,6 +20,12 @@ extension NSDate {
         return bulletInDateFormatter().dateFromString(date)
     }
     
+    class func publishDateDecriptionFormatter() -> NSDateFormatter {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy hh:mm a"
+        return dateFormatter
+    }
+    
     func yearsFrom(date:NSDate) -> Int{
         return NSCalendar.currentCalendar().components(.Year, fromDate: date, toDate: self, options: []).year
     }

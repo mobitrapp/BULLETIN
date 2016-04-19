@@ -798,43 +798,8 @@
                                             <outlet property="newsUpdatedDate" destination="g2Z-2d-YxB" id="1El-z3-8Z8"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsDetailTableviewCell" rowHeight="103" id="oe1-19-aIy" customClass="NewsDetailTableViewCell" customModule="Bulletin" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="116" width="375" height="103"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oe1-19-aIy" id="uYG-Ir-bEX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SxB-nE-dDW">
-                                                    <rect key="frame" x="10" y="30" width="355" height="18"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updated: Apr 3, 2016 3:43 PM IST" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7W-Fl-z46">
-                                                    <rect key="frame" x="10" y="68" width="355" height="15"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                                    <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="SxB-nE-dDW" firstAttribute="leading" secondItem="uYG-Ir-bEX" secondAttribute="leading" constant="10" id="Aay-Is-ORL"/>
-                                                <constraint firstItem="M7W-Fl-z46" firstAttribute="top" secondItem="SxB-nE-dDW" secondAttribute="bottom" constant="20" id="E22-Q4-QHD"/>
-                                                <constraint firstAttribute="bottom" secondItem="M7W-Fl-z46" secondAttribute="bottom" constant="20" id="OaR-Fc-3Vl"/>
-                                                <constraint firstAttribute="trailing" secondItem="M7W-Fl-z46" secondAttribute="trailing" constant="10" id="Wz2-JB-C4Q"/>
-                                                <constraint firstItem="M7W-Fl-z46" firstAttribute="leading" secondItem="uYG-Ir-bEX" secondAttribute="leading" constant="10" id="bPQ-EN-WZG"/>
-                                                <constraint firstAttribute="trailing" secondItem="SxB-nE-dDW" secondAttribute="trailing" constant="10" id="dva-Hj-w81"/>
-                                                <constraint firstItem="SxB-nE-dDW" firstAttribute="top" secondItem="uYG-Ir-bEX" secondAttribute="top" constant="30" id="yIB-fM-oEv"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="newsDetailLabel" destination="SxB-nE-dDW" id="xL3-34-AVX"/>
-                                            <outlet property="newsPublishedAtLabel" destination="M7W-Fl-z46" id="h0f-cp-0wq"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="newsImagesTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsImagesTableViewCell" rowHeight="189" id="JlX-53-1zs" customClass="NewsImagesTableViewCell" customModule="Bulletin" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="219" width="375" height="189"/>
+                                        <rect key="frame" x="0.0" y="116" width="375" height="189"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JlX-53-1zs" id="d7i-ce-kgA">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="189"/>
@@ -915,6 +880,41 @@
                                         <connections>
                                             <outlet property="imagesCollectionView" destination="azT-ru-B22" id="HO8-03-bKU"/>
                                             <outlet property="newsPageControl" destination="Usz-uq-ONK" id="pf1-w3-yx0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsDetailTableviewCell" rowHeight="83" id="oe1-19-aIy" customClass="NewsDetailTableViewCell" customModule="Bulletin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="305" width="375" height="83"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oe1-19-aIy" id="uYG-Ir-bEX">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="83"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SxB-nE-dDW">
+                                                    <rect key="frame" x="10" y="30" width="355" height="18"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="published at: Apr 3, 2016 3:43 PM IST" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7W-Fl-z46">
+                                                    <rect key="frame" x="10" y="48" width="355" height="15"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SxB-nE-dDW" firstAttribute="leading" secondItem="uYG-Ir-bEX" secondAttribute="leading" constant="10" id="Aay-Is-ORL"/>
+                                                <constraint firstItem="M7W-Fl-z46" firstAttribute="top" secondItem="SxB-nE-dDW" secondAttribute="bottom" id="E22-Q4-QHD"/>
+                                                <constraint firstAttribute="trailing" secondItem="M7W-Fl-z46" secondAttribute="trailing" constant="10" id="Wz2-JB-C4Q"/>
+                                                <constraint firstItem="M7W-Fl-z46" firstAttribute="leading" secondItem="uYG-Ir-bEX" secondAttribute="leading" constant="10" id="bPQ-EN-WZG"/>
+                                                <constraint firstAttribute="trailing" secondItem="SxB-nE-dDW" secondAttribute="trailing" constant="10" id="dva-Hj-w81"/>
+                                                <constraint firstAttribute="bottom" secondItem="M7W-Fl-z46" secondAttribute="bottom" constant="20" id="grq-d0-iOC"/>
+                                                <constraint firstItem="SxB-nE-dDW" firstAttribute="top" secondItem="uYG-Ir-bEX" secondAttribute="top" constant="30" id="yIB-fM-oEv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="newsDetailLabel" destination="SxB-nE-dDW" id="xL3-34-AVX"/>
+                                            <outlet property="newsPublishedAtLabel" destination="M7W-Fl-z46" id="h0f-cp-0wq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
