@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if !DEBUG
             //  Fabric.with([Crashlytics.self])
         #endif
-        configureRootViewController()
+        configureNavigationBarAppearance()
         return true
     }
     
@@ -49,40 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func configureRootViewController() {
+    func configureNavigationBarAppearance() {
         if let bulletInRed = UIColor.bulletinRed() {
             UINavigationBar.appearance().barTintColor = bulletInRed
             UINavigationBar.appearance().tintColor =
                 UIColor.whiteColor()
             UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
-        }
-        
-        let menuListWidth = UIScreen.mainScreen().bounds.width * 0.8
-        SlideMenuOptions.leftViewWidth = menuListWidth
-        SlideMenuOptions.simultaneousGestureRecognizers = false
-        SlideMenuOptions.hideStatusBar = false
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        if let mainViewController = mainStoryboard.instantiateInitialViewController() {
-            let leftMenuViewController = mainStoryboard.instantiateViewControllerWithIdentifier("menuListViewController")
-            if let menuListController = leftMenuViewController as? MenuListViewController {
-                let menuDetail = NewsMenu.loadMenuFromJsonFile()
-                menuListController.menuDetail = menuDetail
-            }
-            
-            let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: leftMenuViewController)
-            if let mainViewController = mainViewController as? LandingViewController {
-                slideMenuController.delegate = mainViewController
-            }
-            if let menuButtonImage = UIImage(named: "MenuButton") {
-                slideMenuController.addLeftBarButtonWithImage(menuButtonImage)
-                
-            }
-            if let menuButtonImage = UIImage(named: "Settings") {
-                slideMenuController.addRightBarButtonWithImage(menuButtonImage)
-            }
-            let navigationController = UINavigationController(rootViewController: slideMenuController)
-            window?.rootViewController = navigationController
-            
         }
     }
     

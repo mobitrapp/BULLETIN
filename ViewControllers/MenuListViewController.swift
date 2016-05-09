@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MenuListViewControllerDelegate {
+    func menuListDidSelectWithSubCategory(subCategory: SubCategory?)
+}
+
 class MenuListViewController: UIViewController {
     
     @IBOutlet weak var menuListTableView: UITableView!
@@ -15,6 +19,7 @@ class MenuListViewController: UIViewController {
     var menuDetail: NewsMenu?
     var categoryIsOpen: [Bool]!
     var openedSection = Int.min
+    var delegate: MenuListViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +83,23 @@ extension MenuListViewController: UITableViewDataSource {
 extension MenuListViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.30 * Double(NSEC_PER_SEC)))
+        
+        if let cateogry = menuDetail?.newsMenu?[indexPath.section] {
+            if cateogry.subCategories == nil {
+                delegate?.menuListDidSelectWithSubCategory(nil)
+                if !(openedSection != indexPath.section && openedSection != Int.min) {
+                    delayTime = 0
+                } else {
+                    delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.40 * Double(NSEC_PER_SEC)))
+                }
+                dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] _ in
+                    self?.closeLeft()
+                }
+            }
+        }
+        
         if indexPath.row == 0 {
             if openedSection != indexPath.section && openedSection != Int.min {
                 categoryIsOpen[openedSection] = false
@@ -86,7 +108,26 @@ extension MenuListViewController: UITableViewDelegate {
             categoryIsOpen[indexPath.section] = !categoryIsOpen[indexPath.section]
             reloadTableViewSection(indexPath.section)
             openedSection = indexPath.section
+        } else {
+            categoryIsOpen[openedSection] = false
+            reloadTableViewSection(indexPath.section)
+            
+            
+            
+            dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] _ in
+                
+                if let menuDetail = self?.menuDetail {
+                    if let subCategory = menuDetail.newsMenu?[indexPath.section].subCategories?[indexPath.row - 1] {
+                        
+                        self?.delegate?.menuListDidSelectWithSubCategory(subCategory)
+                    }
+                    
+                }
+                self?.closeLeft()
+            }
+            
         }
+        
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -98,5 +139,7 @@ extension MenuListViewController: UITableViewDelegate {
         let sectionsToReload = NSIndexSet(indexesInRange: indexRange)
         menuListTableView.reloadSections(sectionsToReload, withRowAnimation: UITableViewRowAnimation.Fade)
     }
+    
+    
     
 }
