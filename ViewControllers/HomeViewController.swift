@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     let topNewsCount = 4
     let karntakaNewsCount = 8
     let specialCount = 3
+    var snackBar: TTGSnackbar?
     
     lazy var activityIndicator : UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
@@ -126,25 +127,37 @@ extension HomeViewController: UITableViewDataSource {
     
     func refreshFeed() {
         
-        HomeScreenViewModel.loadHomeScreenViewModelWithCompletionHandler { [weak self](homeScreenViewModel) -> () in
-            
-            if let activityIndicator = self?.activityIndicator {
-                self?.homeTableView?.hideActivityIndicator(activityIndicator)
-            }
-            if homeScreenViewModel.newsIsAvailable() {
-                self?.homeScreenViewModel = homeScreenViewModel
-                self?.delegate?.viewModelDidUpdate(homeScreenViewModel)
-                self?.removeNoNewsScreen()
-                self?.refreshControl.endRefreshing()
-                self?.homeTableView.reloadData()
-            } else {
-                self?.refreshControl.endRefreshing()
-                if let homeScreenViewModel = self?.homeScreenViewModel {
-                    if !homeScreenViewModel.newsIsAvailable() {
-                        self?.showNoNewscreen()
+        if interNetIsAvailable() {
+            HomeScreenViewModel.loadHomeScreenViewModelWithCompletionHandler { [weak self](homeScreenViewModel) -> () in
+                if let activityIndicator = self?.activityIndicator {
+                    self?.homeTableView?.hideActivityIndicator(activityIndicator)
+                }
+                if homeScreenViewModel.newsIsAvailable() {
+                    self?.homeScreenViewModel = homeScreenViewModel
+                    self?.delegate?.viewModelDidUpdate(homeScreenViewModel)
+                    self?.removeNoNewsScreen()
+                    self?.refreshControl.endRefreshing()
+                    self?.homeTableView.reloadData()
+                } else {
+                    self?.refreshControl.endRefreshing()
+                    if let homeScreenViewModel = self?.homeScreenViewModel {
+                        if !homeScreenViewModel.newsIsAvailable() {
+                            self?.showNoNewscreen()
+                        }
                     }
                 }
             }
+        } else {
+            snackBar?.dismiss()
+            snackBar = nil
+            refreshControl.endRefreshing()
+            snackBar = TTGSnackbar.init(message: " No Internet Connection", duration: TTGSnackbarDuration.Long)
+            snackBar?.actionText = "Retry!"
+            snackBar?.actionTextColor = UIColor.bulletinRed()!
+            snackBar?.actionBlock  = {[weak self] (snackBar) in
+              self?.refreshFeed()
+            }
+            snackBar?.show()
         }
     }
     
@@ -156,6 +169,12 @@ extension HomeViewController: UITableViewDataSource {
                 removeNoNewsScreen()
             }
         }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        snackBar?.dismiss()
+        snackBar = nil
     }
     
 }

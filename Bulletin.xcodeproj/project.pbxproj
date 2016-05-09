@@ -64,6 +64,7 @@
 		F2E28A4C1C4BB29300D8C976 /* SwiftHEXColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A4B1C4BB29300D8C976 /* SwiftHEXColors.swift */; };
 		F2E28A521C4BB78900D8C976 /* MenuCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A511C4BB78900D8C976 /* MenuCategoryTableViewCell.swift */; };
 		F2E28A541C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E28A531C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift */; };
+		F2E328091CD91E2800F8F693 /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E328081CD91E2800F8F693 /* TTGSnackbar.swift */; };
 		F2E32CC31C9EB768004DA46B /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E32CC21C9EB768004DA46B /* Reach.swift */; };
 		F2E32CC51C9EB856004DA46B /* UIViewController+Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E32CC41C9EB856004DA46B /* UIViewController+Bulletin.swift */; };
 		F2E3F6331C9F2D0500FA16EC /* NoNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E3F6321C9F2D0500FA16EC /* NoNetworkViewController.swift */; };
@@ -173,6 +174,7 @@
 		F2E28A4B1C4BB29300D8C976 /* SwiftHEXColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftHEXColors.swift; path = Libraries/SwiftHEXColors.swift; sourceTree = "<group>"; };
 		F2E28A511C4BB78900D8C976 /* MenuCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		F2E28A531C4BBB7800D8C976 /* MenuSubCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSubCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		F2E328081CD91E2800F8F693 /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
 		F2E32CC21C9EB768004DA46B /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
 		F2E32CC41C9EB856004DA46B /* UIViewController+Bulletin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Bulletin.swift"; path = "Extension/UIViewController+Bulletin.swift"; sourceTree = "<group>"; };
 		F2E3F6321C9F2D0500FA16EC /* NoNetworkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoNetworkViewController.swift; path = ViewControllers/NoNetworkViewController.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				F2E4E27A1C98A93900D19906 /* FRDLivelyButton.h */,
 				F2E4E27B1C98A93900D19906 /* FRDLivelyButton.m */,
 				F2E32CC21C9EB768004DA46B /* Reach.swift */,
+				F2E328081CD91E2800F8F693 /* TTGSnackbar.swift */,
 			);
 			name = Libraries;
 			path = ..;
@@ -653,6 +656,7 @@
 				F2EF5A111CB04F6C00F605D8 /* NSDate+Bulletin.swift in Sources */,
 				F2E4E26E1C98950E00D19906 /* ImageDownloader.swift in Sources */,
 				F2E4E26D1C98950E00D19906 /* ImageCache.swift in Sources */,
+				F2E328091CD91E2800F8F693 /* TTGSnackbar.swift in Sources */,
 				F2E4E2711C98950E00D19906 /* ImageView+Kingfisher.swift in Sources */,
 				F2BA2E121CB8188900F00970 /* NewsPagerViewController.swift in Sources */,
 				F20CE8241C974E18002AD73A /* SectionTitleTableViewCell.swift in Sources */,
