@@ -19,6 +19,7 @@ class NewsPagerViewController: UIViewController {
     var pagerTitle = ""
     var selectedIndex = 0
     var delegate: NewsPagerViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,16 +57,25 @@ extension NewsPagerViewController: ViewPagerControllerDataSource {
     
     func numberOfPages() -> Int
     {
-        return newsList.list.count
+        return interNetIsAvailable() ? newsList.list.count : 1
     }
     
     func viewControllerAtPosition(position:Int) -> UIViewController
     {
-        if let newsDetailsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("newsDetailsViewController") as? NewsDetailsViewController {
-            newsDetailsViewController.slug = newsList.list[position].slug ?? ""
-            delegate = newsDetailsViewController
-            return newsDetailsViewController
+        if interNetIsAvailable() {
+            if let newsDetailsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("newsDetailsViewController") as? NewsDetailsViewController {
+                newsDetailsViewController.slug = newsList.list[position].slug ?? ""
+                delegate = newsDetailsViewController
+                return newsDetailsViewController
+            }
+        } else {
+            if let noNetworkViewController = self.storyboard?.instantiateViewControllerWithIdentifier("NoNetworkViewCOntroller") as? NoNetworkViewController {
+                noNetworkViewController.delegate = self
+                noNetworkViewController.screenMode = .NoInternet
+                return noNetworkViewController
+            }
         }
+        
         return UIViewController()
     }
     
@@ -78,5 +88,16 @@ extension NewsPagerViewController: ViewPagerControllerDataSource {
         return selectedIndex
     }
     
+    override func retryButtonTapped() {
+        if interNetIsAvailable() {
+            viewPager.view.userInteractionEnabled = false
+            viewPager.displayChoosenViewController(selectedIndex)
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.7 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { [weak self] _ in
+                self?.viewPager.view.userInteractionEnabled = true
+            }
+            
+        }
+    }
 }
+
 

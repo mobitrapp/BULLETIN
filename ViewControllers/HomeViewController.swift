@@ -127,27 +127,27 @@ extension HomeViewController: UITableViewDataSource {
     
     func refreshFeed() {
         
-        if interNetIsAvailable() {
-            HomeScreenViewModel.loadHomeScreenViewModelWithCompletionHandler { [weak self](homeScreenViewModel) -> () in
-                if let activityIndicator = self?.activityIndicator {
-                    self?.homeTableView?.hideActivityIndicator(activityIndicator)
-                }
-                if homeScreenViewModel.newsIsAvailable() {
-                    self?.homeScreenViewModel = homeScreenViewModel
-                    self?.delegate?.viewModelDidUpdate(homeScreenViewModel)
-                    self?.removeNoNewsScreen()
-                    self?.refreshControl.endRefreshing()
-                    self?.homeTableView.reloadData()
-                } else {
-                    self?.refreshControl.endRefreshing()
-                    if let homeScreenViewModel = self?.homeScreenViewModel {
-                        if !homeScreenViewModel.newsIsAvailable() {
-                            self?.showNoNewscreen()
-                        }
+        
+        HomeScreenViewModel.loadHomeScreenViewModelWithCompletionHandler { [weak self](homeScreenViewModel) -> () in
+            if let activityIndicator = self?.activityIndicator {
+                self?.homeTableView?.hideActivityIndicator(activityIndicator)
+            }
+            if homeScreenViewModel.newsIsAvailable() {
+                self?.homeScreenViewModel = homeScreenViewModel
+                self?.delegate?.viewModelDidUpdate(homeScreenViewModel)
+                self?.removeNoNewsScreen()
+                self?.refreshControl.endRefreshing()
+                self?.homeTableView.reloadData()
+            } else {
+                self?.refreshControl.endRefreshing()
+                if let homeScreenViewModel = self?.homeScreenViewModel {
+                    if !homeScreenViewModel.newsIsAvailable() {
+                        self?.showNoNewscreen()
                     }
                 }
             }
-        } else {
+        }
+        if !interNetIsAvailable() {
             snackBar?.dismiss()
             snackBar = nil
             refreshControl.endRefreshing()
@@ -155,7 +155,7 @@ extension HomeViewController: UITableViewDataSource {
             snackBar?.actionText = "Retry!"
             snackBar?.actionTextColor = UIColor.bulletinRed()!
             snackBar?.actionBlock  = {[weak self] (snackBar) in
-              self?.refreshFeed()
+                self?.refreshFeed()
             }
             snackBar?.show()
         }

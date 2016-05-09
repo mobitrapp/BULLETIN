@@ -14,7 +14,7 @@ enum GuidanceMode: String {
     case PrivacyPolicy = "Privacy policy"
 }
 
-class USerGuidanceViewController: UIViewController {
+class UserGuidanceViewController: UIViewController {
     @IBOutlet weak var userGuidanceTextView: UITextView!
     var guidanceMode = GuidanceMode.PrivacyPolicy
     

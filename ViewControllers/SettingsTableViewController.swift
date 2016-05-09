@@ -27,9 +27,6 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "backButtonTapped")
-        navigationItem.leftBarButtonItem = backButton
-        
         tableView.separatorStyle = .None
         navigationController?.navigationBar.barTintColor = UIColor.bulletinRed()
         navigationController?.navigationBar.topItem?.title = "Settings"
@@ -82,10 +79,14 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func pushGuidanceViewController() {
-        if let guidanceViewController = storyboard?.instantiateViewControllerWithIdentifier("GuidanceViewController") as? USerGuidanceViewController{
+        if let guidanceViewController = storyboard?.instantiateViewControllerWithIdentifier("GuidanceViewController") as? UserGuidanceViewController{
             guidanceViewController.guidanceMode = guidanceMode
             navigationController?.pushViewController(guidanceViewController, animated: true)
         }
+    }
+    
+    @IBAction func backButtonTapped(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 

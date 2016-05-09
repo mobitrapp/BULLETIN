@@ -71,6 +71,7 @@ class ViewPagerController: UIViewController {
         self.view.addSubview(tabView!)
         
         setupPageTitle()
+
         createPageViewController()
         
     }
@@ -182,7 +183,7 @@ class ViewPagerController: UIViewController {
     
     //MARK: PageViewController Setup
     
-    private func createPageViewController()
+     func createPageViewController()
     {
         pageViewController = UIPageViewController(transitionStyle: options.viewPagerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
         pageViewController!.dataSource = self
@@ -195,6 +196,10 @@ class ViewPagerController: UIViewController {
             if let startPage =  dataSource?.startViewPagerAtIndex?()
             {
                 currentPageIndex = startPage
+            }
+            
+            if !interNetIsAvailable() {
+                currentPageIndex = 0
             }
             
             let firstController = getPageItemViewController(currentPageIndex)!
@@ -303,7 +308,7 @@ class ViewPagerController: UIViewController {
     }
     
     
-    private func displayChoosenViewController(index:Int)
+    func displayChoosenViewController(index:Int)
     {
         let chosenViewController = getPageItemViewController(index)!
         pageViewController!.setViewControllers([chosenViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
